@@ -1,0 +1,197 @@
+package com.example.crm.entity;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
+
+@Entity
+public class Prospect {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String email;
+
+    private String photoUrl;
+
+    private String nom;
+
+    private String prenom;
+
+    private String fonction;
+
+    private String portable;
+
+    private String fixe;
+
+    private String etatProspection;
+
+    private LocalDate dateCreationProspection;
+
+    private Integer dureeRelance;
+
+    private boolean isClient;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User userById;
+
+    @ManyToOne
+    @JoinColumn(name = "entreprise_id", referencedColumnName = "id")
+    private Entreprise entrepriseById;
+
+    @OneToMany(mappedBy = "prospectById")
+    private List<Note> prospectNotes;
+
+    @OneToMany(mappedBy = "prospectById")
+    private List<Evenement> prospectEvenements;
+
+    public Prospect() {
+    }
+
+    public Prospect(String email, String photoUrl, String nom, String prenom, String fonction, String portable, String fixe, String etatProspection, LocalDate dateCreationProspection, Integer dureeRelance, boolean isClient, User userById, Entreprise entrepriseById, List<Note> prospectNotes, List<Evenement> prospectEvenements) {
+        this.email = email;
+        this.photoUrl = photoUrl;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.fonction = fonction;
+        this.portable = portable;
+        this.fixe = fixe;
+        this.etatProspection = etatProspection;
+        this.dateCreationProspection = dateCreationProspection;
+        this.dureeRelance = dureeRelance;
+        this.isClient = isClient;
+        this.userById = userById;
+        this.entrepriseById = entrepriseById;
+        this.prospectNotes = prospectNotes;
+        this.prospectEvenements = prospectEvenements;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getFonction() {
+        return fonction;
+    }
+
+    public void setFonction(String fonction) {
+        this.fonction = fonction;
+    }
+
+    public String getPortable() {
+        return portable;
+    }
+
+    public void setPortable(String portable) {
+        this.portable = portable;
+    }
+
+    public String getFixe() {
+        return fixe;
+    }
+
+    public void setFixe(String fixe) {
+        this.fixe = fixe;
+    }
+
+    public String getEtatProspection() {
+        return etatProspection;
+    }
+
+    public void setEtatProspection(String etatProspection) {
+        this.etatProspection = etatProspection;
+    }
+
+    public LocalDate getDateCreationProspection() {
+        return dateCreationProspection;
+    }
+
+    public void setDateCreationProspection(LocalDate dateCreationProspection) {
+        this.dateCreationProspection = dateCreationProspection;
+    }
+
+    public Integer getDureeRelance() {
+        return dureeRelance;
+    }
+
+    public boolean isClient() {
+        return isClient;
+    }
+
+    public void setClient(boolean client) {
+        isClient = client;
+    }
+
+    public void setDureeRelance(Integer dureeRelance) {
+        this.dureeRelance = dureeRelance;
+    }
+
+    public User getUserById() {
+        return userById;
+    }
+
+    public void setUserById(User userById) {
+        this.userById = userById;
+    }
+
+    public Entreprise getEntrepriseById() {
+        return entrepriseById;
+    }
+
+    public void setEntrepriseById(Entreprise entrepriseById) {
+        this.entrepriseById = entrepriseById;
+    }
+
+    public List<Note> getProspectNotes() {
+        return prospectNotes;
+    }
+
+    public void setProspectNotes(List<Note> prospectNotes) {
+        this.prospectNotes = prospectNotes;
+    }
+
+    public List<Evenement> getProspectEvenements() {
+        return prospectEvenements;
+    }
+
+    public void setProspectEvenements(List<Evenement> prospectEvenements) {
+        this.prospectEvenements = prospectEvenements;
+    }
+}
