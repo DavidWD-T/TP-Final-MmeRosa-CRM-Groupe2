@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Contact</a>
+        <a class="navbar-brand" href="#">Entreprise</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,19 +11,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/contacts/all">Tableau de bord</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/contacts/Create">Prospects</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Prospects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/contacts/Create">Clients</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/contacts/Create">Entreprises</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Entreprises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/contacts/Create">Calendrier</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Calendrier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="${pageContext.request.contextPath}/signup/<sec:authentication property='principal.username' />">Parametres</a>

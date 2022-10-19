@@ -9,7 +9,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Phone Book - Sign UP</title>
+    <title>Sign UP</title>
 </head>
 <body>
 <header>
@@ -34,7 +34,7 @@
             <div class="form-group row">
                 <label class="col-4 col-form-label" for="password">Mot De Passe: </label>
                 <div class="col-8">
-<%--                    <input type="password" name="password"  id="password"  class="form-control" />--%>
+                        <%--                    <input type="password" name="password"  id="password"  class="form-control" />--%>
                     <form:input path="password" type="password" name="password"  id="password"  class="form-control" />
                     <form:errors path="password"></form:errors>
                 </div>
@@ -56,14 +56,14 @@
 
 
 
-                <div class="form-group row"  id="URL">
-                    <input type="checkbox" class="col-4 btn-check" id="togglePictureOptions" checked autocomplete="off" onclick="myFunction()">
-                    <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL</label>
-                    <div class="col-8">
-                        <form:input path="photoUrl" type="text" name="photoUrl"  id="photoUrl"  class="form-control" />
-                        <form:input path="photoFile" type="file" name="photoFile"  id="photoFile"  class="form-control" style="display: none"/>
-                    </div>
+            <div class="form-group row"  id="URL">
+                <input type="checkbox" class="col-4 btn-check" id="togglePictureOptions" checked autocomplete="off">
+                <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL</label>
+                <div class="col-8">
+                    <form:input path="photoUrl" type="text" name="photoUrl"  id="photoUrl"  class="form-control" />
+                    <form:input path="photoFile" type="file" name="photoFile"  id="photoFile"  class="form-control" style="display: none"/>
                 </div>
+            </div>
 
             <div>
                 <button type="submit" class="btn btn-primary">Sign Up</button>

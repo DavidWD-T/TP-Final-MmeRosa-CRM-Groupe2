@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/signup/{mail}")
-    public String updateContactForm(Model model, @PathVariable(value="mail") String mail){
+    public String updateEntrepriseForm(Model model, @PathVariable(value="mail") String mail){
         CreateUser createUser = userService.getUserByMail(mail).toCreateUser();
         model.addAttribute("createUser", createUser);
         return "signUpFormView";
@@ -40,7 +40,7 @@ public class UserController {
             return "signUpFormView";
         }else{
             userService.createUpdateUser(createUser);
-            return "redirect:/contacts/all";
+            return "redirect:/entreprises/all";
         }
     }
 
