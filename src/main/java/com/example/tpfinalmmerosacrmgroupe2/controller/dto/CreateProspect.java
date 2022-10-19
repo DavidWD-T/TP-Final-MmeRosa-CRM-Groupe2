@@ -1,6 +1,6 @@
-package com.example.crm.controller.dto;
+package com.example.tpfinalmmerosacrmgroupe2.controller.dto;
 
-import com.example.crm.entity.*;
+import com.example.tpfinalmmerosacrmgroupe2.entity.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.time.LocalDate;
 import java.util.List;

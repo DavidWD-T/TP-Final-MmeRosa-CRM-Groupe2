@@ -1,6 +1,6 @@
-package com.example.crm.service;
+package com.example.tpfinalmmerosacrmgroupe2.service;
 
-import com.example.crm.entity.repository.EntrepriseRepository;
+import com.example.tpfinalmmerosacrmgroupe2.entity.repository.EntrepriseRepository;
 import org.springframework.stereotype.Service;
 
 @Service

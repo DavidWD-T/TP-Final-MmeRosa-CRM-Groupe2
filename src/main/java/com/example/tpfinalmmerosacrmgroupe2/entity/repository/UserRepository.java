@@ -1,7 +1,12 @@
-package com.example.crm.entity.repository;
+package com.example.tpfinalmmerosacrmgroupe2.entity.repository;
 
-import com.example.crm.entity.User;
+import com.example.tpfinalmmerosacrmgroupe2.entity.User;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends CrudRepository<User, Long> {
+    @Query("SELECT u FROM User u WHERE u.email = :email")
+    User findByEmail(@Param("email") String email);
+
 }

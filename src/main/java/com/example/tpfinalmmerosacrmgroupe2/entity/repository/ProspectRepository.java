@@ -1,6 +1,6 @@
-package com.example.crm.entity.repository;
+package com.example.tpfinalmmerosacrmgroupe2.entity.repository;
 
-import com.example.crm.entity.Prospect;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

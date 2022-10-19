@@ -1,11 +1,11 @@
-package com.example.crm.service;
+package com.example.tpfinalmmerosacrmgroupe2.service;
 
-import com.example.crm.controller.dto.CreateProspect;
-import com.example.crm.controller.dto.CreateUser;
-import com.example.crm.entity.Prospect;
-import com.example.crm.entity.User;
-import com.example.crm.entity.repository.ProspectRepository;
-import com.example.crm.entity.repository.UserRepository;
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateProspect;
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateUser;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
+import com.example.tpfinalmmerosacrmgroupe2.entity.User;
+import com.example.tpfinalmmerosacrmgroupe2.entity.repository.ProspectRepository;
+import com.example.tpfinalmmerosacrmgroupe2.entity.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,7 +1,7 @@
-package com.example.crm.controller.dto;
+package com.example.tpfinalmmerosacrmgroupe2.controller.dto;
 
-import com.example.crm.entity.Prospect;
-import com.example.crm.entity.User;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
+import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 

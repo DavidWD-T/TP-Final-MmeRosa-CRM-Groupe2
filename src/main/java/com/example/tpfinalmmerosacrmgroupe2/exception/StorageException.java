@@ -1,4 +1,4 @@
-package com.example.crm.exception;
+package com.example.tpfinalmmerosacrmgroupe2.exception;
 
 public class StorageException extends RuntimeException {
 

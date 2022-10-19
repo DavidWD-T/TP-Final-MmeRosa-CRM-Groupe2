@@ -1,7 +1,7 @@
-package com.example.crm.service;
+package com.example.tpfinalmmerosacrmgroupe2.service;
 
-import com.example.crm.exception.StorageException;
-import com.example.crm.exception.StorageFileNotFoundException;
+import com.example.tpfinalmmerosacrmgroupe2.exception.StorageException;
+import com.example.tpfinalmmerosacrmgroupe2.exception.StorageFileNotFoundException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;

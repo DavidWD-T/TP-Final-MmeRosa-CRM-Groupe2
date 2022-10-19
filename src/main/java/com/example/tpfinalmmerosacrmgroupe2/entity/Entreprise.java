@@ -1,4 +1,4 @@
-package com.example.crm.entity;
+package com.example.tpfinalmmerosacrmgroupe2.entity;
 
 import javax.persistence.*;
 import java.util.List;

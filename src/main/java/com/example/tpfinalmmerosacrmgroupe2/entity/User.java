@@ -1,4 +1,6 @@
-package com.example.crm.entity;
+package com.example.tpfinalmmerosacrmgroupe2.entity;
+
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateUser;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,43 +12,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
     private String password;
 
-    private String photoUrl;
-
     private String nom;
-
     private String prenom;
-
+    private String photoUrl;
     private Boolean isAdmin;
 
-    private LocalDateTime dateCreation;
 
     @OneToMany(mappedBy = "userById")
     private List<Prospect> userProspects;
 
-       @OneToMany(mappedBy = "userById")
+    @OneToMany(mappedBy = "userById")
     private List<Entreprise> userEntreprises;
 
     @OneToMany(mappedBy = "userById")
     private List<Evenement> evenementsUser;
 
     public User() {
-    }
-
-    public User(String email, String password, String photoUrl, String nom, String prenom, Boolean isAdmin, LocalDateTime dateCreation, List<Prospect> userProspects, List<Entreprise> userEntreprises, List<Evenement> evenementsUser) {
-        this.email = email;
-        this.password = password;
-        this.photoUrl = photoUrl;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.isAdmin = isAdmin;
-        this.dateCreation = dateCreation;
-        this.userProspects = userProspects;
-        this.userEntreprises = userEntreprises;
-        this.evenementsUser = evenementsUser;
     }
 
     public Long getId() {
@@ -105,14 +92,6 @@ public class User {
         isAdmin = admin;
     }
 
-    public LocalDateTime getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(LocalDateTime dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
     public List<Prospect> getUserProspects() {
         return userProspects;
     }
@@ -127,5 +106,25 @@ public class User {
 
     public void setUserEntreprises(List<Entreprise> userEntreprises) {
         this.userEntreprises = userEntreprises;
+    }
+
+    public List<Evenement> getEvenementsUser() {
+        return evenementsUser;
+    }
+
+    public void setEvenementsUser(List<Evenement> evenementsUser) {
+        this.evenementsUser = evenementsUser;
+    }
+
+    public CreateUser toCreateUser() {
+        CreateUser createUser = new CreateUser();
+        createUser.setId(this.id);
+
+        createUser.setEmail(this.email);
+        createUser.setNom(this.nom);
+        createUser.setPassword(this.password);
+        createUser.setPrenom(this.prenom);
+        createUser.setPhotoUrl(this.photoUrl);
+        return createUser;
     }
 }

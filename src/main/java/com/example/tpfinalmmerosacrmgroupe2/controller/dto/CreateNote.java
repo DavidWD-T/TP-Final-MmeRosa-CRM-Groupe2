@@ -1,6 +1,6 @@
-package com.example.crm.controller.dto;
+package com.example.tpfinalmmerosacrmgroupe2.controller.dto;
 
-import com.example.crm.entity.Prospect;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
