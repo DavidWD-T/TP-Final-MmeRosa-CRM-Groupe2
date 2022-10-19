@@ -1,52 +1,28 @@
 package com.example.tpfinalmmerosacrmgroupe2.controller.dto;
 
-import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
-import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import org.springframework.web.multipart.MultipartFile;
-import java.util.List;
+
+import java.time.LocalDate;
 
 public class CreateEntreprise {
 
     private Long id;
-
     private String nom;
-
-    private String logoUrl;
-
+    private String logo;
     private MultipartFile logoFile;
-
     private String secteurActivite;
-
     private String siret;
-
     private String adresse;
-
     private String complementAdresse;
-
     private String ville;
-
     private String codePostale;
-
-    private User userById;
-
-    private List<Prospect> prospectsEntreprise;
+    private String email;
+    private String siteWeb;
+    private String telephone;
+    private LocalDate dateCreation;
 
 
     public CreateEntreprise() {
-    }
-
-    public CreateEntreprise(String nom, String logoUrl, MultipartFile logoFile, String secteurActivite, String siret, String adresse, String complementAdresse, String ville, String codePostale, User userById, List<Prospect> prospectsEntreprise) {
-        this.nom = nom;
-        this.logoUrl = logoUrl;
-        this.logoFile = logoFile;
-        this.secteurActivite = secteurActivite;
-        this.siret = siret;
-        this.adresse = adresse;
-        this.complementAdresse = complementAdresse;
-        this.ville = ville;
-        this.codePostale = codePostale;
-        this.userById = userById;
-        this.prospectsEntreprise = prospectsEntreprise;
     }
 
     public Long getId() {
@@ -65,12 +41,12 @@ public class CreateEntreprise {
         this.nom = nom;
     }
 
-    public String getLogoUrl() {
-        return logoUrl;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public MultipartFile getLogoFile() {
@@ -129,20 +105,35 @@ public class CreateEntreprise {
         this.codePostale = codePostale;
     }
 
-    public User getUserById() {
-        return userById;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserById(User userById) {
-        this.userById = userById;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<Prospect> getProspectsEntreprise() {
-        return prospectsEntreprise;
+    public String getSiteWeb() {
+        return siteWeb;
     }
 
-    public void setProspectsEntreprise(List<Prospect> prospectsEntreprise) {
-        this.prospectsEntreprise = prospectsEntreprise;
+    public void setSiteWeb(String siteWeb) {
+        this.siteWeb = siteWeb;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
 }

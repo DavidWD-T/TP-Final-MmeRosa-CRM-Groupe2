@@ -1,6 +1,10 @@
 package com.example.tpfinalmmerosacrmgroupe2.entity;
 
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEntreprise;
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateUser;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -8,20 +12,18 @@ public class Entreprise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nom;
-
     private String secteurActivite;
-
     private String siret;
-
     private String adresse;
-
     private String complementAdresse;
-
     private String ville;
-
     private String codePostale;
+    private String email;
+    private String siteWeb;
+    private String telephone;
+    private LocalDate dateCreation;
+    private String logo;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -32,18 +34,6 @@ public class Entreprise {
 
 
     public Entreprise() {
-    }
-
-    public Entreprise(String nom, String secteurActivite, String siret, String adresse, String complementAdresse, String ville, String codePostale, User userById, List<Prospect> prospectsEntreprise) {
-        this.nom = nom;
-        this.secteurActivite = secteurActivite;
-        this.siret = siret;
-        this.adresse = adresse;
-        this.complementAdresse = complementAdresse;
-        this.ville = ville;
-        this.codePostale = codePostale;
-        this.userById = userById;
-        this.prospectsEntreprise = prospectsEntreprise;
     }
 
     public Long getId() {
@@ -110,6 +100,46 @@ public class Entreprise {
         this.codePostale = codePostale;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSiteWeb() {
+        return siteWeb;
+    }
+
+    public void setSiteWeb(String siteWeb) {
+        this.siteWeb = siteWeb;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
     public User getUserById() {
         return userById;
     }
@@ -126,4 +156,12 @@ public class Entreprise {
         this.prospectsEntreprise = prospectsEntreprise;
     }
 
+    public CreateEntreprise toCreateEntreprise() {
+        CreateEntreprise createEntreprise = new CreateEntreprise();
+        createEntreprise.setId(this.id);
+
+        createEntreprise.setEmail(this.email);
+        createEntreprise.setNom(this.nom);
+        return createEntreprise;
+    }
 }
