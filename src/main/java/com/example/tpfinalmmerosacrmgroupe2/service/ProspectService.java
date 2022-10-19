@@ -6,6 +6,7 @@ import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.ProspectRepository;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.UserRepository;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,11 +30,11 @@ public class ProspectService {
         return  prospectRepository.findAllProspectsByUserById_Id(userId);
     }
 
-    public Prospect getProspectById(long userId, long prospectId){
-        return getAll(userId).stream().filter(p-> p.getId()==prospectId).findFirst().get();
+    public Prospect getProspectById(long userID, long prospectId){
+        return getAll(userID).stream().filter(p-> p.getId()==prospectId).findFirst().get();
     }
 
-    public boolean deleteUserById(long userId, long prospectId){
+    public boolean deleteProspectById(long userId, long prospectId){
         Prospect prospectToDelete = getProspectById(userId,prospectId);
         prospectRepository.deleteById(prospectToDelete.getId());
         return true;
@@ -64,21 +65,25 @@ public class ProspectService {
         return true;
     }
 
-    public boolean editUser(CreateUser createUser){
-        User userToEdit = userRepository.findById(createUser.getId()).get();
+public boolean editProspect(CreateProspect createProspect){
+        Prospect prospectToEdit = prospectRepository.findById(createProspect.getId()).get();
 
-        userToEdit.setEmail(createUser.getEmail());
-        userToEdit.setPassword(createUser.getPassword());
+        prospectToEdit.setEntrepriseById(createProspect.getEntrepriseById());
+        prospectToEdit.setEmail(createProspect.getEmail());
+        prospectToEdit.setNom(createProspect.getNom());
+        prospectToEdit.setPrenom(createProspect.getPrenom());
+        prospectToEdit.setDureeRelance(createProspect.getDureeRelance());
+        prospectToEdit.setEtatProspection(createProspect.getEtatProspection());
 
-        MultipartFile picture = createUser.getPhotoFile();
+        MultipartFile picture = createProspect.getPhotoFile();
         if (picture == null) {
-            userToEdit.setPhotoUrl(createUser.getPhotoUrl());
+            prospectToEdit.setPhotoUrl(createProspect.getPhotoUrl());
         } else {
             storageService.store(picture);
-            userToEdit.setPhotoUrl("http://localhost:8080/images/" + picture.getOriginalFilename());
+            prospectToEdit.setPhotoUrl("http://localhost:8080/images/" + picture.getOriginalFilename());
         }
 
-        userRepository.save(userToEdit);
+        prospectRepository.save(prospectToEdit);
         return true;
     }
 }
