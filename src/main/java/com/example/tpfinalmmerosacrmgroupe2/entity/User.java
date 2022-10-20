@@ -23,7 +23,6 @@ public class User {
     private String photoUrl;
     private Boolean isAdmin;
 
-
     @OneToMany(mappedBy = "userById")
     private List<Prospect> userProspects;
 

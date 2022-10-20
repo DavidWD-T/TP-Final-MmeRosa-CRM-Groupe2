@@ -7,6 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -16,6 +18,14 @@ public class UserService {
     public UserService(UserRepository userRepository, StorageService storageService) {
         this.userRepository = userRepository;
         this.storageService = storageService;
+    }
+
+    public List<User> getAllUserByAll(String mail, String name) {
+        return userRepository.findUsersByAll(userRepository.findByEmail(mail).getId(), name);
+    }
+
+    public List<User> getAllUser(String mail) {
+        return userRepository.findUsers(userRepository.findByEmail(mail).getId());
     }
 
     public User createUpdateUser(CreateUser createUser) {
@@ -52,4 +62,15 @@ public class UserService {
         return userRepository.findByEmail(mail);
     }
 
+    public boolean isUserAdmin(String mail) {
+        return userRepository.findByEmail(mail).getAdmin();
+    }
+
+    public void deleteUser(long id) {
+        userRepository.deleteById(id);
+    }
+
+    public void deleteUserByMail(String mail) {
+        this.deleteUser(userRepository.findByEmail(mail).getId());
+    }
 }
