@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="fr">
@@ -70,6 +71,30 @@
             </div>
         </div>
     </form:form>
+
+    <c:if test = "${deleteActif == 'Oui'}" var="condition">
+        <!-- MODAL DELETE CONFIRMATION -->
+        <div class="modal fade" id="delete_modal_" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Voulez vous vraiment supprimer votre compte utilisateur et toutes vos données ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Non</button>
+                        <form:form action="${pageContext.request.contextPath}/users/delete" method="post">
+                            <button type="submit" class="btn btn-danger">Oui</button>
+                        </form:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete_modal_">Delete User</button>
+    </c:if>
 </div>
 
 <script>

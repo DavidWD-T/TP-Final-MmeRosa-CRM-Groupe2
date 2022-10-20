@@ -1,7 +1,6 @@
 package com.example.tpfinalmmerosacrmgroupe2.controller;
 
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateUser;
-import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import com.example.tpfinalmmerosacrmgroupe2.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -18,6 +19,38 @@ public class UserController {
 
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/listUsers")
+    public String displaylistUsers(Model model, Principal principal, @RequestParam(value = "name", required = false) String name) {
+        if(userService.isUserAdmin(principal.getName())){
+            if (name == null) {
+                model.addAttribute("listUsers", userService.getAllUser(principal.getName()));
+                name = "";
+            }else{
+                model.addAttribute("listUsers", userService.getAllUserByAll(principal.getName(), name));
+            }
+            model.addAttribute("name", name);
+            return "userListView";
+        }else{
+            return "redirect:/signup/" + principal.getName();
+        }
+    }
+
+    @PostMapping ("users/delete/{id}")
+    public String deleteUserByIDForm(@PathVariable(value="id") long id, Principal principal){
+        if(userService.isUserAdmin(principal.getName())){
+            userService.deleteUser(id);
+            return "redirect:/listUsers";
+        }else{
+            return "redirect:/signup/" + principal.getName();
+        }
+    }
+
+    @PostMapping ("users/delete")
+    public String deleteUserForm(Principal principal){
+        userService.deleteUserByMail(principal.getName());
+        return "redirect:/signin";
     }
 
     @GetMapping("/signup")
@@ -29,6 +62,7 @@ public class UserController {
     @GetMapping("/signup/{mail}")
     public String updateEntrepriseForm(Model model, @PathVariable(value="mail") String mail){
         CreateUser createUser = userService.getUserByMail(mail).toCreateUser();
+        if (userService.getUserByMail(mail).getAdmin() == null){model.addAttribute("deleteActif", "Oui");}
         model.addAttribute("createUser", createUser);
         return "signUpFormView";
     }

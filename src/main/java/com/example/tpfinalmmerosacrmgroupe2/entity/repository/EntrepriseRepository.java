@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface EntrepriseRepository extends CrudRepository<Entreprise, Long> {
 
-    @Query("SELECT u FROM Entreprise u WHERE u.userById = :user AND (u.nom LIKE CONCAT('%',:name,'%') OR u.nom like CONCAT('%',:name,'%') OR u.secteurActivite like CONCAT('%',:name,'%') OR u.siret like CONCAT('%',:name,'%') OR u.adresse like CONCAT('%',:name,'%') OR u.ville like CONCAT('%',:name,'%') OR u.codePostale like CONCAT('%',:name,'%') OR u.siteWeb like CONCAT('%',:name,'%') OR u.telephone like CONCAT('%',:name,'%'))")
+    @Query("SELECT u FROM Entreprise u WHERE u.userById = :user AND (u.nom like CONCAT('%',:name,'%') OR u.secteurActivite like CONCAT('%',:name,'%') OR u.siret like CONCAT('%',:name,'%') OR u.adresse like CONCAT('%',:name,'%') OR u.ville like CONCAT('%',:name,'%') OR u.codePostale like CONCAT('%',:name,'%') OR u.siteWeb like CONCAT('%',:name,'%') OR u.telephone like CONCAT('%',:name,'%'))")
     List<Entreprise> findEntrepriseByAll(@Param("user") User user, @Param("name") String name);
     List<Entreprise> findEntrepriseByUserById(User user);
 

@@ -25,8 +25,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Calendrier</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/signup/<sec:authentication property='principal.username' />">Parametres</a>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link active" href="${pageContext.request.contextPath}/signup/<sec:authentication property='principal.username' />">Parametres</a>--%>
+<%--                    </li>--%>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parametres</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/signup/<sec:authentication property='principal.username' />">Profil</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listUsers">Liste utilisateurs</a></li>
+                        </ul>
                     </li>
                 </ul>
                     <form:form action="/logout" method="post" class="d-flex">
