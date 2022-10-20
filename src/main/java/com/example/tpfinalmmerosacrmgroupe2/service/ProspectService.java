@@ -26,22 +26,38 @@ public class ProspectService {
         this.storageService = storageService;
     }
 
-    public List<Prospect> getAll(long userId){
-        return  prospectRepository.findAllProspectsByUserById_Id(userId);
+    public List<Prospect> getAllProspects(String userEmail){
+        User user = userRepository.findByEmail(userEmail);
+        return  prospectRepository.findAllProspectsByUserById_Id(user.getId());
     }
 
-    public Prospect getProspectById(long userID, long prospectId){
-        return getAll(userID).stream().filter(p-> p.getId()==prospectId).findFirst().get();
+    public  List<Prospect> getAllProspectsByName(String userEmail, String name){
+        User user = userRepository.findByEmail(userEmail);
+        return prospectRepository.findProspectsByName(user, name);
     }
 
-    public boolean deleteProspectById(long userId, long prospectId){
-        Prospect prospectToDelete = getProspectById(userId,prospectId);
+    public List<Prospect> getAllClients(String userEmail){
+        User user = userRepository.findByEmail(userEmail);
+        return  prospectRepository.findAllClientsByUserById_Id(user.getId());
+    }
+
+    public  List<Prospect> getAllClientsByName(String userEmail, String name){
+        User user = userRepository.findByEmail(userEmail);
+        return prospectRepository.findClientsByName(user, name);
+    }
+
+    public Prospect getProspectById(String userEmail, long prospectId){
+        return getAllProspects(userEmail).stream().filter(p-> p.getId()==prospectId).findFirst().get();
+    }
+
+    public boolean deleteProspectById(String userEmail, long prospectId){
+        Prospect prospectToDelete = getProspectById(userEmail,prospectId);
         prospectRepository.deleteById(prospectToDelete.getId());
         return true;
     }
 
-    public boolean createProspect(long userId, CreateProspect createProspect){
-       User prospectUser = userRepository.findById(userId).get();
+    public boolean createProspect(String userMail, CreateProspect createProspect){
+       User prospectUser= userRepository.findByEmail(userMail);
 
         Prospect prospect = new Prospect();
         prospect.setUserById(prospectUser);
@@ -65,8 +81,8 @@ public class ProspectService {
         return true;
     }
 
-public boolean editProspect(CreateProspect createProspect){
-        Prospect prospectToEdit = prospectRepository.findById(createProspect.getId()).get();
+public boolean editProspect(String userEmail,CreateProspect createProspect){
+        Prospect prospectToEdit = getProspectById(userEmail, createProspect.getId());
 
         prospectToEdit.setEntrepriseById(createProspect.getEntrepriseById());
         prospectToEdit.setEmail(createProspect.getEmail());

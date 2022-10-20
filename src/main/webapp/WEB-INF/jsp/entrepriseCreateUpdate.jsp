@@ -30,7 +30,7 @@
 
         <div class="form-group row"  id="URL">
             <input type="checkbox" class="col-4 btn-check" id="togglePictureOptions" checked autocomplete="off">
-            <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL</label>
+            <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL: </label>
             <div class="col-8">
                 <form:input path="logo" type="text" name="logo"  id="logo"  class="form-control" />
                 <form:input path="logoFile" type="file" name="logoFile"  id="logoFile"  class="form-control" style="display: none"/>

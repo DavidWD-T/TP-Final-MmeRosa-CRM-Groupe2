@@ -14,7 +14,7 @@
                         <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Prospects</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/prospects/all">Prospects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Clients</a>
