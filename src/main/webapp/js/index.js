@@ -1,6 +1,5 @@
 
 function map() {
-
     let street = document.getElementById("adresse").innerHTML
     let streetSupp = document.getElementById("cpltAdresse").innerHTML
     let city = document.getElementById("villeCp").innerHTML
@@ -8,6 +7,12 @@ function map() {
 
     window.open("https://www.google.fr/maps/place/"+address)
 }
-
-
 document.getElementById("map").addEventListener("click", map)
+
+
+function website(e) {
+    e.preventDefault();
+    window.open(e.target.innerHTML)
+
+}
+document.getElementById("website").addEventListener("click", website)

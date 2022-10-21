@@ -13,7 +13,7 @@
             <div class="card-body text-center text-md-start">
                 <h5 class="card-title text-center text-uppercase">${entreprise.nom}</h5>
                 <div class="d-md-flex flex-wrap justify-content-between px-4">
-                <p class="card-text">Site Web : ${entreprise.siteWeb}</p>
+                <p id="website" class="card-text">Site Web : <a href="${entreprise.siteWeb}">${entreprise.siteWeb}</a></p>
                 <p class="card-text col-md-6 text-md-end">Telephone : <a href="tel:${entreprise.telephone}">${entreprise.telephone}</a></p>
                 <p class="card-text col-md-6 ">Email : <a href="mailto:${entreprise.email}">${entreprise.email}</a></p>
                 <p class="card-text col-md-6 text-md-end">Secteur d'activite : ${entreprise.secteurActivite}</p>

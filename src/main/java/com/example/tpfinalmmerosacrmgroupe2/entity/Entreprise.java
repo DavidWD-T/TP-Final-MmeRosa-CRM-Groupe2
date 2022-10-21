@@ -162,6 +162,17 @@ public class Entreprise {
 
         createEntreprise.setEmail(this.email);
         createEntreprise.setNom(this.nom);
+        createEntreprise.setSecteurActivite(this.secteurActivite);
+        createEntreprise.setSiret(this.siret);
+        createEntreprise.setAdresse(this.adresse);
+        createEntreprise.setComplementAdresse(this.complementAdresse);
+        createEntreprise.setVille(this.ville);
+        createEntreprise.setCodePostale(this.codePostale);
+        createEntreprise.setEmail(this.email);
+        createEntreprise.setSiteWeb(this.siteWeb);
+        createEntreprise.setTelephone(this.telephone);
+        createEntreprise.setLogo(this.logo);
+
         return createEntreprise;
     }
 }
