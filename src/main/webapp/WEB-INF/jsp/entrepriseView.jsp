@@ -1,16 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!doctype html>
-<html lang="fr">
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Entreprise</title>
-</head>
+<jsp:include page="head.jsp"/>
 <body>
 <header>
     <jsp:include page="header.jsp"/>
@@ -19,20 +7,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <h1>Entreprise</h1>
-        <div class="card text-center col-12 p-0 m-1">
+        <div class="card col-12 col-md-10 col-lg-8 p-0 m-4 d-flex">
             <img src="${entreprise.logo}" class="card-img-top w-100" alt="${entreprise.nom}">
-            <div class="card-body">
-                <h5 class="card-title">${entreprise.nom}</h5>
+
+            <div class="card-body text-center text-md-start">
+                <h5 class="card-title text-center text-uppercase">${entreprise.nom}</h5>
+                <div class="d-md-flex flex-wrap justify-content-between px-4">
                 <p class="card-text">Site Web : ${entreprise.siteWeb}</p>
-                <p class="card-text">Telephone : ${entreprise.telephone}</p>
-                <p class="card-text">Email : ${entreprise.email}</p>
-                <p class="card-text">Secteur d'activite : ${entreprise.secteurActivite}</p>
-                <p class="card-text">Siret : ${entreprise.siret}</p>
-                <p class="card-text">Adresse : ${entreprise.adresse}</p>
-                <p class="card-text">Complement Adresse : ${entreprise.complementAdresse}</p>
-                <p class="card-text">Ville / CP : ${entreprise.ville} ${entreprise.codePostale}</p>
-                <a href="${pageContext.request.contextPath}/entreprises/Update/${entreprise.id}" class="btn btn-primary">Update Entreprise</a>
-                <!-- MODAL DELETE CONFIRMATION -->
+                <p class="card-text col-md-6 text-md-end">Telephone : <a href="tel:${entreprise.telephone}">${entreprise.telephone}</a></p>
+                <p class="card-text col-md-6 ">Email : <a href="mailto:${entreprise.email}">${entreprise.email}</a></p>
+                <p class="card-text col-md-6 text-md-end">Secteur d'activite : ${entreprise.secteurActivite}</p>
+                <p class="card-text col-md-6">Siret : ${entreprise.siret}</p>
+                <p id="adresse" class="card-text col-md-6 text-md-end">Adresse : ${entreprise.adresse}</p>
+                <p id="cpltAdresse" class="card-text col-md-6">Complement Adresse : ${entreprise.complementAdresse}</p>
+                <p id="villeCp" class="card-text col-md-6 text-md-end">Ville / CP : ${entreprise.ville} ${entreprise.codePostale}</p>
+                </div>
                 <div class="modal fade" id="delete_modal_${entreprise.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -53,7 +42,12 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete_modal_${entreprise.id}">Delete Entreprise</button>
+                <div class="text-center">
+                <button id="map" class="btn btn-success m-1">Localiser Entreprise</button>
+                <a href="${pageContext.request.contextPath}/entreprises/Update/${entreprise.id}" class="btn btn-primary">Update Entreprise</a>
+                <!-- MODAL DELETE CONFIRMATION -->
+                <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${entreprise.id}">Delete Entreprise</button>
+                </div>
             </div>
         </div>
     </div>
