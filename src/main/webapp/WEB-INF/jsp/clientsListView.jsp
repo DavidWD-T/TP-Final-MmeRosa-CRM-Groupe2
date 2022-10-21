@@ -110,88 +110,88 @@
 
 <c:import url="header.jsp"/>
 
-<div class="container" style="margin-top: 2%">
+    <div class="container" style="margin-top: 2%">
 
-    <div class="row">
-        <div class="col-6">
-            <form class="d-flex mb-3 search_bar" role="search" method="get">
-                <input name="name" id="name" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" action="${pageContext.request.contextPath}/clients" value="${name}">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+        <div class="row">
+            <div class="col-6">
+                <form class="d-flex mb-3 search_bar" role="search" method="get">
+                    <input name="name" id="name" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" action="${pageContext.request.contextPath}/clients" value="${name}">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+                <div class="col-6" style="width: max-content;">
+                    <a class="btn btn-outline-secondary" type="button" href="#" style="font-size: 15px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>A-Z</a>
+                </div>
+                <div class="col-6" style="width: max-content">
+                    <a class="btn btn-outline-secondary" type="button" href="#" style="font-size: 15px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"></path>
+                        </svg>Z-A
+                    </a>
+                </div>
         </div>
-            <div class="col-6" style="width: max-content;">
-                <a class="btn btn-outline-secondary" type="button" href="#" style="font-size: 15px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-                </svg>A-Z</a>
-            </div>
-            <div class="col-6" style="width: max-content">
-                <a class="btn btn-outline-secondary" type="button" href="#" style="font-size: 15px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"></path>
-                    </svg>Z-A
-                </a>
-            </div>
-    </div>
 
-    <div class="contacts-list rounded-4">
-        <div style="width: 90%; height: 90%; margin: auto;">
-            <div class="row align-items-center">
-                <div class="col-lg-6" style="height: max-content">
-                    <p style="margin: 0; font-size: 25px"><strong>Clients</strong></p>
+        <div class="contacts-list rounded-4">
+            <div style="width: 90%; height: 90%; margin: auto;">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" style="height: max-content">
+                        <p style="margin: 0; font-size: 25px"><strong>Clients</strong></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
+                            <div>
+                                <a href="${pageContext.request.contextPath}/prospects/create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
+
+                <div class="row">
+                    <div class="col-lg-12">
                         <div>
-                            <a href="${pageContext.request.contextPath}/prospects/create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
+                            <div class="table-responsive">
+                                <table class="table project-list-table table-nowrap align-middle table-borderless">
+                                    <thead class="thead">
+                                        <tr class="table-header">
+                                            <th scope="col" style="width: 20%">Nom</th>
+                                            <th scope="col" style="width: 17%">Entreprise</th>
+                                            <th scope="col"style="width: 15%;">Statut</th>
+                                            <th scope="col"style="width: 25%;">Email</th>
+                                            <th scope="col" style="width: 19%">téléphone</th>
+                                            <th scope="col" style="width: 200px;">. . .</th>
+                                        </tr>
+                                    </thead>
+
+                                        <tbody class="tbody">
+                                            <c:forEach items="${clients}" var="client">
+                                                <tr class="contact-row">
+                                                    <td>${client.prenom} ${client.nom}</td>
+                                                    <td>${client.entrepriseById.nom}</td>
+                                                    <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
+                                                    <td>${client.entrepriseById.email}</td>
+                                                    <td>${client.portable}</td>
+                                                    <td>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="nav-item dropdown">
+                                                                <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                                                <ul class="dropdown-menu" style=" background-color: #f9f9f9">
+                                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
+                                                                    <li><a class="dropdown-item" data-bs-toggle="dropdown" href="${pageContext.request.contextPath}/prospects/update/3">modifier</a></li>
+                                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="${pageContext.request.contextPath}/prospects/delete/${client.id}">supprimer</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div>
-                        <div class="table-responsive">
-                            <table class="table project-list-table table-nowrap align-middle table-borderless">
-                                <thead class="thead">
-                                    <tr class="table-header">
-                                        <th scope="col" style="width: 20%">Nom</th>
-                                        <th scope="col" style="width: 17%">Entreprise</th>
-                                        <th scope="col"style="width: 15%;">Statut</th>
-                                        <th scope="col"style="width: 25%;">Email</th>
-                                        <th scope="col" style="width: 19%">téléphone</th>
-                                        <th scope="col" style="width: 200px;">. . .</th>
-                                    </tr>
-                                </thead>
-
-                                    <tbody class="tbody">
-                                        <c:forEach items="${clients}" var="client">
-                                            <tr class="contact-row">
-                                                <td>${client.prenom} ${client.nom}</td>
-                                                <td>${client.entrepriseById.nom}</td>
-                                                <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
-                                                <td>${client.entrepriseById.email}</td>
-                                                <td>${client.portable}</td>
-                                                <td>
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                                                            <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
-                                                                <li><a class="dropdown-item" data-bs-toggle="dropdown" href="${pageContext.request.contextPath}/prospects/update/3">modifier</a></li>
-                                                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="${pageContext.request.contextPath}/prospects/delete/${client.id}">supprimer</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
                 <div class="modal fade" id="dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -214,8 +214,8 @@
 
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
