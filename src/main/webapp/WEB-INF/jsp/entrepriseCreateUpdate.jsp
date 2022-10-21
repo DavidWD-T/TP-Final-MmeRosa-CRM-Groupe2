@@ -18,7 +18,7 @@
 
 <div class="container">
     <form:form action="${pageContext.request.contextPath}/entreprises/Validate" method="post" style="max-width: 600px; margin: 0 auto;" enctype="multipart/form-data" modelAttribute="createEntreprise">
-        <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true" />
+        <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
         <form:input path="dateCreation" type="localdate" name="dateCreation" id="dateCreation" class="form-control" hidden="true" />
 
         <div class="form-group row">
@@ -30,7 +30,7 @@
 
         <div class="form-group row"  id="URL">
             <input type="checkbox" class="col-4 btn-check" id="togglePictureOptions" checked autocomplete="off">
-            <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL: </label>
+            <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL</label>
             <div class="col-8">
                 <form:input path="logo" type="text" name="logo"  id="logo"  class="form-control" />
                 <form:input path="logoFile" type="file" name="logoFile"  id="logoFile"  class="form-control" style="display: none"/>
@@ -102,7 +102,6 @@
         </div>
 
         <button type="submit" class="btn btn-lg btn-primary btn-block m-3">${type}</button>
-
     </form:form>
 </div>
 

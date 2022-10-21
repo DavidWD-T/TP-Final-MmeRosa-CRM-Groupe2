@@ -59,13 +59,14 @@ public class ProspectController {
         return "prospectView";
     }
 
-    @GetMapping("/Create")
+    @GetMapping("/create")
     public String createProspectForm(Model model, Principal principal){
         String userEmail = principal.getName();
         List<Entreprise> entrepriseList = entrepriseService.getAllEntreprise(userEmail);
         model.addAttribute("entreprises", entrepriseList);
-        model.addAttribute("createProspect",new Prospect());
+        model.addAttribute("createProspect",new CreateProspect());
         model.addAttribute("type", "Create");
+        model.addAttribute("fonction","create");
         return "prospectClientCreateUpdate";
     }
 
@@ -78,19 +79,21 @@ public class ProspectController {
         }else{
             Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
             createProspect.setEntrepriseById(entreprise);
-            prospectService.createProspect(userEmail, createProspect);
-            return "redirect:/prospects/details/" + prospectService.getProspectById(userEmail, createProspect.getId()).getId() ;
+           Prospect prospect = prospectService.createProspect(userEmail, createProspect);
+            return "redirect:/prospects/details/" + prospect.getId();
         }
     }
 
-    @GetMapping("/Update/{id}")
+    @GetMapping("/update/{id}")
     public String updateProspectForm(Model model,  @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
         List<Entreprise> entrepriseList = entrepriseService.getAllEntreprise(userEmail);
         model.addAttribute("entreprises", entrepriseList);
-        model.addAttribute("createProspect", prospect);
+        model.addAttribute("prospect", prospect);
+        model.addAttribute("createProspect", new CreateProspect());
         model.addAttribute("type", "Update");
+        model.addAttribute("fonction","update");
         if(prospect.isClient()==false){
             model.addAttribute("genre","prospect");
         }else {
@@ -108,8 +111,8 @@ public class ProspectController {
         }else{
             Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
             createProspect.setEntrepriseById(entreprise);
-            prospectService.editProspect(userEmail, createProspect);
-            return "redirect:/prospects/details/" + prospectService.getProspectById(userEmail, createProspect.getId()).getId() ;
+           Prospect prospect = prospectService.editProspect(userEmail, createProspect);
+            return "redirect:/prospects/details/" + prospect.getId() ;
         }
     }
 

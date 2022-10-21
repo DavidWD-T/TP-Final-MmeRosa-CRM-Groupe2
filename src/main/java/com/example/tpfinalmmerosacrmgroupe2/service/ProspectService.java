@@ -28,7 +28,7 @@ public class ProspectService {
 
     public List<Prospect> getAllProspects(String userEmail){
         User user = userRepository.findByEmail(userEmail);
-        return  prospectRepository.findAllProspectsByUserById_Id(user.getId());
+        return  prospectRepository.findAllProspectsByUserById(user);
     }
 
     public  List<Prospect> getAllProspectsByName(String userEmail, String name){
@@ -38,7 +38,7 @@ public class ProspectService {
 
     public List<Prospect> getAllClients(String userEmail){
         User user = userRepository.findByEmail(userEmail);
-        return  prospectRepository.findAllClientsByUserById_Id(user.getId());
+        return  prospectRepository.findAllClientsByUserById(user);
     }
 
     public  List<Prospect> getAllClientsByName(String userEmail, String name){
@@ -56,7 +56,7 @@ public class ProspectService {
         return true;
     }
 
-    public boolean createProspect(String userMail, CreateProspect createProspect){
+    public Prospect createProspect(String userMail, CreateProspect createProspect){
        User prospectUser= userRepository.findByEmail(userMail);
 
         Prospect prospect = new Prospect();
@@ -70,18 +70,17 @@ public class ProspectService {
         prospect.setEtatProspection(createProspect.getEtatProspection());
 
         MultipartFile photo = createProspect.getPhotoFile();
-        if (photo == null) {
+        if (photo.getOriginalFilename().equals("")) {
             prospect.setPhotoUrl(createProspect.getPhotoUrl());
         } else {
             storageService.store(photo);
             prospect.setPhotoUrl("http://localhost:8080/images/" + photo.getOriginalFilename());
         }
 
-        prospectRepository.save(prospect);
-        return true;
+       return prospectRepository.save(prospect);
     }
 
-public boolean editProspect(String userEmail,CreateProspect createProspect){
+public Prospect editProspect(String userEmail,CreateProspect createProspect){
         Prospect prospectToEdit = getProspectById(userEmail, createProspect.getId());
 
         prospectToEdit.setEntrepriseById(createProspect.getEntrepriseById());
@@ -92,14 +91,13 @@ public boolean editProspect(String userEmail,CreateProspect createProspect){
         prospectToEdit.setEtatProspection(createProspect.getEtatProspection());
 
         MultipartFile picture = createProspect.getPhotoFile();
-        if (picture == null) {
+        if (picture.getOriginalFilename().equals("")) {
             prospectToEdit.setPhotoUrl(createProspect.getPhotoUrl());
         } else {
             storageService.store(picture);
             prospectToEdit.setPhotoUrl("http://localhost:8080/images/" + picture.getOriginalFilename());
         }
 
-        prospectRepository.save(prospectToEdit);
-        return true;
+      return prospectRepository.save(prospectToEdit);
     }
 }
