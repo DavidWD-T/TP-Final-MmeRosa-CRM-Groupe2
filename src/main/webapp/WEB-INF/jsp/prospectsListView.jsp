@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
-                        <a href="${pageContext.request.contextPath}/prospects/create"  class="btn btn-primary">Ajouter prospect <i class="bx bx-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/prospects/Create"  class="btn btn-primary">Ajouter prospect <i class="bx bx-plus"></i></a>
                     </div>
                 </div>
             </div>
