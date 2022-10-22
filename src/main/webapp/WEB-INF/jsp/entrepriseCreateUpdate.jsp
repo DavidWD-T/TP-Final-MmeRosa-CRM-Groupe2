@@ -1,27 +1,47 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include page="head.jsp"/>
+
+<style>
+    body{
+        background-color:#fff;
+    }
+    .contacts-list{
+        background-color: #f9f9ff;
+    }
+    .col-form-label{
+        background-color: rgba(194,215,255,0.93);
+        color: #3b76e1;
+        margin-bottom: 4px;
+        border-radius: 8px;
+    }
+    .form-control{
+        background-color: aliceblue;
+    }
+
+</style>
+
 <body>
 <header>
     <jsp:include page="header.jsp"/>
 </header>
 
 
-<div class="container">
-    <form:form action="${pageContext.request.contextPath}/entreprises/Validate" method="post" style="max-width: 600px; margin: 0 auto;" enctype="multipart/form-data" modelAttribute="createEntreprise">
+<div class="container-fluid text-center">
+    <form:form action="${pageContext.request.contextPath}/entreprises/Validate" method="post" class="contacts-list rounded-4 p-3 mb-2" style="max-width: 1500px; margin: auto" enctype="multipart/form-data" modelAttribute="createEntreprise">
         <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
         <form:input path="dateCreation" type="localdate" name="dateCreation" id="dateCreation" class="form-control" hidden="true" />
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="nom">Nom: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="nom">Nom: </label>
+            <div class="col-10">
                 <form:input path="nom" type="text" name="nom" id="nom" class="form-control" required="true" />
             </div>
         </div>
 
         <div class="form-group row"  id="URL">
-            <input type="checkbox" class="col-4 btn-check" id="togglePictureOptions" checked autocomplete="off">
-            <label class="col-4 btn btn-primary" for="togglePictureOptions" id="btn-check-eti">URL</label>
-            <div class="col-8">
+            <input type="checkbox" class="col-2 btn-check" id="togglePictureOptions" checked autocomplete="off">
+            <label class="col-2 btn btn-primary col-form-label" for="togglePictureOptions" id="btn-check-eti">URL</label>
+            <div class="col-10">
                 <form:input path="logo" type="text" name="logo"  id="logo"  class="form-control" />
                 <form:input path="logoFile" type="file" name="logoFile"  id="logoFile"  class="form-control" style="display: none"/>
             </div>
@@ -29,64 +49,64 @@
 
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="secteurActivite">Secteur Activite: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="secteurActivite">Secteur Activite: </label>
+            <div class="col-10">
                 <form:input path="secteurActivite" type="text" name="secteurActivite" id="secteurActivite" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="siret">Siret: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="siret">Siret: </label>
+            <div class="col-10">
                 <form:input path="siret" type="text" name="siret" id="siret" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="adresse">Adresse: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="adresse">Adresse: </label>
+            <div class="col-10">
                 <form:input path="adresse" type="text" name="adresse" id="adresse" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="complementAdresse">Complement Adresse: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="complementAdresse">Complement Adresse: </label>
+            <div class="col-10">
                 <form:input path="complementAdresse" type="text" name="complementAdresse" id="complementAdresse" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="ville">Ville: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="ville">Ville: </label>
+            <div class="col-10">
                 <form:input path="ville" type="text" name="ville" id="ville" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="codePostale">Code Postale: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="codePostale">Code Postale: </label>
+            <div class="col-10">
                 <form:input path="codePostale" type="text" name="codePostale" id="codePostale" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="email">Email: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="email">Email: </label>
+            <div class="col-10">
                 <form:input path="email" type="text" name="email" id="email" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="siteWeb">Site Web: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="siteWeb">Site Web: </label>
+            <div class="col-10">
                 <form:input path="siteWeb" type="text" name="siteWeb" id="siteWeb" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="telephone">Telephone: </label>
-            <div class="col-8">
+            <label class="col-2 col-form-label" for="telephone">Telephone: </label>
+            <div class="col-10">
                 <form:input path="telephone" type="text" name="telephone" id="telephone" class="form-control" />
             </div>
         </div>

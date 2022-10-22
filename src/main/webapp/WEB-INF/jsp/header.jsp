@@ -7,6 +7,10 @@
     .nav-link,.nav-item>.dropdown-item{
         color: rgb(220,220,220);
     }
+    .nav-link:hover,.nav-item>.dropdown-item:hover{
+        color: rgb(220,220,220);
+        background-color:rgb(69,99,150);
+    }
     .dropdown-menu, .nav-item>.dropdown-item{
         background-color:rgb(69,99,150);
     }
@@ -26,7 +30,7 @@
                         <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/prospects/Create">Prospects</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/prospects/all">Prospects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/clients/all">Clients</a>
@@ -46,7 +50,7 @@
                         </ul>
                     </li>
                 </ul>
-                <form:form action="/logout" method="post" class="d-flex">
+                <form:form action="/logout" method="post" class="d-flex mb-2 mb-lg-0">
                     <button class="btn btn-outline-danger" type="submit">Deconnexion</button>
                 </form:form>
             </sec:authorize>
