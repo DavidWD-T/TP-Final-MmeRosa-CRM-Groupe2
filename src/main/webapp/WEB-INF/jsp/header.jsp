@@ -1,30 +1,41 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
-<nav class="navbar navbar-expand-lg bg-light mb-3">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<style>
+    .dropdown-item{}
+    .nav-link,.nav-item>.dropdown-item{
+        color: rgb(220,220,220);
+    }
+    .dropdown-menu, .nav-item>.dropdown-item{
+        background-color:rgb(69,99,150);
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-lg m-3 " style="background-color:rgba(69,99,150,1); border-top-left-radius: 30px; border-top-right-radius: 30px;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Entreprise</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <sec:authorize access="isAuthenticated()">
+            <sec:authorize access="isAuthenticated()">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
+                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/prospects/create">Prospects</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/prospects/create">Prospects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/clients">Clients</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/clients">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Entreprises</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all">Entreprises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/entreprises/all">Calendrier</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all">Calendrier</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -35,19 +46,20 @@
                         </ul>
                     </li>
                 </ul>
-                    <form:form action="/logout" method="post" class="d-flex">
-                        <button class="btn btn-outline-danger" type="submit">Deconnexion</button>
-                    </form:form>
-                </sec:authorize>
-                <sec:authorize access="!isAuthenticated()">
+                <form:form action="/logout" method="post" class="d-flex">
+                    <button class="btn btn-outline-danger" type="submit">Deconnexion</button>
+                </form:form>
+            </sec:authorize>
+            <sec:authorize access="!isAuthenticated()">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/signup">Inscription</a>
+                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/signup">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/signin">Connexion</a>
+                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/signin">Connexion</a>
                     </li>
                 </ul>
-                </sec:authorize>
+            </sec:authorize>
         </div>
     </div>
 </nav>

@@ -37,14 +37,6 @@ public class EntrepriseController {
         return "entrepriseListView";
     }
 
-//    @PostMapping("/all")
-//    public String postAllEntreprises(Model model, @RequestParam(value = "name", required = false) String name){
-//        List<Entreprise> entrepriseList = (List<Entreprise>) model.getAttribute("entreprises");
-//        model.addAttribute("entreprises", entrepriseList);
-//        model.addAttribute("name", name);
-//        return "entrepriseListView";
-//    }
-
     @GetMapping("/details/{id}")
     public String displaySpecificEntreprise(Model model, @PathVariable(value="id") long id){
         Entreprise entreprise = entrepriseService.getEntrepriseById(id);

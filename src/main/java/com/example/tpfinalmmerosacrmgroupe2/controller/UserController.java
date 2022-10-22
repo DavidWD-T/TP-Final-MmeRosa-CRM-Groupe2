@@ -1,7 +1,9 @@
 package com.example.tpfinalmmerosacrmgroupe2.controller;
 
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateUser;
+import com.example.tpfinalmmerosacrmgroupe2.security.CustomLogoutHandler;
 import com.example.tpfinalmmerosacrmgroupe2.service.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,6 +52,7 @@ public class UserController {
     @PostMapping ("users/delete")
     public String deleteUserForm(Principal principal){
         userService.deleteUserByMail(principal.getName());
+        SecurityContextHolder.clearContext();
         return "redirect:/signin";
     }
 
