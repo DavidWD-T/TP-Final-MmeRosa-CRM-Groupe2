@@ -52,7 +52,7 @@ public class EvenementController {
         return "evenementView";
     }
 
-    @GetMapping("/create/{id}")
+    @GetMapping("/Create/{id}")
     public String createEvenementForm(Model model, Principal principal, @PathVariable(value = "id") long id){
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
@@ -62,7 +62,7 @@ public class EvenementController {
         return "evenementCreateUpdate";
     }
 
-    @PostMapping("/create/{id}")
+    @PostMapping("/Create/{id}")
     public String createEvenement(@Valid CreateEvenement createEvenement, BindingResult result, Model model, Principal principal,  @PathVariable(value = "id") long id){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
@@ -85,7 +85,7 @@ public class EvenementController {
         return "evenementCreateUpdate";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/Update")
     public String updateEvenement(@Valid CreateEvenement createEvenement, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){

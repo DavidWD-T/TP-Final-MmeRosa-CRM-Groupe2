@@ -50,7 +50,7 @@ public class ClientController {
         return "clientView";
     }
 
-    @GetMapping("/Create")
+    @GetMapping("/Ureate")
     public String createClientForm(Model model, Principal principal){
         String userEmail = principal.getName();
         List<Entreprise> entrepriseList = entrepriseService.getAllEntreprise(userEmail);
@@ -74,7 +74,7 @@ public class ClientController {
         }
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/Update/{id}")
     public String updateClientForm(Model model,  @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
         CreateProspect createProspect = prospectService.getProspectById(userEmail,id).toCreateProspect();
@@ -85,7 +85,7 @@ public class ClientController {
         return "clientCreateUpdate";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/Update")
     public String updateClient(@Valid CreateProspect createProspect, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){

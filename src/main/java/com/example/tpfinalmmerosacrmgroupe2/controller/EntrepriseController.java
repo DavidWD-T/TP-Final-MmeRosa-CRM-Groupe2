@@ -41,6 +41,8 @@ public class EntrepriseController {
     public String displaySpecificEntreprise(Model model, @PathVariable(value="id") long id){
         Entreprise entreprise = entrepriseService.getEntrepriseById(id);
         model.addAttribute("entreprise", entreprise);
+        model.addAttribute("prospects", entreprise.getProspectsEntreprise());
+        model.addAttribute("clients", entreprise.getProspectsEntreprise());
         return "entrepriseView";
     }
 

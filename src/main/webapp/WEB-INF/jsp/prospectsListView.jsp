@@ -13,7 +13,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Clients</title>
+    <title>Prospects</title>
 
     <style>
         body{
@@ -59,7 +59,7 @@
 
     <div class="contacts-list rounded-4 p-3 mb-2"  style="max-width: 1500px; margin: auto">
         <form class="d-flex search_bar" role="search" method="get">
-            <input name="name" id="name" class="form-control me-2" type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/clients/all" value="${name}">
+            <input name="name" id="name" class="form-control me-2" type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/prospects/all" value="${name}">
 
             <button type="submit" class="btn btn-outline-secondary me-2">&darr;AZ</button>
             <button type="submit" class="btn btn-outline-secondary me-2">&uarr;AZ</button>
@@ -73,11 +73,11 @@
         <div style="height: 78vh;">
             <div class="row align-items-center">
                 <div class="col-6" style="height: max-content">
-                    <h2><strong>Clients</strong></h2>
+                    <h2><strong>Prospects</strong></h2>
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
-                        <a href="${pageContext.request.contextPath}/clients/Create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/prospects/create"  class="btn btn-primary">Ajouter prospect <i class="bx bx-plus"></i></a>
                     </div>
                 </div>
             </div>
@@ -98,26 +98,27 @@
                             </thead>
 
                             <tbody class="tbody">
-                            <c:forEach items="${clients}" var="client">
+                            <c:forEach items="${prospects}" var="prospect">
                                 <tr class="contact-row">
-                                    <td>${client.prenom} ${client.nom}</td>
-                                    <td>${client.entrepriseById.nom}</td>
-                                    <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
-                                    <td>${client.email}</td>
-                                    <td>${client.portable}</td>
+                                    <td>${prospect.prenom} ${prospect.nom}</td>
+                                    <td>${prospect.entrepriseById.nom}</td>
+                                    <td><span class="badge badge-soft-danger mb-0">${prospect.etatProspection}</span></td>
+                                    <td>${prospect.email}</td>
+                                    <td>${prospect.portable}</td>
                                     <td>
                                         <ul class="list-inline mb-0">
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                 <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}">details</a></li>
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}">modifier</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${prospect.id}">details</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}">modifier</a></li>
                                                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </td>
                                 </tr>
+
                                 <div class="modal fade" id="dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -126,11 +127,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Vouslez-vous vraiment supprimer le client ?
+                                                Vouslez-vous vraiment supprimer le prospect ?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                                                <form method="post" action="${pageContext.request.contextPath}/clients/delete/${client.id}">
+                                                <form method="post" action="${pageContext.request.contextPath}/prospects/delete/${prospect.id}">
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                     <button type="submit" class="btn btn-danger">Oui</button>
                                                 </form>
