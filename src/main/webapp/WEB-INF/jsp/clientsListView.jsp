@@ -61,11 +61,11 @@
         <form class="d-flex search_bar" role="search" method="get">
             <input name="name" id="name" class="form-control me-2" type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/clients/all" value="${name}">
 
-            <button type="submit" class="btn btn-outline-secondary me-2">&darr;AZ</button>
-            <button type="submit" class="btn btn-outline-secondary me-2">&uarr;AZ</button>
+            <button name="order" id="order1" type="submit" class="btn btn-outline-secondary me-2" action="${pageContext.request.contextPath}/clients/all" value="">&darr;AZ</button>
+            <button name="order" id="order2" type="submit" class="btn btn-outline-secondary me-2" action="${pageContext.request.contextPath}/clients/all" value="2">&uarr;AZ</button>
 
-            <button type="submit" class="btn btn-outline-secondary me-2">&darr;Date</button>
-            <button type="submit" class="btn btn-outline-secondary">&uarr;Date</button>
+            <button name="order" id="order3" type="submit" class="btn btn-outline-secondary me-2" action="${pageContext.request.contextPath}/clients/all" value="3">&darr;Date</button>
+            <button name="order" id="order4" type="submit" class="btn btn-outline-secondary" action="${pageContext.request.contextPath}/clients/all" value="4">&uarr;Date</button>
         </form>
     </div>
 
@@ -100,7 +100,7 @@
                             <tbody class="tbody">
                             <c:forEach items="${clients}" var="client">
                                 <tr class="contact-row">
-                                    <td>${client.prenom} ${client.nom}</td>
+                                    <td>${client.nom} ${client.prenom}</td>
                                     <td>${client.entrepriseById.nom}</td>
                                     <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
                                     <td>${client.email}</td>

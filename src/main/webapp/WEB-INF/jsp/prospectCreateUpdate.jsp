@@ -29,7 +29,7 @@
 
 <div class="container-fluid text-center">
 
-    <form:form action="${pageContext.request.contextPath}/prospect/${type}" class="contacts-list rounded-4 p-3 mb-2" method="post" style="max-width: 1500px; margin: auto" enctype="multipart/form-data" modelAttribute="createProspect">
+    <form:form action="${pageContext.request.contextPath}/prospects/${type}" class="contacts-list rounded-4 p-3 mb-2" method="post" style="max-width: 1500px; margin: auto" enctype="multipart/form-data" modelAttribute="createProspect">
         <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
 
         <div class="form-group row">

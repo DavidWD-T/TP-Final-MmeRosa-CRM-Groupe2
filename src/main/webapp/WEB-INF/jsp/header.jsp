@@ -19,7 +19,9 @@
 
 <nav class="navbar navbar-expand-lg m-3 " style="background-color:rgba(69,99,150,1); border-top-left-radius: 30px; border-top-right-radius: 30px;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Entreprise</a>
+
+        <img src="/img/Sans_titre-removebg-preview.png" alt="logo" style="max-height: 50px">
+<%--        <a class="navbar-brand" href="http://localhost:8080/images/Sans_titre-removebg-preview.png">Entreprise</a>--%>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

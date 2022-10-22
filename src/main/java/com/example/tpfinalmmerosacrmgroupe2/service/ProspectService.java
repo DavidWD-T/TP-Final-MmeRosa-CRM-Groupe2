@@ -6,6 +6,7 @@ import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.ProspectRepository;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.UserRepository;
 import com.example.tpfinalmmerosacrmgroupe2.exception.EntrepriseNotFoundException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.time.LocalDate;
@@ -29,9 +30,19 @@ public class ProspectService {
         return  prospectRepository.findAllProspectsByUserById(user);
     }
 
-    public  List<Prospect> getAllProspectsByName(String userEmail, String name){
+    public  List<Prospect> getAllProspectsByName(String userEmail, String name, String etat, String order){
+        Sort sort = null;
         User user = userRepository.findByEmail(userEmail);
-        return prospectRepository.findProspectsByName(user, name);
+        if(order.equals("1")){
+            sort = Sort.by(Sort.Direction.ASC, "prenom").by(Sort.Direction.ASC, "nom");
+        }else if(order.equals("2")){
+            sort = Sort.by(Sort.Direction.DESC, "prenom").by(Sort.Direction.DESC, "nom");
+        }else if(order.equals("3")){
+            sort = Sort.by(Sort.Direction.ASC, "nom").by(Sort.Direction.ASC, "dateCreationProspection");
+        }else if(order.equals("4")){
+            sort = Sort.by(Sort.Direction.DESC, "nom").by(Sort.Direction.DESC, "dateCreationProspection");
+        }
+        return prospectRepository.findProspectsByName(user, name, etat, sort);
     }
 
     public List<Prospect> getAllClients(String userEmail){
@@ -39,9 +50,19 @@ public class ProspectService {
         return  prospectRepository.findAllClientsByUserById(user);
     }
 
-    public  List<Prospect> getAllClientsByName(String userEmail, String name){
+    public  List<Prospect> getAllClientsByName(String userEmail, String name, String order){
+        Sort sort = null;
         User user = userRepository.findByEmail(userEmail);
-        return prospectRepository.findClientsByName(user, name);
+        if(order.equals("")){
+            sort = Sort.by(Sort.Direction.ASC, "prenom").by(Sort.Direction.ASC, "nom");
+        }else if(order.equals("2")){
+            sort = Sort.by(Sort.Direction.DESC, "prenom").by(Sort.Direction.DESC, "nom");
+        }else if(order.equals("3")){
+            sort = Sort.by(Sort.Direction.ASC, "nom").by(Sort.Direction.ASC, "dateCreationProspection");
+        }else if(order.equals("4")){
+            sort = Sort.by(Sort.Direction.DESC, "nom").by(Sort.Direction.DESC, "dateCreationProspection");
+        }
+        return prospectRepository.findClientsByName(user, name, sort);
     }
 
     public Prospect getProspectById(String userEmail, long id){
@@ -65,10 +86,16 @@ public class ProspectService {
                 prospect.setEtatProspection("Aucun");
                 prospect.setClient(true);
             }else{
-                prospect.setEtatProspection("Aucune prospection");
             }
         }else {
             prospect = getProspectById(mail, createProspect.getId());
+            if(prospect.isClient() == true){
+                if (!prospect.getEntrepriseById().getNom().equals(createProspect.getEntrepriseById().getNom())){
+                    prospect.setClient(false);
+                    prospect.setEtatProspection("Aucune prospection");
+                }
+
+            }
         }
 
         MultipartFile photo = createProspect.getPhotoFile();
@@ -78,7 +105,6 @@ public class ProspectService {
             storageService.store(photo);
             prospect.setPhotoUrl("http://localhost:8080/images/" + photo.getOriginalFilename());
         }
-
 
         prospect.setEntrepriseById(createProspect.getEntrepriseById());
         prospect.setEmail(createProspect.getEmail());

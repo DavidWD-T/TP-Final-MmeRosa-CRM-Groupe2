@@ -1,6 +1,5 @@
 package com.example.tpfinalmmerosacrmgroupe2.controller;
 
-import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEntreprise;
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateProspect;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
@@ -32,7 +31,7 @@ public class ClientController {
         List<Prospect> clientsList;
         String userEmail = principal.getName() ;
         if (name!= null) {
-          clientsList = prospectService.getAllClientsByName(userEmail, name);
+          clientsList = prospectService.getAllClientsByName(userEmail, name,"");
         }else{
             clientsList = prospectService.getAllClients(userEmail);
             name = "";
