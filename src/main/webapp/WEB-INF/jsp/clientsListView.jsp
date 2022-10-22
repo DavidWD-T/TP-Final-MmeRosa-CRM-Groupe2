@@ -104,7 +104,7 @@
                                                 <td>${client.prenom} ${client.nom}</td>
                                                 <td>${client.entrepriseById.nom}</td>
                                                 <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
-                                                <td>${client.entrepriseById.email}</td>
+                                                <td>${client.email}</td>
                                                 <td>${client.portable}</td>
                                                 <td>
                                                     <ul class="list-inline mb-0">

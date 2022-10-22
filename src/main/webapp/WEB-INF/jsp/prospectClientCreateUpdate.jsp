@@ -36,13 +36,6 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="email">Email: </label>
-            <div class="col-8">
-                <form:input path="email" type="text" name="email" id="email" class="form-control" value="${prospect.email}"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
             <label class="col-4 col-form-label" for="portable">Portable: </label>
             <div class="col-8">
                 <form:input path="portable" type="text" name="portable" id="portable" class="form-control" value="${prospect.portable}"/>
