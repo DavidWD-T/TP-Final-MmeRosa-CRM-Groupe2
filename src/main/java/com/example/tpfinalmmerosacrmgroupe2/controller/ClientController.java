@@ -47,7 +47,7 @@ public class ClientController {
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
         model.addAttribute("prospect", prospect);
-        return "prospectView";
+        return "clientView";
     }
 
     @GetMapping("/Create")
@@ -70,11 +70,11 @@ public class ClientController {
 //            Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
 //            createProspect.setEntrepriseById(entreprise);
             Prospect prospect = prospectService.createUpdateProspect(userEmail, createProspect,"Client");
-            return "redirect:/prospects/details/" + prospect.getId();
+            return "redirect:/clients/details/" + prospect.getId();
         }
     }
 
-    @GetMapping("/Update/{id}")
+    @GetMapping("/update/{id}")
     public String updateClientForm(Model model,  @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
         CreateProspect createProspect = prospectService.getProspectById(userEmail,id).toCreateProspect();
@@ -85,7 +85,7 @@ public class ClientController {
         return "clientCreateUpdate";
     }
 
-    @PostMapping("/Update")
+    @PostMapping("/update")
     public String updateClient(@Valid CreateProspect createProspect, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
@@ -96,7 +96,6 @@ public class ClientController {
             return "redirect:/clients/all" ;
         }
     }
-
 
     @PostMapping ("/delete/{id}")
     public String deleteClientForm(@PathVariable(value="id") long id, Principal principal){

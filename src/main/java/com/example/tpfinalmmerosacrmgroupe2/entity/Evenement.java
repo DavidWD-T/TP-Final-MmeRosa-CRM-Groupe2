@@ -1,5 +1,7 @@
 package com.example.tpfinalmmerosacrmgroupe2.entity;
 
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEvenement;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -139,5 +141,30 @@ public class Evenement {
 
     public void setProspectById(Prospect prospectById) {
         this.prospectById = prospectById;
+    }
+
+    public User getUserById() {
+        return userById;
+    }
+
+    public void setUserById(User userById) {
+        this.userById = userById;
+    }
+
+    public CreateEvenement toCreateEvenement() {
+        CreateEvenement createEvenement = new CreateEvenement();
+
+        createEvenement.setId(this.id);
+        createEvenement.setMotif(this.motif);
+        createEvenement.setDescription(this.description);
+        createEvenement.setAdresse(this.adresse);
+        createEvenement.setVille(this.ville);
+        createEvenement.setCodePostale(this.codePostale);
+        createEvenement.setVoiceCallUrl(this.voiceCallUrl);
+        createEvenement.setDate(this.date);
+        createEvenement.setHeureDebut(this.heureDebut);
+        createEvenement.setHeureFin(this.heureFin);
+        createEvenement.setProspectById(this.prospectById);
+        return createEvenement;
     }
 }

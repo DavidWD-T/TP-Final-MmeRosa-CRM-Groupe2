@@ -84,7 +84,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="min-height: 250px;">
                         <table class="table project-list-table table-nowrap align-middle table-borderless">
                             <thead class="thead">
                                 <tr class="table-header">
@@ -110,8 +110,8 @@
                                                     <li class="nav-item dropdown">
                                                         <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                         <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
-                                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/update/${client.id}">modifier</a></li>
+                                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}">details</a></li>
+                                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/update/${client.id}">modifier</a></li>
                                                             <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
                                                         </ul>
                                                     </li>
