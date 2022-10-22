@@ -47,12 +47,13 @@ public class ProspectService {
     }
 
     public Prospect getProspectById(String userEmail, long prospectId){
-        return getAllProspects(userEmail).stream().filter(p-> p.getId()==prospectId).findFirst().get();
+        User user = userRepository.findByEmail(userEmail);
+        return prospectRepository.getProspectById(user, prospectId);
     }
 
     public boolean deleteProspectById(String userEmail, long prospectId){
         Prospect prospectToDelete = getProspectById(userEmail,prospectId);
-        prospectRepository.deleteById(prospectToDelete.getId());
+        prospectRepository.delete(prospectToDelete);
         return true;
     }
 

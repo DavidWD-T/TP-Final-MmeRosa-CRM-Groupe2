@@ -17,6 +17,9 @@ public interface ProspectRepository extends CrudRepository<Prospect, Long> {
     @Query("SELECT p FROM Prospect p WHERE p.userById = :user AND p.isClient=false  AND (p.nom LIKE CONCAT('%',:name,'%') OR p.prenom like CONCAT('%',:name,'%') OR p.email like CONCAT('%',:name,'%') OR p.fixe like CONCAT('%',:name,'%') OR p.fonction like CONCAT('%',:name,'%') OR p.portable like CONCAT('%',:name,'%') OR p.entrepriseById.nom like CONCAT('%',:name,'%'))")
     List<Prospect> findProspectsByName(@Param("user") User user, @Param("name") String name);
 
+    @Query(value = "SELECT p FROM Prospect p WHERE p.userById = :user and p.id=:id")
+    Prospect getProspectById(User user, long id);
+
 
     //liste des clients
     @Query(value = "SELECT p FROM Prospect p WHERE p.userById = :user and p.isClient=true ")

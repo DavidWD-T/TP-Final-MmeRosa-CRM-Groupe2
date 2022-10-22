@@ -178,8 +178,8 @@
                                                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                                 <ul class="dropdown-menu" style=" background-color: #f9f9f9">
                                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
-                                                                    <li><a class="dropdown-item" data-bs-toggle="dropdown" href="${pageContext.request.contextPath}/prospects/update/3">modifier</a></li>
-                                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="${pageContext.request.contextPath}/prospects/delete/${client.id}">supprimer</a></li>
+                                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/update/${client.id}">modifier</a></li>
+                                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -193,7 +193,7 @@
                     </div>
                 </div>
 
-
+                <!--Modal suppression client-->
                 <div class="modal fade" id="dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
