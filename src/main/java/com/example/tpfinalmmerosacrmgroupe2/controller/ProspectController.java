@@ -76,11 +76,10 @@ public class ProspectController {
     @GetMapping("/Update/{id}")
     public String updateProspectForm(Model model,  @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
-        Prospect prospect = prospectService.getProspectById(userEmail, id);
+        CreateProspect createProspect = prospectService.getProspectById(userEmail, id).toCreateProspect();
         List<Entreprise> entrepriseList = entrepriseService.getAllEntreprise(userEmail);
         model.addAttribute("entreprises", entrepriseList);
-        model.addAttribute("prospect", prospect);
-        model.addAttribute("createProspect", new CreateProspect());
+        model.addAttribute("createProspect", createProspect);
         model.addAttribute("type", "Update");
         return "prospectCreateUpdate";
     }
