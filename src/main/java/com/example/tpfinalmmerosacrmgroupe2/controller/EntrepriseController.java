@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/entreprises")
@@ -41,8 +42,8 @@ public class EntrepriseController {
     public String displaySpecificEntreprise(Model model, @PathVariable(value="id") long id){
         Entreprise entreprise = entrepriseService.getEntrepriseById(id);
         model.addAttribute("entreprise", entreprise);
-        model.addAttribute("prospects", entreprise.getProspectsEntreprise());
-        model.addAttribute("clients", entreprise.getProspectsEntreprise());
+        model.addAttribute("prospects", entreprise.getProspectsEntreprise().stream().filter(i-> i.isClient() == false).collect(Collectors.toList()));
+        model.addAttribute("clients", entreprise.getProspectsEntreprise().stream().filter(i-> i.isClient() == true).collect(Collectors.toList()));
         return "entrepriseView";
     }
 

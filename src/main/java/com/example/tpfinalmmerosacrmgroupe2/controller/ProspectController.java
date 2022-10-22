@@ -27,17 +27,18 @@ public class ProspectController {
     }
 
     @GetMapping("/all")
-    public String displayAllProspects(Model model, @RequestParam(value = "name", required = false) String name, Principal principal){
+    public String displayAllProspects(Model model, @RequestParam(value = "etat", required = false) String etat, @RequestParam(value = "name", required = false) String name,@RequestParam(value = "order", required = false) String order, Principal principal){
         List<Prospect> prospectsList;
         String userEmail = principal.getName() ;
         if (name!= null) {
-            prospectsList = prospectService.getAllProspectsByName(userEmail, name);
+            prospectsList = prospectService.getAllProspectsByName(userEmail, name, etat, order);
         }else{
             prospectsList = prospectService.getAllProspects(userEmail);
             name = "";
         }
         model.addAttribute("prospects", prospectsList);
         model.addAttribute("name", name);
+        model.addAttribute("etat", etat);
         return "prospectsListView";
     }
 
