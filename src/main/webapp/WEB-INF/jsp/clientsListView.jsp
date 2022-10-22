@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
-                        <a href="${pageContext.request.contextPath}/prospects/create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/clients/Create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
                     </div>
                 </div>
             </div>
@@ -108,9 +108,9 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                         <ul class="dropdown-menu" style="background-color: #f9f9f9">
-                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
-                                            <li><a class="dropdown-item" data-bs-toggle="dropdown" href="${pageContext.request.contextPath}/prospects/update/3">modifier</a></li>
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="${pageContext.request.contextPath}/prospects/delete/${client.id}">supprimer</a></li>
+                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}">details</a></li>
+                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}">modifier</a></li>
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="${pageContext.request.contextPath}/clients/delete/${client.id}">supprimer</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -134,14 +134,14 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                            <a type="submit" href="{pageContext.request.contextPath}/delete/${client.id}" class="btn btn-danger">Oui</a>
+                            <form method="post" action="${pageContext.request.contextPath}/clients/delete/${entreprise.id}">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="btn btn-danger">Oui</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-
         </div>
     </div>
 </div>
