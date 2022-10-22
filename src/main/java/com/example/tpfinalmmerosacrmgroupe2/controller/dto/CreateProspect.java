@@ -25,39 +25,11 @@ public class CreateProspect {
 
     private String fixe;
 
-    private String etatProspection;
-
-    private LocalDate dateCreationProspection;
-
     private Integer dureeRelance;
-
-    private User userById;
 
     private Entreprise entrepriseById;
 
-    private List<Note> prospectNotes;
-
-    private List<Evenement> prospectEvenements;
-
     public CreateProspect() {
-    }
-
-    public CreateProspect(String email, String photoUrl, MultipartFile photoFile, String nom, String prenom, String fonction, String portable, String fixe, String etatProspection, LocalDate dateCreationProspection, Integer dureeRelance, User userById, Entreprise entrepriseById, List<Note> prospectNotes, List<Evenement> prospectEvenements) {
-        this.email = email;
-        this.photoUrl = photoUrl;
-        this.photoFile = photoFile;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.fonction = fonction;
-        this.portable = portable;
-        this.fixe = fixe;
-        this.etatProspection = etatProspection;
-        this.dateCreationProspection = dateCreationProspection;
-        this.dureeRelance = dureeRelance;
-        this.userById = userById;
-        this.entrepriseById = entrepriseById;
-        this.prospectNotes = prospectNotes;
-        this.prospectEvenements = prospectEvenements;
     }
 
     public Long getId() {
@@ -132,21 +104,6 @@ public class CreateProspect {
         this.fixe = fixe;
     }
 
-    public String getEtatProspection() {
-        return etatProspection;
-    }
-
-    public void setEtatProspection(String etatProspection) {
-        this.etatProspection = etatProspection;
-    }
-
-    public LocalDate getDateCreationProspection() {
-        return dateCreationProspection;
-    }
-
-    public void setDateCreationProspection(LocalDate dateCreationProspection) {
-        this.dateCreationProspection = dateCreationProspection;
-    }
 
     public Integer getDureeRelance() {
         return dureeRelance;
@@ -156,13 +113,6 @@ public class CreateProspect {
         this.dureeRelance = dureeRelance;
     }
 
-    public User getUserById() {
-        return userById;
-    }
-
-    public void setUserById(User userById) {
-        this.userById = userById;
-    }
 
     public Entreprise getEntrepriseById() {
         return entrepriseById;
@@ -172,19 +122,4 @@ public class CreateProspect {
         this.entrepriseById = entrepriseById;
     }
 
-    public List<Note> getProspectNotes() {
-        return prospectNotes;
-    }
-
-    public void setProspectNotes(List<Note> prospectNotes) {
-        this.prospectNotes = prospectNotes;
-    }
-
-    public List<Evenement> getProspectEvenements() {
-        return prospectEvenements;
-    }
-
-    public void setProspectEvenements(List<Evenement> prospectEvenements) {
-        this.prospectEvenements = prospectEvenements;
-    }
 }

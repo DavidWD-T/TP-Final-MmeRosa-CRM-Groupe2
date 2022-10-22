@@ -5,7 +5,6 @@ import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import com.example.tpfinalmmerosacrmgroupe2.service.EntrepriseService;
 import com.example.tpfinalmmerosacrmgroupe2.service.ProspectService;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,14 +41,6 @@ public class ProspectController {
         return "prospectsListView";
     }
 
-//    @PostMapping("/all")
-//    public String postAllEntreprises(Model model, @RequestParam(value = "name", required = false) String name){
-//        List<Entreprise> entrepriseList = (List<Entreprise>) model.getAttribute("entreprises");
-//        model.addAttribute("entreprises", entrepriseList);
-//        model.addAttribute("name", name);
-//        return "entrepriseListView";
-//    }
-
     @GetMapping("/details/{id}")
     public String displaySpecificProspect(Model model, @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
@@ -58,32 +49,31 @@ public class ProspectController {
         return "prospectView";
     }
 
-    @GetMapping("/create")
+    @GetMapping("/Create")
     public String createProspectForm(Model model, Principal principal){
         String userEmail = principal.getName();
         List<Entreprise> entrepriseList = entrepriseService.getAllEntreprise(userEmail);
         model.addAttribute("entreprises", entrepriseList);
         model.addAttribute("createProspect",new CreateProspect());
         model.addAttribute("type", "Create");
-        model.addAttribute("fonction","create");
-        return "prospectClientCreateUpdate";
+        return "prospectCreateUpdate";
     }
 
-    @PostMapping("/create")
-    public String createProspect(@Valid CreateProspect createProspect, BindingResult result, Model model, Principal principal, @RequestParam(value = "entrepriseId") long entrepriseId){
+    @PostMapping("/Create")
+    public String createProspect(@Valid CreateProspect createProspect, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
             model.addAttribute("createProspect",createProspect);
             return "prospectCreateUpdate";
         }else{
-            Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
-            createProspect.setEntrepriseById(entreprise);
-           Prospect prospect = prospectService.createProspect(userEmail, createProspect);
+//            Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
+//            createProspect.setEntrepriseById(entreprise);
+           Prospect prospect = prospectService.createUpdateProspect(userEmail, createProspect,"Prospect");
             return "redirect:/prospects/details/" + prospect.getId();
         }
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/Update/{id}")
     public String updateProspectForm(Model model,  @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
@@ -92,25 +82,19 @@ public class ProspectController {
         model.addAttribute("prospect", prospect);
         model.addAttribute("createProspect", new CreateProspect());
         model.addAttribute("type", "Update");
-        model.addAttribute("fonction","update");
-        if(prospect.isClient()==false){
-            model.addAttribute("genre","prospect");
-        }else {
-            model.addAttribute("genre", "client");
-        }
-        return "prospectClientCreateUpdate";
+        return "prospectCreateUpdate";
     }
 
-    @PostMapping("/update")
-    public String updateProspect(@Valid CreateProspect createProspect, BindingResult result, Model model, Principal principal, @RequestParam(value = "entrepriseId") long entrepriseId){
+    @PostMapping("/Update")
+    public String updateProspect(@Valid CreateProspect createProspect, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
             model.addAttribute("createProspect",createProspect);
-            return "prospectClientCreateUpdate";
+            return "prospectCreateUpdate";
         }else{
-            Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
-            createProspect.setEntrepriseById(entreprise);
-           Prospect prospect = prospectService.editProspect(userEmail, createProspect);
+//            Entreprise entreprise = entrepriseService.getEntrepriseById(entrepriseId);
+//            createProspect.setEntrepriseById(entreprise);
+           Prospect prospect = prospectService.createUpdateProspect(userEmail, createProspect,"Prospect");
             return "redirect:/prospects/details/" + prospect.getId() ;
         }
     }

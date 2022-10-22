@@ -77,61 +77,55 @@
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
-                        <a href="${pageContext.request.contextPath}/prospects/create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/clients/Create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
                     </div>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table project-list-table table-nowrap align-middle table-borderless">
+                            <thead class="thead">
+                                <tr class="table-header">
+                                    <th scope="col" style="width: 20%">Nom</th>
+                                    <th scope="col" style="width: 17%">Entreprise</th>
+                                    <th scope="col"style="width: 15%;">Statut</th>
+                                    <th scope="col"style="width: 25%;">Email</th>
+                                    <th scope="col" style="width: 19%">téléphone</th>
+                                    <th scope="col" style="width: 200px;">. . .</th>
+                                </tr>
+                            </thead>
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="table-responsive">
-                            <table class="table project-list-table table-nowrap align-middle table-borderless">
-                                <thead class="thead">
-                                    <tr class="table-header">
-                                        <th scope="col" style="width: 20%">Nom</th>
-                                        <th scope="col" style="width: 17%">Entreprise</th>
-                                        <th scope="col"style="width: 15%;">Statut</th>
-                                        <th scope="col"style="width: 25%;">Email</th>
-                                        <th scope="col" style="width: 19%">téléphone</th>
-                                        <th scope="col" style="width: 200px;">. . .</th>
-                                    </tr>
-                                </thead>
-
-                                    <tbody class="tbody">
-                                        <c:forEach items="${clients}" var="client">
-                                            <tr class="contact-row">
-                                                <td>${client.prenom} ${client.nom}</td>
-                                                <td>${client.entrepriseById.nom}</td>
-                                                <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
-                                                <td>${client.email}</td>
-                                                <td>${client.portable}</td>
-                                                <td>
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                                                            <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
-                                                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/update/${client.id}">modifier</a></li>
-                                                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                            </table>
-                        </div>
+                                <tbody class="tbody">
+                                    <c:forEach items="${clients}" var="client">
+                                        <tr class="contact-row">
+                                            <td>${client.prenom} ${client.nom}</td>
+                                            <td>${client.entrepriseById.nom}</td>
+                                            <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
+                                            <td>${client.email}</td>
+                                            <td>${client.portable}</td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu" style=" background-color: #f9f9f9">
+                                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${client.id}">details</a></li>
+                                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/update/${client.id}">modifier</a></li>
+                                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
 
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-
-                </table>
-            </div>
-
-
             <div class="modal fade" id="dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -144,16 +138,22 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                            <a type="submit" href="{pageContext.request.contextPath}/delete/${client.id}" class="btn btn-danger">Oui</a>
+                            <form method="post" action="${pageContext.request.contextPath}/clients/delete/${entreprise.id}">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="btn btn-danger">Oui</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
 
+
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
 
     </div>
+
+
 </div>
 </body>
 </html>

@@ -29,7 +29,7 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/prospects/create">Prospects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/clients">Clients</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/clients/all">Clients</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all">Entreprises</a>

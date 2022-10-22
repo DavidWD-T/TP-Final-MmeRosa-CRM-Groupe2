@@ -1,5 +1,8 @@
 package com.example.tpfinalmmerosacrmgroupe2.entity;
 
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEntreprise;
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateProspect;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -193,5 +196,23 @@ public class Prospect {
 
     public void setProspectEvenements(List<Evenement> prospectEvenements) {
         this.prospectEvenements = prospectEvenements;
+    }
+
+
+    public CreateProspect toCreateProspect() {
+        CreateProspect createProspect = new CreateProspect();
+        createProspect.setId(this.id);
+
+        createProspect.setEmail(this.email);
+        createProspect.setNom(this.nom);
+        createProspect.setPrenom(this.prenom);
+        createProspect.setFonction(this.fonction);
+        createProspect.setPortable(this.portable);
+        createProspect.setFixe(this.fixe);
+        createProspect.setDureeRelance(this.dureeRelance);
+        createProspect.setEntrepriseById(this.entrepriseById);
+        createProspect.setPhotoUrl(this.photoUrl);
+
+        return createProspect;
     }
 }
