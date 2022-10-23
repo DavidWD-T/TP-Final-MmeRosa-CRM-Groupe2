@@ -30,6 +30,7 @@ public class Prospect {
     private String etatProspection;
 
     private LocalDate dateCreationProspection;
+    private LocalDate dateDernierContact;
 
     private Integer dureeRelance;
 
@@ -50,24 +51,6 @@ public class Prospect {
     private List<Evenement> prospectEvenements;
 
     public Prospect() {
-    }
-
-    public Prospect(String email, String photoUrl, String nom, String prenom, String fonction, String portable, String fixe, String etatProspection, LocalDate dateCreationProspection, Integer dureeRelance, boolean isClient, User userById, Entreprise entrepriseById, List<Note> prospectNotes, List<Evenement> prospectEvenements) {
-        this.email = email;
-        this.photoUrl = photoUrl;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.fonction = fonction;
-        this.portable = portable;
-        this.fixe = fixe;
-        this.etatProspection = etatProspection;
-        this.dateCreationProspection = dateCreationProspection;
-        this.dureeRelance = dureeRelance;
-        this.isClient = isClient;
-        this.userById = userById;
-        this.entrepriseById = entrepriseById;
-        this.prospectNotes = prospectNotes;
-        this.prospectEvenements = prospectEvenements;
     }
 
     public Long getId() {
@@ -148,6 +131,14 @@ public class Prospect {
 
     public void setDateCreationProspection(LocalDate dateCreationProspection) {
         this.dateCreationProspection = dateCreationProspection;
+    }
+
+    public LocalDate getDateDernierContact() {
+        return dateDernierContact;
+    }
+
+    public void setDateDernierContact(LocalDate dateDernierContact) {
+        this.dateDernierContact = dateDernierContact;
     }
 
     public Integer getDureeRelance() {

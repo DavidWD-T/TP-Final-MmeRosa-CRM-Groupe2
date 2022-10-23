@@ -103,8 +103,8 @@
                         <tr class="table-header">
                             <th scope="col" style="width: 20%">Nom</th>
                             <th scope="col" style="width: 17%">Entreprise</th>
-                            <th scope="col"style="width: 15%;">Statut</th>
-                            <th scope="col"style="width: 25%;">Email</th>
+                            <th scope="col" style="width: 15%;">Statut</th>
+                            <th scope="col" style="width: 25%;">Email</th>
                             <th scope="col" style="width: 19%">téléphone</th>
                             <th scope="col" style="width: 200px;">. . .</th>
                         </tr>
@@ -114,7 +114,7 @@
                             <tr class="contact-row">
                                 <td>${prospect.prenom} ${prospect.nom}</td>
                                 <td>${prospect.entrepriseById.nom}</td>
-                                <td><span class="badge badge-soft-danger mb-0">${prospect.etatProspection}</span></td>
+                                <td>${prospect.etatProspection}</td>
                                 <td>${prospect.email}</td>
                                 <td>${prospect.portable}</td>
                                 <td>
@@ -146,8 +146,8 @@
                         <tr class="table-header">
                             <th scope="col" style="width: 20%">Nom</th>
                             <th scope="col" style="width: 17%">Entreprise</th>
-                            <th scope="col"style="width: 15%;">Statut</th>
-                            <th scope="col"style="width: 25%;">Email</th>
+                            <th scope="col" style="width: 15%;">Statut</th>
+                            <th scope="col" style="width: 25%;">Email</th>
                             <th scope="col" style="width: 19%">téléphone</th>
                             <th scope="col" style="width: 200px;">. . .</th>
                         </tr>
@@ -157,7 +157,7 @@
                             <tr class="contact-row">
                                 <td>${client.prenom} ${client.nom}</td>
                                 <td>${client.entrepriseById.nom}</td>
-                                <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
+                                <td>${client.etatProspection}</td>
                                 <td>${client.email}</td>
                                 <td>${client.portable}</td>
                                 <td>

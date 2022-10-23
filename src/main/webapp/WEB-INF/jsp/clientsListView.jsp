@@ -90,8 +90,8 @@
                             <tr class="table-header">
                                 <th scope="col" style="width: 20%">Nom</th>
                                 <th scope="col" style="width: 17%">Entreprise</th>
-                                <th scope="col"style="width: 15%;">Statut</th>
-                                <th scope="col"style="width: 25%;">Email</th>
+                                <th scope="col" style="width: 15%;">Statut</th>
+                                <th scope="col" style="width: 25%;">Email</th>
                                 <th scope="col" style="width: 19%">téléphone</th>
                                 <th scope="col" style="width: 200px;">. . .</th>
                             </tr>
@@ -102,7 +102,7 @@
                                 <tr class="contact-row">
                                     <td>${client.nom} ${client.prenom}</td>
                                     <td>${client.entrepriseById.nom}</td>
-                                    <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
+                                    <td>${client.etatProspection}</td>
                                     <td>${client.email}</td>
                                     <td>${client.portable}</td>
                                     <td>

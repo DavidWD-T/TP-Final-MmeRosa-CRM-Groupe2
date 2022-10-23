@@ -44,13 +44,21 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/staticcalendar">Calendrier</a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parametres</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/signup/<sec:authentication property='principal.username' />">Profil</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listUsers">Liste utilisateurs</a></li>
-                        </ul>
-                    </li>
+                    <sec:authentication var="MailCo" property='principal.username' />
+                    <c:if test="${MailCo == 'rosa@worktogether.fr' }" var="condition">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parametres</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/signup/${MailCo}">Profil</a></li>
+                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listUsers">Liste utilisateurs</a></li>
+                            </ul>
+                        </li>
+                    </c:if>
+                    <c:if test="${!condition}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/signup/${MailCo}">Parametres</a>
+                        </li>
+                    </c:if>
                 </ul>
                 <form:form action="/logout" method="post" class="d-flex mb-2 mb-lg-0">
                     <button class="btn btn-outline-danger" type="submit">Deconnexion</button>

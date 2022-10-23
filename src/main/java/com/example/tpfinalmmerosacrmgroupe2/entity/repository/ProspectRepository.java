@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ProspectRepository extends CrudRepository<Prospect, Long> {
@@ -25,4 +26,8 @@ public interface ProspectRepository extends CrudRepository<Prospect, Long> {
 
     @Query("SELECT p FROM Prospect p WHERE p.userById = :user AND p.isClient=true AND (p.nom LIKE CONCAT('%',:name,'%') OR p.prenom like CONCAT('%',:name,'%') OR p.email like CONCAT('%',:name,'%') OR p.fixe like CONCAT('%',:name,'%') OR p.fonction like CONCAT('%',:name,'%') OR p.portable like CONCAT('%',:name,'%') OR p.entrepriseById.nom like CONCAT('%',:name,'%'))")
     List<Prospect> findClientsByName(@Param("user") User user, @Param("name") String name, Sort sort);
+
+    @Query("SELECT p FROM Prospect p WHERE p.userById = :user AND p.dateDernierContact < :dateJ AND p.etatProspection = 'En cours de prospection'")
+    List<Prospect> findProspectsByDate(@Param("user") User user,@Param("dateJ") LocalDate dateJ);
+
 }

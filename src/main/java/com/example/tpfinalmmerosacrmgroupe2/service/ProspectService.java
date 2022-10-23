@@ -38,9 +38,9 @@ public class ProspectService {
         }else if(order.equals("2")){
             sort = Sort.by(Sort.Direction.DESC, "prenom").by(Sort.Direction.DESC, "nom");
         }else if(order.equals("3")){
-            sort = Sort.by(Sort.Direction.ASC, "nom").by(Sort.Direction.ASC, "dateCreationProspection");
+            sort = Sort.by(Sort.Direction.ASC, "dateCreationProspection").by(Sort.Direction.ASC, "dateCreationProspection");
         }else if(order.equals("4")){
-            sort = Sort.by(Sort.Direction.DESC, "nom").by(Sort.Direction.DESC, "dateCreationProspection");
+            sort = Sort.by(Sort.Direction.DESC, "dateCreationProspection").by(Sort.Direction.DESC, "dateCreationProspection");
         }
         return prospectRepository.findProspectsByName(user, name, etat, sort);
     }
@@ -75,6 +75,16 @@ public class ProspectService {
         prospectRepository.delete(prospectToDelete);
         return true;
     }
+
+    public void UpdateProspectARelance(String userEmail){
+        User user = userRepository.findByEmail(userEmail);
+        List<Prospect> prospectList =  prospectRepository.findProspectsByDate(user, LocalDate.now());
+        prospectList.forEach(e -> {
+            e.setEtatProspection("À relancer");
+            prospectRepository.save(e);
+        });
+    }
+
 
     public Prospect createUpdateProspect(String mail, CreateProspect createProspect,String type){
         LocalDate localdateJ = LocalDate.now();

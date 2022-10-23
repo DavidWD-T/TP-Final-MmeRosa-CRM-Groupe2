@@ -126,7 +126,7 @@
                                 <tr class="contact-row">
                                     <td>${prospect.nom} ${prospect.prenom}</td>
                                     <td>${prospect.entrepriseById.nom}</td>
-                                    <td><span class="badge badge-soft-danger mb-0">${prospect.etatProspection}</span></td>
+                                    <td>${prospect.etatProspection}</td>
                                     <td>${prospect.email}</td>
                                     <td>${prospect.portable}</td>
                                     <td>
