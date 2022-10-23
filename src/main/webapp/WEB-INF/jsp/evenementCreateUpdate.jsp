@@ -2,26 +2,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="head.jsp"/>
 
-<style>
-    body{
-        background-color:#fff;
-    }
-    .contacts-list{
-        background-color: #f9f9ff;
-    }
-    .col-form-label{
+<%--<style>--%>
+<%--    body{--%>
+<%--        background-color:#fff;--%>
+<%--    }--%>
+<%--    .contacts-list{--%>
+<%--        background-color: #f9f9ff;--%>
+<%--    }--%>
+<%--    .col-form-label{--%>
 
-        margin-bottom: 4px;
-        border-radius: 8px;
-    }
-    .form-control{
-        background-color: aliceblue;
-    }
-    .form-group{
-        margin-bottom: 10px;
-    }
+<%--        margin-bottom: 4px;--%>
+<%--        border-radius: 8px;--%>
+<%--    }--%>
+<%--    .form-control{--%>
+<%--        background-color: aliceblue;--%>
+<%--    }--%>
+<%--    .form-group{--%>
+<%--        margin-bottom: 10px;--%>
+<%--    }--%>
 
-</style>
+<%--</style>--%>
 
 <body>
 <header>

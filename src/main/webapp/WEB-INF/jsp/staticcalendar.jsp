@@ -3,6 +3,7 @@
 <html lang="fr">
 
 <head>
+
 	<meta charset='utf-8' content="Cory Sanoy" name="Author" />
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -14,8 +15,7 @@
 	<script src="http://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js" type="text/javascript"></script>
 
 
-
-	<style>
+<%--	<style>--%>
 
 		/*body {*/
 		/*	margin: 40px 10px;*/
@@ -24,13 +24,13 @@
 		/*	font-size: 14px;*/
 		/*}*/
 
-		#calendar {
-			max-width: 900px;
-			margin: 0 auto;
-		}
+		/*#calendar {*/
+		/*	max-width: 900px;*/
+		/*	margin: 0 auto;*/
+		/*}*/
 
-	</style>
-</head>
+<%--	</style>--%>
+<%--</head>--%>
 <body>
 <header>
 	<jsp:include page="header.jsp"/>

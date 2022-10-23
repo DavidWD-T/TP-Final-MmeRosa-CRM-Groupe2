@@ -2,41 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%--<style>--%>
-<%--    body{--%>
-<%--        background-color:#fff;--%>
-<%--    }--%>
-<%--    .contacts-list{--%>
-<%--        background-color: #f9f9ff;--%>
-<%--    }--%>
-<%--    .project-list-table {--%>
-<%--        border-collapse: separate;--%>
-<%--        border-spacing: 0 12px--%>
-<%--    }--%>
-<%--    .table-header{--%>
-<%--        background-color: rgba(194,215,255,0.93);--%>
-<%--        color: #3b76e1;--%>
-<%--    }--%>
-<%--    .table-nowrap td, .table-nowrap th {--%>
-<%--        white-space: nowrap;--%>
-<%--    }--%>
-<%--    .table-borderless>:not(caption)>*>* {--%>
-<%--        border-bottom-width: 0;--%>
-<%--    }--%>
-<%--    .table>:not(caption)>*>* {--%>
-<%--        padding: 0.75rem 0.75rem;--%>
-<%--        background-color: var(--bs-table-bg);--%>
-<%--        border-bottom-width: 1px;--%>
-<%--        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);--%>
-<%--    }--%>
-<%--    .contact-row{--%>
-<%--        background-color: aliceblue;--%>
-<%--    }--%>
-<%--    .card-text, .card-title{--%>
-<%--        color: #3b76e1;--%>
-<%--    }--%>
-
-<%--</style>--%>
 
 <body>
 <header>
