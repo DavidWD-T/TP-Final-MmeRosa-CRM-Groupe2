@@ -27,7 +27,8 @@ public class ClientController {
     }
 
     @GetMapping("/all")
-    public String displayAllClients(Model model, @RequestParam(value = "name", required = false) String name,@RequestParam(value = "order", required = false) String order,  Principal principal){
+    public String displayAllClients(Model model, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "order", required = false) String order, Principal principal){
+
         List<Prospect> clientsList;
         String userEmail = principal.getName() ;
         if (name!= null) {
