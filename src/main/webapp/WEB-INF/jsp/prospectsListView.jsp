@@ -103,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>
+<%--            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>--%>
 
 
             <div class="row">

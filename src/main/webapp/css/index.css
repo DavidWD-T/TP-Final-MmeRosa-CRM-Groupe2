@@ -35,3 +35,18 @@ body{
     max-width: 900px;
     margin: 0 auto;
 }
+
+<style>
+ .dropdown-item{}
+.nav-link,.nav-item>.dropdown-item{
+    color: rgb(220,220,220);
+}
+.nav-link:hover,.nav-item>.dropdown-item:hover{
+    color: rgb(220,220,220);
+    background-color:rgb(69,99,150);
+}
+.dropdown-menu, .nav-item>.dropdown-item{
+    background-color:rgb(69,99,150);
+}
+
+</style>
