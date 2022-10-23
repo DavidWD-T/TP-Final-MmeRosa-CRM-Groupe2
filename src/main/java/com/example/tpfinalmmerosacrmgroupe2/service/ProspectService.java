@@ -33,7 +33,7 @@ public class ProspectService {
     public  List<Prospect> getAllProspectsByName(String userEmail, String name, String etat, String order){
         Sort sort = null;
         User user = userRepository.findByEmail(userEmail);
-        if(order.equals("1")){
+        if(order.equals("")){
             sort = Sort.by(Sort.Direction.ASC, "prenom").by(Sort.Direction.ASC, "nom");
         }else if(order.equals("2")){
             sort = Sort.by(Sort.Direction.DESC, "prenom").by(Sort.Direction.DESC, "nom");
