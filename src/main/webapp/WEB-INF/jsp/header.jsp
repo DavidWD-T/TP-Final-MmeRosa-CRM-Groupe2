@@ -17,7 +17,7 @@
 
 </style>
 
-<nav class="navbar navbar-expand-lg m-3 " style="background-color:rgba(69,99,150,1); border-top-left-radius: 30px; border-top-right-radius: 30px;">
+<nav class="navbar navbar-expand-lg m-3 mb-4" style="background-color:rgba(69,99,150,1); border-top-left-radius: 30px; border-top-right-radius: 30px;">
     <div class="container-fluid">
 
         <img src="/img/Sans_titre-removebg-preview.png" alt="logo" style="max-height: 50px">

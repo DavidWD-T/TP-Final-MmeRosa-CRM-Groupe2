@@ -57,7 +57,7 @@
 
 <div class="container-fluid">
 
-    <div class="contacts-list rounded-4 p-3 mb-2"  style="max-width: 1500px; margin: auto">
+    <div class="contacts-list rounded-4 p-3 mb-4"  style="max-width: 1500px; margin: auto">
         <form class="d-flex search_bar" role="search" method="get">
             <input name="name" id="name" class="form-control me-2" type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/clients/all" value="${name}">
 
@@ -71,20 +71,20 @@
 
     <div class="contacts-list rounded-4 p-3" style="max-width: 1500px; margin: auto">
         <div style="height: 78vh;">
-            <div class="row align-items-center">
+            <div class="row align-items-center mb-2">
                 <div class="col-6" style="height: max-content">
                     <h2><strong>Clients</strong></h2>
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
-                        <a href="${pageContext.request.contextPath}/clients/Create"  class="btn btn-primary">Ajouter client <i class="bx bx-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/clients/Create"  class="btn btn-outline-success">Ajouter client <i class="bx bx-plus"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive" style="min-height: 250px;">
+                    <div class="table-responsive" style="min-height: 300px;">
                         <table class="table project-list-table table-nowrap align-middle table-borderless">
                             <thead class="thead">
                             <tr class="table-header">
@@ -110,7 +110,8 @@
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                 <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}">details</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}">détails</a></li>
+                                                    <li><a class="dropdown-item"  href="${pageContext.request.contextPath}/evenements/Create/${client.id}">événement</a></li>
                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}">modifier</a></li>
                                                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
                                                 </ul>

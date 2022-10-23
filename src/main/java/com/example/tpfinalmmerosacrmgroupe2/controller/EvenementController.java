@@ -56,7 +56,7 @@ public class EvenementController {
     public String createEvenementForm(Model model, Principal principal, @PathVariable(value = "id") long id){
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
-        model.addAttribute("prospectEvenement",prospect);
+        model.addAttribute("prospect",prospect);
         model.addAttribute("createEvenement",new CreateEvenement());
         model.addAttribute("type", "Create");
         return "evenementCreateUpdate";
@@ -71,8 +71,8 @@ public class EvenementController {
         }else{
             Prospect prospect = prospectService.getProspectById(userEmail,id);
             createEvenement.setProspectById(prospect);
-            evenementService.createUpdateEvenement(userEmail, createEvenement);
-            return "redirect:/prospects/details/" + prospect.getId();
+           Evenement evenement = evenementService.createUpdateEvenement(userEmail, createEvenement);
+            return "redirect:/evenements/details/" + evenement.getId();
         }
     }
 

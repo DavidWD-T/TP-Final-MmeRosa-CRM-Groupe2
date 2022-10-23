@@ -44,7 +44,7 @@
 </header>
 
 <div class="container-fluid">
-    <div class="contacts-list rounded-4 p-3 mb-2"  style="max-width: 1500px; margin: auto">
+    <div class="contacts-list rounded-4 p-3 mb-5"  style="max-width: 1500px; margin: auto">
         <div class="row">
             <h1>Entreprise</h1>
             <div class="col-12 p-2">
@@ -93,7 +93,7 @@
             </div>
         </div>
     </div>
-    <div class="contacts-list rounded-4 p-3" style="max-width: 1500px; margin: auto">
+    <div class="contacts-list rounded-4 p-3 mb-5" style="max-width: 1500px; margin: auto">
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive" style="min-height: 250px;">
@@ -135,6 +135,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="contacts-list rounded-4 p-3" style="max-width: 1500px; margin: auto">
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive" style="min-height: 250px;">

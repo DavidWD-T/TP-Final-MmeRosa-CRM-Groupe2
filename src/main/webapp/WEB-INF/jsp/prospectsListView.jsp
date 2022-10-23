@@ -57,7 +57,7 @@
 
 <div class="container-fluid">
 
-    <div class="contacts-list rounded-4 p-3 mb-2"  style="max-width: 1500px; margin: auto">
+    <div class="contacts-list rounded-4 p-3 mb-4"  style="max-width: 1500px; margin: auto">
         <form class="search_bar" role="search" method="get" action="${pageContext.request.contextPath}/prospects/all">
             <div class="row">
                 <div class="col-6 col-lg-4">
@@ -92,20 +92,23 @@
 
     <div class="contacts-list rounded-4 p-3" style="max-width: 1500px; margin: auto">
         <div style="height: 78vh;">
-            <div class="row align-items-center">
+            <div class="row align-items-center mb-4">
                 <div class="col-6" style="height: max-content">
                     <h2><strong>Prospects</strong></h2>
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end gap-2">
-                        <a href="${pageContext.request.contextPath}/prospects/Create"  class="btn btn-primary">Ajouter prospect <i class="bx bx-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/prospects/Create"  class="btn btn-outline-success">Ajouter prospect <i class="bx bx-plus"></i></a>
                     </div>
                 </div>
             </div>
 
+            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>
+
+
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive" style="min-height: 250px;">
+                    <div class="table-responsive" style="min-height: 300px;">
                         <table class="table project-list-table table-nowrap align-middle table-borderless">
                             <thead class="thead">
                             <tr class="table-header">
@@ -128,10 +131,11 @@
                                     <td>${prospect.portable}</td>
                                     <td>
                                         <ul class="list-inline mb-0">
-                                            <li class="nav-item dropdown">
+                                            <li class="nav-item dropdown bg-light">
                                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                 <ul class="dropdown-menu" style=" background-color: #f9f9f9">
                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${prospect.id}">details</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/evenements/Create/${prospect.id}">événement</a></li>
                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}">modifier</a></li>
                                                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
                                                 </ul>

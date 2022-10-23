@@ -49,7 +49,7 @@ public class ClientController {
         return "clientView";
     }
 
-    @GetMapping("/Ureate")
+    @GetMapping("/Create")
     public String createClientForm(Model model, Principal principal){
         String userEmail = principal.getName();
         List<Entreprise> entrepriseList = entrepriseService.getAllEntreprise(userEmail);
