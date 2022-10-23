@@ -31,7 +31,7 @@
 
     <form:form action="${pageContext.request.contextPath}/clients/${type}" class="contacts-list rounded-4 p-3 mb-2" method="post" style="max-width: 1500px; margin: auto" enctype="multipart/form-data" modelAttribute="createProspect">
         <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
-
+        <h1>Client</h1>
         <div class="form-group row">
             <label class="col-2 col-form-label" for="nom">Nom</label>
             <div class="col-10">
