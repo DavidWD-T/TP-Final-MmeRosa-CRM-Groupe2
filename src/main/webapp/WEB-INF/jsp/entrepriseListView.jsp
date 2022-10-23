@@ -1,23 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="head.jsp"/>
 
-<%--<style>--%>
-<%--    body{--%>
-<%--        background-color:#fff;--%>
-<%--    }--%>
-<%--    .contacts-list{--%>
-<%--        background-color: #f9f9ff;--%>
-<%--    }--%>
-
-<%--    .card-text, .card-title{--%>
-<%--        color: #3b76e1;--%>
-<%--    }--%>
-<%--    .contact-row{--%>
-<%--        background-color: aliceblue;--%>
-<%--    }--%>
-
-<%--</style>--%>
-
 <body>
 <header>
     <jsp:include page="header.jsp"/>

@@ -36,8 +36,7 @@ body{
     margin: 0 auto;
 }
 
-<style>
- .dropdown-item{}
+.dropdown-item{}
 .nav-link,.nav-item>.dropdown-item{
     color: rgb(220,220,220);
 }
@@ -49,4 +48,9 @@ body{
     background-color:rgb(69,99,150);
 }
 
-</style>
+.col-form-label{
+    background-color: rgba(194,215,255,0.93);
+    color: #3b76e1;
+    margin-bottom: 4px;
+    border-radius: 8px;
+}
