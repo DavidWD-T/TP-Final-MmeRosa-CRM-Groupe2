@@ -31,6 +31,7 @@
         <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
         <form:input path="dateCreation" type="localdate" name="dateCreation" id="dateCreation" class="form-control" hidden="true" />
 
+        <h1>Entreprise</h1>
         <div class="form-group row">
             <label class="col-2 col-form-label" for="nom">Nom: </label>
             <div class="col-10">
