@@ -1,23 +1,23 @@
 <jsp:include page="head.jsp"/>
 
-<style>
-    body{
-        background-color:#fff;
-    }
-    .contacts-list{
-        background-color: #f9f9ff;
-    }
-    .col-form-label{
-        background-color: rgba(194,215,255,0.93);
-        color: #3b76e1;
-        margin-bottom: 4px;
-        border-radius: 8px;
-    }
-    .form-control{
-        background-color: aliceblue;
-    }
+<%--<style>--%>
+<%--    body{--%>
+<%--        background-color:#fff;--%>
+<%--    }--%>
+<%--    .contacts-list{--%>
+<%--        background-color: #f9f9ff;--%>
+<%--    }--%>
+<%--    .col-form-label{--%>
+<%--        background-color: rgba(194,215,255,0.93);--%>
+<%--        color: #3b76e1;--%>
+<%--        margin-bottom: 4px;--%>
+<%--        border-radius: 8px;--%>
+<%--    }--%>
+<%--    .form-control{--%>
+<%--        background-color: aliceblue;--%>
+<%--    }--%>
 
-</style>
+<%--</style>--%>
 
 <body>
 <header>

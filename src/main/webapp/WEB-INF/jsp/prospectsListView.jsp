@@ -1,56 +1,56 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
-<html lang="fr">
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+<%--<!doctype html>--%>
+<%--<html lang="fr">--%>
+<%--<head>--%>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />--%>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />--%>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prospects</title>
+<%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"--%>
+<%--          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">--%>
+<%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>--%>
+<%--    <meta charset="UTF-8">--%>
+<%--    <meta name="viewport"--%>
+<%--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">--%>
+<%--    <meta http-equiv="X-UA-Compatible" content="ie=edge">--%>
+<%--    <title>Prospects</title>--%>
 
-    <style>
-        body{
-            background-color:#fff;
-        }
-        .contacts-list{
-            background-color: #f9f9ff;
-        }
-        .project-list-table {
-            border-collapse: separate;
-            border-spacing: 0 12px
-        }
-        .table-header{
-            background-color: rgba(194,215,255,0.93);
-            color: #3b76e1;
-        }
-        .table-nowrap td, .table-nowrap th {
-            white-space: nowrap;
-        }
-        .table-borderless>:not(caption)>*>* {
-            border-bottom-width: 0;
-        }
-        .table>:not(caption)>*>* {
-            padding: 0.75rem 0.75rem;
-            background-color: var(--bs-table-bg);
-            border-bottom-width: 1px;
-            box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-        }
-        .contact-row{
-            background-color: aliceblue;
-        }
+<%--    <style>--%>
+<%--        body{--%>
+<%--            background-color:#fff;--%>
+<%--        }--%>
+<%--        .contacts-list{--%>
+<%--            background-color: #f9f9ff;--%>
+<%--        }--%>
+<%--        .project-list-table {--%>
+<%--            border-collapse: separate;--%>
+<%--            border-spacing: 0 12px--%>
+<%--        }--%>
+<%--        .table-header{--%>
+<%--            background-color: rgba(194,215,255,0.93);--%>
+<%--            color: #3b76e1;--%>
+<%--        }--%>
+<%--        .table-nowrap td, .table-nowrap th {--%>
+<%--            white-space: nowrap;--%>
+<%--        }--%>
+<%--        .table-borderless>:not(caption)>*>* {--%>
+<%--            border-bottom-width: 0;--%>
+<%--        }--%>
+<%--        .table>:not(caption)>*>* {--%>
+<%--            padding: 0.75rem 0.75rem;--%>
+<%--            background-color: var(--bs-table-bg);--%>
+<%--            border-bottom-width: 1px;--%>
+<%--            box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);--%>
+<%--        }--%>
+<%--        .contact-row{--%>
+<%--            background-color: aliceblue;--%>
+<%--        }--%>
 
-    </style>
+<%--    </style>--%>
 
-</head>
+<%--</head>--%>
 
-
+<c:import url="head.jsp"/>
 <body style="height: 100vh;" class="p-0 d-flex flex-column">
 
 <c:import url="header.jsp"/>
@@ -103,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>
+<%--            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>--%>
 
 
             <div class="row">
