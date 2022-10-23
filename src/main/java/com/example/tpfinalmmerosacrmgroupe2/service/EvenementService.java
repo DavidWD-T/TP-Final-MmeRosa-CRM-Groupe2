@@ -1,5 +1,6 @@
 package com.example.tpfinalmmerosacrmgroupe2.service;
 
+import com.example.tpfinalmmerosacrmgroupe2.api.EventDTO;
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEvenement;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Evenement;
@@ -9,6 +10,7 @@ import com.example.tpfinalmmerosacrmgroupe2.entity.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,6 +27,12 @@ public class EvenementService {
     public List<Evenement> getAllEvenements(String userEmail) {
         User user = userRepository.findByEmail(userEmail);
         return evenementRepository.findAllEvenements(user);
+    }
+    public List<EventDTO> getAllEventsDTO(String userEmail) {
+        List<Evenement> evenementList = getAllEvenements(userEmail);
+        List<EventDTO> eventDTOList = new ArrayList<>();
+        evenementList.forEach(e-> eventDTOList.add(e.toEventDTO()));
+        return eventDTOList;
     }
 
     public List<Evenement> getEvenementsByName(String userEmail, String name) {

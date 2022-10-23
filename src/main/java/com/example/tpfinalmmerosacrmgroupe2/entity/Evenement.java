@@ -1,9 +1,11 @@
 package com.example.tpfinalmmerosacrmgroupe2.entity;
 
+import com.example.tpfinalmmerosacrmgroupe2.api.EventDTO;
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEvenement;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -166,5 +168,20 @@ public class Evenement {
         createEvenement.setHeureFin(this.heureFin);
         createEvenement.setProspectById(this.prospectById);
         return createEvenement;
+    }
+
+    public EventDTO toEventDTO() {
+        EventDTO eventDTO = new EventDTO();
+        eventDTO.setId(this.id);
+        eventDTO.setTitle(this.prospectById.getNom() + " " + this.prospectById.getPrenom());
+        eventDTO.setURL("http://localhost:8080/evenements/details/"+this.id);
+
+        LocalDateTime dateTimeStart = this.date.atTime(this.heureDebut);
+        LocalDateTime dateTimeEnd = this.date.atTime(this.heureFin);
+
+
+        eventDTO.setStart(dateTimeStart);
+        eventDTO.setEnd(dateTimeEnd);
+        return eventDTO;
     }
 }

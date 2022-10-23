@@ -41,7 +41,7 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all">Entreprises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all">Calendrier</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/staticcalendar">Calendrier</a>
                     </li>
 
                     <li class="nav-item dropdown">
