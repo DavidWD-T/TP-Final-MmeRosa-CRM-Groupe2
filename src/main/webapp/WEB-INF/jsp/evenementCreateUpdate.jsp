@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="head.jsp"/>
 
+
 <style>
     body{
         background-color:#fff;
@@ -23,7 +24,6 @@
     }
 
 </style>
-
 <body>
 <header>
     <jsp:include page="header.jsp"/>
@@ -76,21 +76,21 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-2 col-form-label" for="heureDebut">heureDebut</label>
+            <label class="col-2 col-form-label" for="heureDebut">heure du début</label>
             <div class="col-10">
                 <form:input path="heureDebut" type="time" name="heureDebut" id="heureDebut" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-2 col-form-label" for="heureFin">heureFin</label>
+            <label class="col-2 col-form-label" for="heureFin">heure de la fin</label>
             <div class="col-10">
                 <form:input path="heureFin" type="time" name="heureFin" id="heureFin" class="form-control" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-2 col-form-label" for="description">description</label>
+            <label class="col-2 col-form-label" for="description" style="max-height: 38px">description</label>
             <div class="col-10">
                 <form:textarea path="description" class="form-control" id="description" rows="3"></form:textarea>
             </div>
@@ -101,4 +101,3 @@
 </div>
 
 </body>
-</html>

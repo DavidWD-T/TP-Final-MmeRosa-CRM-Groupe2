@@ -71,7 +71,7 @@
 
     <div class="contacts-list rounded-4 p-3" style="max-width: 1500px; margin: auto">
         <div style="height: 78vh;">
-            <div class="row align-items-center mb-2">
+            <div class="row align-items-center mb-4">
                 <div class="col-6" style="height: max-content">
                     <h2><strong>Clients</strong></h2>
                 </div>
@@ -81,6 +81,8 @@
                     </div>
                 </div>
             </div>
+
+            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>
 
             <div class="row">
                 <div class="col-lg-12">
