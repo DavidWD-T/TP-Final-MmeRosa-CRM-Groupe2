@@ -65,8 +65,8 @@
                                 <th scope="col" style="width: 25%">Nom</th>
                                 <th scope="col" style="width: 17%">Entreprise</th>
                                 <th scope="col" style="width: 20%;">Statut</th>
-                                <th scope="col" style="width: 20%;">Email</th>
-                                <th scope="col" style="width: 14%">téléphone</th>
+                                <th scope="col" class="d-none d-lg-table-cell" style="width: 20%;">Email</th>
+                                <th scope="col" class="d-none d-lg-table-cell" style="width: 14%">téléphone</th>
                                 <th scope="col" style="width: 200px;">. . .</th>
                             </tr>
                             </thead>
@@ -75,11 +75,13 @@
                             <c:forEach items="${prospects}" var="prospect">
                                 <tr class="contact-row">
                                     <td><a href="${pageContext.request.contextPath}/prospects/details/${prospect.id}"><img src="${prospect.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
+
                                         <strong>${prospect.nom} ${prospect.prenom}</strong></td>
                                     <td><a href="${pageContext.request.contextPath}/entreprises/details/${prospect.entrepriseById.id}"><span class="badge badge-soft-primary mb-0" style=" color: #57c9eb !important; background-color: rgba(87,201,235,.1); font-size: 16px"><strong>${prospect.entrepriseById.nom}</strong></span></a></td>
                                     <td><span class="badge badge-soft-primary mb-0" style=" color: #f56e6e !important; background-color: rgba(245,110,110,.1);">${prospect.etatProspection}</span></td>
                                     <td><a href="mailto:${prospect.email}"><span class="badge badge-soft-primary mb-0" style=" color: #3b76e1 !important; background-color: rgba(59,118,225,.1); font-size: 16px">${prospect.email}</span></a></td>
                                     <td><a href="tel:${prospect.portable}"><span class="badge badge-soft-success mb-0" style="  color: #63ad6f !important; background-color: rgba(99,173,111,.1); font-size: 16px">${prospect.portable}</span></a></td>
+
                                     <td>
                                         <ul class="list-inline mb-0">
                                             <li class="nav-item dropdown bg-light">

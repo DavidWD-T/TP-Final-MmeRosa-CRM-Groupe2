@@ -92,6 +92,10 @@ public class ProspectService {
 
     }
 
+    public void ARelancer(Prospect prospect){
+        prospect.setEtatProspection("À relancer");
+        prospectRepository.save(prospect);
+    }
 
     public Prospect createUpdateProspect(String mail, CreateProspect createProspect,String type){
         LocalDate localdateJ = LocalDate.now();
@@ -138,4 +142,9 @@ public class ProspectService {
        return prospectRepository.save(prospect);
     }
 
+    public void setProspectToClient(String userEmail, long id) {
+        Prospect prospect = getProspectById(userEmail, id);
+        prospect.setClient(true);
+        prospectRepository.save(prospect);
+    }
 }

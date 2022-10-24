@@ -48,13 +48,14 @@
                                 <th scope="col" style="width: 25%">Nom</th>
                                 <th scope="col" style="width: 17%">Entreprise</th>
                                 <th scope="col" style="width: 15%;">Statut</th>
-                                <th scope="col" style="width: 20%;">Email</th>
-                                <th scope="col" style="width: 19%">téléphone</th>
+                                <th class="d-none d-lg-table-cell" scope="col" style="width: 20%;">Email</th>
+                                <th class="d-none d-lg-table-cell" scope="col" style="width: 19%">téléphone</th>
                                 <th scope="col" style="width: 200px;">. . .</th>
                             </tr>
                             </thead>
 
                             <tbody class="tbody">
+
                                 <c:forEach items="${clients}" var="client">
                                     <tr class="contact-row">
                                         <td><a href="${pageContext.request.contextPath}/clients/details/${client.id}"><img src="${client.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
@@ -94,6 +95,7 @@
                                                         <button type="submit" class="btn btn-danger">Oui</button>
                                                     </form>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>

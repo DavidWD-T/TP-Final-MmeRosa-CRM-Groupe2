@@ -71,8 +71,8 @@
                             <th scope="col" style="width: 20%">Nom</th>
                             <th scope="col" style="width: 17%">Entreprise</th>
                             <th scope="col" style="width: 15%;">Statut</th>
-                            <th scope="col" style="width: 25%;">Email</th>
-                            <th scope="col" style="width: 19%">téléphone</th>
+                            <th class="d-none d-lg-table-cell" scope="col" style="width: 25%;">Email</th>
+                            <th class="d-none d-lg-table-cell" scope="col" style="width: 19%">téléphone</th>
                             <th scope="col" style="width: 200px;">. . .</th>
                         </tr>
                         </thead>
@@ -82,8 +82,8 @@
                                 <td>${prospect.prenom} ${prospect.nom}</td>
                                 <td>${prospect.entrepriseById.nom}</td>
                                 <td>${prospect.etatProspection}</td>
-                                <td>${prospect.email}</td>
-                                <td>${prospect.portable}</td>
+                                <td class="d-none d-lg-table-cell">${prospect.email}</td>
+                                <td class="d-none d-lg-table-cell">${prospect.portable}</td>
                                 <td>
                                     <ul class="list-inline mb-0">
                                         <li class="nav-item dropdown">
