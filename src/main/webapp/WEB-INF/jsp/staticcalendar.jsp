@@ -19,7 +19,7 @@
 				right: 'month,agendaWeek,agendaDay'
 			},
 			defaultDate: Date.now(),
-			editable: true,
+			//editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: {
 				url: '/allevents',

@@ -93,7 +93,7 @@ public class ClientController {
             return "clientCreateUpdate";
         }else{
             Prospect prospect = prospectService.createUpdateProspect(userEmail, createProspect,"Client");
-            return "redirect:/clients/all" ;
+            return "redirect:/clients/details/" + prospect.getId();
         }
     }
 

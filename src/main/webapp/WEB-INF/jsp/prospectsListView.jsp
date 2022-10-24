@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-<%--            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>--%>
+            <div class="divider py-1" style="border-radius: 80%; background-color: rgba(188,200,255,0.98)"></div>
 
 
             <div class="row">
@@ -62,11 +62,11 @@
                         <table class="table project-list-table table-nowrap align-middle table-borderless">
                             <thead class="thead">
                             <tr class="table-header">
-                                <th scope="col" style="width: 20%">Nom</th>
+                                <th scope="col" style="width: 25%">Nom</th>
                                 <th scope="col" style="width: 17%">Entreprise</th>
-                                <th scope="col" style="width: 15%;">Statut</th>
-                                <th scope="col" style="width: 25%;">Email</th>
-                                <th scope="col" style="width: 19%">téléphone</th>
+                                <th scope="col" style="width: 20%;">Statut</th>
+                                <th scope="col" style="width: 20%;">Email</th>
+                                <th scope="col" style="width: 14%">téléphone</th>
                                 <th scope="col" style="width: 200px;">. . .</th>
                             </tr>
                             </thead>
@@ -74,7 +74,8 @@
                             <tbody class="tbody">
                             <c:forEach items="${prospects}" var="prospect">
                                 <tr class="contact-row">
-                                    <td>${prospect.nom} ${prospect.prenom}</td>
+                                    <td><a href="${pageContext.request.contextPath}/prospects/details/${prospect.id}"><img src="${prospect.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
+                                            ${prospect.nom} ${prospect.prenom}</td>
                                     <td>${prospect.entrepriseById.nom}</td>
                                     <td>${prospect.etatProspection}</td>
                                     <td>${prospect.email}</td>
@@ -84,10 +85,10 @@
                                             <li class="nav-item dropdown bg-light">
                                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                 <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${prospect.id}">details</a></li>
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/evenements/Create/${prospect.id}">événement</a></li>
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}">modifier</a></li>
-                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${prospect.id}"><i class='far fa-address-card'></i> details</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/evenements/Create/${prospect.id}"><i class="fa fa-calendar" aria-hidden="true"></i> événement</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}"><i class="fa fa-pencil fa-fw"></i> modifier</a></li>
+                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

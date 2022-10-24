@@ -49,6 +49,11 @@ public class EvenementController {
         String userEmail = principal.getName();
         Evenement evenement = evenementService.getEvenementById(userEmail, id);
         model.addAttribute("evenement", evenement);
+        if (evenement.getProspectById().isClient() == true){
+            model.addAttribute("client", "client");
+        }else {
+            model.addAttribute("client", "prospect");
+        }
         return "evenementView";
     }
 
@@ -67,6 +72,7 @@ public class EvenementController {
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
             model.addAttribute("createEvenement",createEvenement);
+            model.addAttribute("type", "Create");
             return "evenementCreateUpdate";
         }else{
             Prospect prospect = prospectService.getProspectById(userEmail,id);
@@ -90,10 +96,11 @@ public class EvenementController {
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
             model.addAttribute("createEvenement",createEvenement);
+            model.addAttribute("type", "Update");
             return "evenementCreateUpdate";
         }else{
-            evenementService.createUpdateEvenement(userEmail, createEvenement);
-            return "redirect:/clients/all" ;
+           Evenement evenement = evenementService.createUpdateEvenement(userEmail, createEvenement);
+            return "redirect:/evenements/details/" + evenement.getId();
         }
     }
 

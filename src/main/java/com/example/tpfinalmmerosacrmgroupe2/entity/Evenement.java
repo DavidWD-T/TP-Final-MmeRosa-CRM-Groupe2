@@ -2,6 +2,7 @@ package com.example.tpfinalmmerosacrmgroupe2.entity;
 
 import com.example.tpfinalmmerosacrmgroupe2.api.EventDTO;
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEvenement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;

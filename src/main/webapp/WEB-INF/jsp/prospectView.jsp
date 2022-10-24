@@ -14,9 +14,9 @@
             <h1>Prospect</h1>
             <div class="col-12 p-2">
                 <div class="card text-center contact-row">
-                    <img src="${prospect.photoUrl}" class="card-img-top text-uppercase" style="max-height: 50vh" alt="photo du prospect ${prospect.nom} ${prospect.prenom}">
+                    <img src="${prospect.photoUrl}" class="card-img-top text-uppercase rounded-circle mt-2" style="width: 200px; height: 200px; margin: auto" alt="photo du prospect ${prospect.nom} ${prospect.prenom}">
                     <div class="card-body text-center text-md-start">
-                        <h5 class="card-title text-center text-uppercase">${prospect.nom} ${prospect.prenom}</h5>
+                        <h5 class="card-title text-center text-uppercase mb-4"><strong>${prospect.nom} ${prospect.prenom}</strong></h5>
                         <div class="d-md-flex flex-wrap justify-content-between px-4">
                             <p class="card-text col-md-6">Portable : <a href="tel:${prospect.portable}">${prospect.portable}</a></p>
                             <p class="card-text col-md-6 ">Fixe : <a href="tel:${prospect.fixe}">${prospect.fixe}</a></p>
@@ -47,9 +47,9 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}" class="btn btn-primary">Update Prospect</a>
+                            <a href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}" class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Update Prospect</a>
                             <!-- MODAL DELETE CONFIRMATION -->
-                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${prospect.id}">Delete Prospect</button>
+                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${prospect.id}"><i class="fa fa-trash-o fa-lg"></i> Delete Prospect</button>
                         </div>
                     </div>
                 </div>

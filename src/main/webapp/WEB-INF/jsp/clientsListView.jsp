@@ -40,10 +40,10 @@
                         <table class="table project-list-table table-nowrap align-middle table-borderless">
                             <thead class="thead">
                             <tr class="table-header">
-                                <th scope="col" style="width: 20%">Nom</th>
+                                <th scope="col" style="width: 25%">Nom</th>
                                 <th scope="col" style="width: 17%">Entreprise</th>
                                 <th scope="col" style="width: 15%;">Statut</th>
-                                <th scope="col" style="width: 25%;">Email</th>
+                                <th scope="col" style="width: 20%;">Email</th>
                                 <th scope="col" style="width: 19%">téléphone</th>
                                 <th scope="col" style="width: 200px;">. . .</th>
                             </tr>
@@ -52,7 +52,8 @@
                             <tbody class="tbody">
                             <c:forEach items="${clients}" var="client">
                                 <tr class="contact-row">
-                                    <td>${client.nom} ${client.prenom}</td>
+                                    <td><a href="${pageContext.request.contextPath}/clients/details/${client.id}"><img src="${client.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
+                                            ${client.nom} ${client.prenom}</td>
                                     <td>${client.entrepriseById.nom}</td>
                                     <td>${client.etatProspection}</td>
                                     <td>${client.email}</td>
@@ -62,10 +63,10 @@
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                 <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}">détails</a></li>
-                                                    <li><a class="dropdown-item"  href="${pageContext.request.contextPath}/evenements/Create/${client.id}">événement</a></li>
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}">modifier</a></li>
-                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#">supprimer</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}"><i class='far fa-address-card'></i> détails</a></li>
+                                                    <li><a class="dropdown-item"  href="${pageContext.request.contextPath}/evenements/Create/${client.id}"><i class="fa fa-calendar" aria-hidden="true"></i> événement</a></li>
+                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}"><i class="fa fa-pencil fa-fw"></i> modifier</a></li>
+                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

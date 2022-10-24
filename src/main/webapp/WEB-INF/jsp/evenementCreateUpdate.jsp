@@ -31,7 +31,7 @@
 <div class="container-fluid text-center">
     <form:form action="${pageContext.request.contextPath}/evenements/${type}/${prospect.id}" method="post" class="contacts-list rounded-4 p-3 mb-2" style="max-width: 1500px; margin: auto" modelAttribute="createEvenement">
         <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
-        <h1>Evenement</h1>
+        <h1>${type} evenement</h1>
 
         <div class="form-group row">
             <label class="col-2 col-form-label" for="motif">motif</label>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-2 col-form-label" for="heureDebut">heure du début</label>
+            <label class="col-2 col-form-label" for="heureDebut">heure du debut</label>
             <div class="col-10">
                 <form:input path="heureDebut" type="time" name="heureDebut" id="heureDebut" class="form-control" />
             </div>

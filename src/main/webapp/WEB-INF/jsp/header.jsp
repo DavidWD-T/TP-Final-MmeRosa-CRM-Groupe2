@@ -17,24 +17,24 @@
                         <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/prospects/all">Prospects</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/prospects/all"><i class='fas fa-address-book'></i> Prospects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/clients/all">Clients</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/clients/all"><i class='far fa-address-book'></i> Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all">Entreprises</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/entreprises/all"><i class='fas fa-city'></i> Entreprises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/staticcalendar">Calendrier</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/staticcalendar"><i class="fa fa-calendar" aria-hidden="true"></i> Calendrier</a>
                     </li>
 
                     <sec:authentication var="MailCo" property='principal.username' />
                     <c:if test="${MailCo == 'rosa@worktogether.fr' }" var="condition">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parametres</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/signup/${MailCo}">Profil</a></li>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-cog"></i> Parametres</a>
+                            <ul class="dropdown-menu bg-light">
+                                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/signup/${MailCo}"> Profil</a></li>
                                 <li><a class="dropdown-item" href="${pageContext.request.contextPath}/listUsers">Liste utilisateurs</a></li>
                             </ul>
                         </li>

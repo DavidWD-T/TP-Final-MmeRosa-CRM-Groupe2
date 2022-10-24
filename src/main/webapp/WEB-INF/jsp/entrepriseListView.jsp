@@ -31,12 +31,12 @@
             <c:forEach items="${entreprises}" var="entreprise">
                 <div class="col-6 col-lg-3 p-2">
                     <div class="card text-center contact-row">
-                        <img src="${entreprise.logo}" class="card-img-top w-100" alt="${entreprise.nom}${entreprise.id}" >
+                        <img src="${entreprise.logo}" class="card-img-top text-uppercase rounded-circle mt-2" style="width: 100px; height: 100px; margin: auto" alt="${entreprise.nom}${entreprise.id}" >
                         <div class="card-body">
-                            <h5 class="card-title">${entreprise.nom}</h5>
-                            <p class="card-text">Site Web : ${entreprise.siteWeb}</p>
-                            <p class="card-text">Telephone : ${entreprise.telephone}</p>
-                            <p class="card-text">Email : ${entreprise.email}</p>
+                            <h5 class="card-title text-uppercase mb-3"><strong>${entreprise.nom}</strong></h5>
+                            <p class="card-text"><i class='far fa-compass'></i> Site Web : ${entreprise.siteWeb}</p>
+                            <p class="card-text"><i class='fas fa-phone'></i> Telephone : ${entreprise.telephone}</p>
+                            <p class="card-text"><i class='far fa-envelope-open'></i> Email : ${entreprise.email}</p>
                             <a href="${pageContext.request.contextPath}/entreprises/details/${entreprise.id}" class="btn btn-primary">View Entreprise</a>
                         </div>
                     </div>
