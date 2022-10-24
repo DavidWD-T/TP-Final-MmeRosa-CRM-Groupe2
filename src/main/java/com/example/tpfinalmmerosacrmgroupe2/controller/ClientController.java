@@ -2,8 +2,10 @@ package com.example.tpfinalmmerosacrmgroupe2.controller;
 
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateProspect;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Note;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import com.example.tpfinalmmerosacrmgroupe2.service.EntrepriseService;
+import com.example.tpfinalmmerosacrmgroupe2.service.NoteService;
 import com.example.tpfinalmmerosacrmgroupe2.service.ProspectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +22,12 @@ public class ClientController {
 
     private ProspectService prospectService;
     private EntrepriseService entrepriseService;
+    private NoteService noteService;
 
-    public ClientController(ProspectService prospectService,EntrepriseService entrepriseService) {
+    public ClientController(ProspectService prospectService,EntrepriseService entrepriseService, NoteService noteService) {
         this.prospectService = prospectService;
         this.entrepriseService = entrepriseService;
+        this.noteService = noteService;
     }
 
     @GetMapping("/all")
@@ -51,6 +55,10 @@ public class ClientController {
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
         model.addAttribute("prospect", prospect);
+        List<Note> noteList = noteService.getAllNotesClient(id);
+        model.addAttribute("notes", noteList);
+        List<Note> noteList2 = noteService.getAllNotesNonClient(id);
+        model.addAttribute("noteshisto", noteList2);
         return "clientView";
     }
 

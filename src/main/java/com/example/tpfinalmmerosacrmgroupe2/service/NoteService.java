@@ -69,12 +69,12 @@ public class NoteService {
                 }
                 prospect.setDateDernierContact(dateRecent);
             }
+            note.setProspectById(createNote.getProspectById());
         }else {
             note = getNoteById(createNote.getId());
         }
 
         note.setTexte(createNote.getTexte());
-        note.setProspectById(createNote.getProspectById());
 
         return noteRepository.save(note);
     }

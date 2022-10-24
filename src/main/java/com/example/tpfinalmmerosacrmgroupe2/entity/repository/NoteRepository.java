@@ -10,12 +10,12 @@ import java.util.List;
 
 public interface NoteRepository extends CrudRepository<Note, Long> {
 
-    @Query(value = "SELECT p FROM Note p WHERE p.prospectById = :prospect")
+    @Query(value = "SELECT p FROM Note p WHERE p.prospectById = :prospect ORDER BY p.date desc, p.heure desc")
     List<Note> findAllNotesByProspectById(Prospect prospect);
 
-    @Query(value = "SELECT p FROM Note p WHERE p.prospectById = :prospect AND p.prospectEntrepriseNom = :filtre")
+    @Query(value = "SELECT p FROM Note p WHERE p.prospectById = :prospect AND p.prospectEntrepriseNom = :filtre ORDER BY p.date desc, p.heure desc")
     List<Note> findAllNotesByProspectByIdClient(Prospect prospect, String filtre);
 
-    @Query(value = "SELECT p FROM Note p WHERE p.prospectById = :prospect AND  p.prospectEntrepriseNom <> :filtre")
+    @Query(value = "SELECT p FROM Note p WHERE p.prospectById = :prospect AND  p.prospectEntrepriseNom <> :filtre ORDER BY p.date desc, p.heure desc")
     List<Note> findAllNotesByProspectByIdNonClient(Prospect prospect, String filtre);
 }

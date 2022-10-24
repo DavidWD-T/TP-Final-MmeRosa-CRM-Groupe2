@@ -2,8 +2,10 @@ package com.example.tpfinalmmerosacrmgroupe2.controller;
 
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateProspect;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Note;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import com.example.tpfinalmmerosacrmgroupe2.service.EntrepriseService;
+import com.example.tpfinalmmerosacrmgroupe2.service.NoteService;
 import com.example.tpfinalmmerosacrmgroupe2.service.ProspectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +22,12 @@ public class ProspectController {
 
     private ProspectService prospectService;
     private EntrepriseService entrepriseService;
+    private NoteService noteService;
 
-    public ProspectController(ProspectService prospectService, EntrepriseService entrepriseService) {
+    public ProspectController(ProspectService prospectService, EntrepriseService entrepriseService, NoteService noteService) {
         this.prospectService = prospectService;
         this.entrepriseService = entrepriseService;
+        this.noteService = noteService;
     }
 
     @GetMapping("/all")
@@ -50,7 +54,9 @@ public class ProspectController {
     public String displaySpecificProspect(Model model, @PathVariable(value="id") long id, Principal principal){
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
+        List<Note> noteList = noteService.getAllNotes(id);
         model.addAttribute("prospect", prospect);
+        model.addAttribute("notes", noteList);
         return "prospectView";
     }
 
@@ -87,6 +93,15 @@ public class ProspectController {
         model.addAttribute("createProspect", createProspect);
         model.addAttribute("type", "Update");
         return "prospectCreateUpdate";
+    }
+
+    @PostMapping("/UpdateClient/{id}")
+    public String updateClientProspectForm(Model model,  @PathVariable(value="id") long id, Principal principal){
+        String userEmail = principal.getName();
+
+        prospectService.setProspectToClient(userEmail, id);
+
+        return "redirect:/clients/details/" + id ;
     }
 
     @PostMapping("/Update")

@@ -48,8 +48,8 @@
                                 <th scope="col" style="width: 25%">Nom</th>
                                 <th scope="col" style="width: 17%">Entreprise</th>
                                 <th scope="col" style="width: 15%;">Statut</th>
-                                <th scope="col" style="width: 20%;">Email</th>
-                                <th scope="col" style="width: 19%">téléphone</th>
+                                <th class="d-none d-lg-table-cell" scope="col" style="width: 20%;">Email</th>
+                                <th class="d-none d-lg-table-cell" scope="col" style="width: 19%">téléphone</th>
                                 <th scope="col" style="width: 200px;">. . .</th>
                             </tr>
                             </thead>
@@ -61,8 +61,8 @@
                                             ${client.nom} ${client.prenom}</td>
                                     <td>${client.entrepriseById.nom}</td>
                                     <td>${client.etatProspection}</td>
-                                    <td>${client.email}</td>
-                                    <td>${client.portable}</td>
+                                    <td class="d-none d-lg-table-cell">${client.email}</td>
+                                    <td class="d-none d-lg-table-cell">${client.portable}</td>
                                     <td>
                                         <ul class="list-inline mb-0">
                                             <li class="nav-item dropdown">
