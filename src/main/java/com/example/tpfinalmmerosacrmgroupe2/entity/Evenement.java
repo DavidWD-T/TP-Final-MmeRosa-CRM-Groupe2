@@ -27,6 +27,7 @@ public class Evenement {
 
     private String voiceCallUrl;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     private LocalTime heureDebut;

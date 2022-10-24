@@ -71,7 +71,7 @@
         <div class="form-group row">
             <label class="col-2 col-form-label" for="date">date</label>
             <div class="col-10">
-                <form:input path="date" type="date" name="date" id="date" class="form-control"/>
+                <form:input path="date" type="date" name="date" id="date" class="form-control" required="true"/>
             </div>
         </div>
 
@@ -95,6 +95,8 @@
                 <form:textarea path="description" class="form-control" id="description" rows="3"></form:textarea>
             </div>
         </div>
+
+        <form:input path="prospectById" name="prospectById" id="prospectById" class="form-control" value="${prospect.prospectById}" hidden="true"/>
 
         <button type="submit" class="btn btn-lg btn-primary btn-block m-3 ">${type}</button>
     </form:form>
