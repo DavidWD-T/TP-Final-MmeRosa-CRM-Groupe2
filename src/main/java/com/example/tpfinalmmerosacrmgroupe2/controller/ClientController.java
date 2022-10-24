@@ -27,18 +27,22 @@ public class ClientController {
     }
 
     @GetMapping("/all")
-    public String displayAllClients(Model model, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "order", required = false) String order, Principal principal){
+    public String displayAllClients(Model model, @RequestParam(value = "etat", required = false) String etat, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "order", required = false) String order, Principal principal){
 
         List<Prospect> clientsList;
         String userEmail = principal.getName() ;
+
+        if (order == null){order="";}
+
         if (name!= null) {
-          clientsList = prospectService.getAllClientsByName(userEmail, name,order);
+          clientsList = prospectService.getAllClientsByName(userEmail, name, etat, order);
         }else{
             clientsList = prospectService.getAllClients(userEmail);
             name = "";
         }
         model.addAttribute("clients", clientsList);
         model.addAttribute("name", name);
+        model.addAttribute("etat", etat);
         return "clientsListView";
     }
 

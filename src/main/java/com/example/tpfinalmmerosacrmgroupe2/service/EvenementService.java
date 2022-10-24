@@ -53,11 +53,11 @@ public class EvenementService {
             Prospect prospect = createEvenement.getProspectById();
             LocalDate dateRecent = createEvenement.getDate().plusDays(prospect.getDureeRelance());
             if (dateRecent.isAfter(prospect.getDateDernierContact())){
-//                if (prospect.isClient()){
-//                    prospect.setEtatProspection("En cours de prospection");
-//                }else {
+                if (prospect.isClient()){
+                    prospect.setEtatProspection("Evenement du " + dateRecent);
+                }else {
                     prospect.setEtatProspection("En cours de prospection");
-//                }
+                }
                 prospect.setDateDernierContact(dateRecent);
             }
         }else {
