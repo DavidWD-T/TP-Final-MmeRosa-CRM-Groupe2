@@ -30,7 +30,7 @@
 </header>
 <div class="container-fluid text-center">
     <form:form action="${pageContext.request.contextPath}/evenements/${type}/${prospect.id}" method="post" class="contacts-list rounded-4 p-3 mb-2" style="max-width: 1500px; margin: auto" modelAttribute="createEvenement">
-        <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
+        <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true" value="${createEvenement.id}"/>
         <h1>${type} evenement</h1>
 
         <div class="form-group row">
