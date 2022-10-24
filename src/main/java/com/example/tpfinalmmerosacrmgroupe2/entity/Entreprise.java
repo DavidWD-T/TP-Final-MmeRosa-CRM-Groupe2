@@ -1,7 +1,6 @@
 package com.example.tpfinalmmerosacrmgroupe2.entity;
 
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEntreprise;
-import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateUser;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -175,4 +174,5 @@ public class Entreprise {
 
         return createEntreprise;
     }
+
 }

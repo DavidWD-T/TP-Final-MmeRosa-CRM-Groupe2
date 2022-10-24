@@ -1,6 +1,8 @@
 package com.example.tpfinalmmerosacrmgroupe2.service;
 
+import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEntreprise;
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateProspect;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.ProspectRepository;
@@ -10,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -121,4 +124,23 @@ public class ProspectService {
        return prospectRepository.save(prospect);
     }
 
+    public List<CreateProspect> getAllProspectsDTO(String mail) {
+        User user = userRepository.findByEmail(mail);
+        List<Prospect> prospectList = prospectRepository.findAllProspectsByUserById(user);
+        System.out.println(prospectList);
+        List<CreateProspect> prospectDTOList = new ArrayList<>();
+        prospectList.forEach(e-> prospectDTOList.add(e.toCreateProspect()));
+        return prospectDTOList;
+
+    }
+
+    public List<CreateProspect> getAllClientsDTO(String mail) {
+        User user = userRepository.findByEmail(mail);
+        List<Prospect> clientList = prospectRepository.findAllClientsByUserById(user);
+        System.out.println(clientList);
+        List<CreateProspect> clientDTOList = new ArrayList<>();
+        clientList.forEach(e-> clientDTOList.add(e.toCreateProspect()));
+        return clientDTOList;
+
+    }
 }

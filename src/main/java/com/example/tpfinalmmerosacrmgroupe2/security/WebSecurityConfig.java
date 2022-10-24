@@ -48,7 +48,7 @@ public class WebSecurityConfig {
                 .loginPage("/signin")
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/entreprises/all",true)
+                .defaultSuccessUrl("/home",true)
                 .permitAll()
 
                 // Configure logout

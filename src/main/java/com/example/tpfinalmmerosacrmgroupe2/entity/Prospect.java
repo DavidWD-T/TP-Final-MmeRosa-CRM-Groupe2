@@ -209,8 +209,10 @@ public class Prospect {
         createProspect.setFonction(this.fonction);
         createProspect.setPortable(this.portable);
         createProspect.setFixe(this.fixe);
+        createProspect.setDateCreationProspection(this.dateCreationProspection);
         createProspect.setDureeRelance(this.dureeRelance);
-        createProspect.setEntrepriseById(this.entrepriseById);
+        createProspect.setEtatProspection(this.etatProspection);
+//        createProspect.setEntrepriseById(this.entrepriseById);
         createProspect.setPhotoUrl(this.photoUrl);
 
         return createProspect;
