@@ -11,6 +11,11 @@
         <form class="d-flex search_bar" role="search" method="get">
             <input name="name" id="name" class="form-control me-2" type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/clients/all" value="${name}">
 
+            <select name="etat" id="etat" class="form-control me-2" onchange="this.form.submit()">
+                <option <c:if test="${etat == ''}">selected</c:if> value="">Tout Etat</option>
+                <option <c:if test="${etat == 'À contacter'}">selected</c:if> value="À contacter">À contacter</option>
+            </select>
+
             <button name="order" id="order1" type="submit" class="btn btn-outline-secondary me-2" action="${pageContext.request.contextPath}/clients/all" value="">&darr;AZ</button>
             <button name="order" id="order2" type="submit" class="btn btn-outline-secondary me-2" action="${pageContext.request.contextPath}/clients/all" value="2">&uarr;AZ</button>
 

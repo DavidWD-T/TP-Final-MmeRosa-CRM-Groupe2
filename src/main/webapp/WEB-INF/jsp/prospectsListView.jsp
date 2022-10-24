@@ -8,35 +8,35 @@
 <div class="container-fluid">
 
     <div class="contacts-list rounded-4 p-3 mb-4"  style="max-width: 1500px; margin: auto">
-        <form class="search_bar" role="search" method="get" action="${pageContext.request.contextPath}/prospects/all">
-            <div class="row">
-                <div class="col-6 col-lg-4">
-                    <input name="name" id="name" class="form-control " type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/prospects/all" value="${name}">
-                </div>
+        <form class="d-flex search_bar" role="search" method="get" action="${pageContext.request.contextPath}/prospects/all">
+<%--            <div class="row">--%>
+<%--                <div class="col-6 col-lg-4">--%>
+                    <input name="name" id="name" class="form-control me-2" type="search" placeholder="&#x1F50D; Search" aria-label="&#x1F50D; Search" action="${pageContext.request.contextPath}/prospects/all" value="${name}">
+<%--                </div>--%>
 
-                <div class="col-6 col-lg-4 mb-2 mb-lg-0">
-                    <select name="etat" id="etat" class="form-control" action="${pageContext.request.contextPath}/prospects/all">
+<%--                <div class="col-6 col-lg-4 mb-2 mb-lg-0">--%>
+                    <select name="etat" id="etat" class="form-control me-2" onchange="this.form.submit()">
                         <option <c:if test="${etat == ''}">selected</c:if> value="">Tout Etat</option>
                         <option <c:if test="${etat == 'Aucune prospection'}">selected</c:if> value="Aucune prospection">Aucune prospection</option>
                         <option <c:if test="${etat == 'En cours de prospection'}">selected</c:if> value="En cours de prospection">En cours de prospection</option>
                         <option <c:if test="${etat == 'À relancer'}">selected</c:if> value="À relancer">À relancer</option>
                     </select>
-                </div>
+<%--                </div>--%>
 
-                <div class="col-3 col-lg-1">
-                    <button name="order" id="order1" type="submit" class="btn btn-outline-secondary" value="">&darr;AZ</button>
-                </div>
-                <div class="col-3 col-lg-1">
-                    <button name="order" id="order2" type="submit" class="btn btn-outline-secondary" value="2">&uarr;AZ</button>
-                </div>
+<%--                <div class="col-3 col-lg-1">--%>
+                    <button name="order" id="order1" type="submit" class="btn btn-outline-secondary me-2" value="">&darr;AZ</button>
+<%--                </div>--%>
+<%--                <div class="col-3 col-lg-1">--%>
+                    <button name="order" id="order2" type="submit" class="btn btn-outline-secondary me-2" value="2">&uarr;AZ</button>
+<%--                </div>--%>
 
-                <div class="col-3 col-lg-1">
-                    <button name="order" id="order3" type="submit" class="btn btn-outline-secondary" value="3">&darr;Date</button>
-                </div>
-                <div class="col-3 col-lg-1">
+<%--                <div class="col-3 col-lg-1">--%>
+                    <button name="order" id="order3" type="submit" class="btn btn-outline-secondary me-2" value="3">&darr;Date</button>
+<%--                </div>--%>
+<%--                <div class="col-3 col-lg-1">--%>
                     <button name="order" id="order4" type="submit" class="btn btn-outline-secondary" value="4">&uarr;Date</button>
-                </div>
-            </div>
+<%--                </div>--%>
+<%--            </div>--%>
         </form>
     </div>
 

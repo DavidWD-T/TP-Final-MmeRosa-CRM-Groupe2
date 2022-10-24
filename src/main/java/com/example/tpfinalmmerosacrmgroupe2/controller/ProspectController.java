@@ -31,6 +31,9 @@ public class ProspectController {
         List<Prospect> prospectsList;
         String userEmail = principal.getName() ;
         prospectService.UpdateProspectARelance(userEmail);
+
+        if (order == null){order="";}
+
         if (name!= null) {
             prospectsList = prospectService.getAllProspectsByName(userEmail, name, etat, order);
         }else{
