@@ -50,8 +50,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button id="map" class="btn btn-success m-1"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                 Localiser Entreprise</button>
+                            <button id="map" class="btn btn-success m-1"><i class="fa fa-map-marker" aria-hidden="true"></i> Localiser Entreprise</button>
                             <a href="${pageContext.request.contextPath}/entreprises/Update/${entreprise.id}" class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Update Entreprise</a>
                             <!-- MODAL DELETE CONFIRMATION -->
                             <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${entreprise.id}"><i class="fa fa-trash-o fa-lg"></i> Delete Entreprise</button>

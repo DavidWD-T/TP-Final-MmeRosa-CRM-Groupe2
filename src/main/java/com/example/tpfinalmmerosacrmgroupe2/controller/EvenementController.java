@@ -61,29 +61,28 @@ public class EvenementController {
     public String createEvenementForm(Model model, Principal principal, @PathVariable(value = "id") long id){
         String userEmail = principal.getName();
         Prospect prospect = prospectService.getProspectById(userEmail, id);
-        model.addAttribute("prospect",prospect);
-        model.addAttribute("createEvenement",new CreateEvenement());
+        CreateEvenement createEvenement = new CreateEvenement();
+        createEvenement.setProspectById(prospect);
+        model.addAttribute("createEvenement",createEvenement);
         model.addAttribute("type", "Create");
         return "evenementCreateUpdate";
     }
 
-    @PostMapping("/Create/{id}")
-    public String createEvenement(@Valid CreateEvenement createEvenement, BindingResult result, Model model, Principal principal,  @PathVariable(value = "id") long id){
+    @PostMapping("/Create")
+    public String createEvenement(@Valid CreateEvenement createEvenement, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
             model.addAttribute("createEvenement",createEvenement);
             model.addAttribute("type", "Create");
             return "evenementCreateUpdate";
         }else{
-            Prospect prospect = prospectService.getProspectById(userEmail,id);
-            createEvenement.setProspectById(prospect);
            Evenement evenement = evenementService.createUpdateEvenement(userEmail, createEvenement);
             return "redirect:/evenements/details/" + evenement.getId();
         }
     }
 
-    @GetMapping("/Update/{id}")
-    public String updateEvenementForm(Model model, Principal principal, @PathVariable(value="id") long id){
+    @GetMapping("/Update")
+    public String updateEvenementForm(Model model, Principal principal, @RequestParam(value="id") long id){
         String userEmail = principal.getName();
         CreateEvenement createEvenement = evenementService.getEvenementById(userEmail, id).toCreateEvenement();
         model.addAttribute("createEvenement", createEvenement);
@@ -95,6 +94,7 @@ public class EvenementController {
     public String updateEvenement(@Valid CreateEvenement createEvenement, BindingResult result, Model model, Principal principal){
         String userEmail = principal.getName() ;
         if (result.hasErrors()){
+            Prospect prospect = createEvenement.getProspectById();
             model.addAttribute("createEvenement",createEvenement);
             model.addAttribute("type", "Update");
             return "evenementCreateUpdate";

@@ -12,6 +12,7 @@
 <div class="container-fluid">
     <div class="contacts-list rounded-4 p-3 mb-5"  style="max-width: 1500px; margin: auto">
         <div class="row">
+
             <h1>Evenement avec le ${client} ${evenement.prospectById.prenom} ${evenement.prospectById.nom} de l'entreprise ${evenement.prospectById.entrepriseById.nom}</h1>
             <div class="col-12 p-2">
                 <div class="card text-center contact-row">
@@ -50,11 +51,17 @@
                             </div>
                         </div>
 
-                        <div class="text-center mt-3">
-                            <a href="${pageContext.request.contextPath}/evenements/Update/${evenement.id}" class="btn btn-primary"><i class="fa fa-trash-o fa-lg"></i> Modifier l'événement</a>
-                            <!-- MODAL DELETE CONFIRMATION -->
-                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="fa fa-trash-o fa-lg"></i> Supprimer l'événement</button>
-                        </div>
+                        <div class="row text-center mt-3" style="margin: auto; width: max-content;">
+                            <div class="col-6" style="width: max-content; height: max-content; margin: auto">
+                                <form action="${pageContext.request.contextPath}/evenements/Update" style="margin: auto">
+                                <input hidden id="id" name="id" value="${evenement.id}">
+                                <button class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Modifier l'événement</button>
+                                </form>
+                            </div>
+                            <div class="col-6" style="width: max-content">
+                                <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="fa fa-trash-o fa-lg"></i> Supprimer l'événement</button>
+                            </div>
+                       </div>
                     </div>
                 </div>
             </div>

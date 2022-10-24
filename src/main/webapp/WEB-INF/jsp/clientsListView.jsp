@@ -55,49 +55,49 @@
                             </thead>
 
                             <tbody class="tbody">
-                            <c:forEach items="${clients}" var="client">
-                                <tr class="contact-row">
-                                    <td><a href="${pageContext.request.contextPath}/clients/details/${client.id}"><img src="${client.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
-                                            ${client.nom} ${client.prenom}</td>
-                                    <td>${client.entrepriseById.nom}</td>
-                                    <td>${client.etatProspection}</td>
-                                    <td>${client.email}</td>
-                                    <td>${client.portable}</td>
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                                                <ul class="dropdown-menu" style=" background-color: #f9f9f9">
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}"><i class='far fa-address-card'></i> détails</a></li>
-                                                    <li><a class="dropdown-item"  href="${pageContext.request.contextPath}/evenements/Create/${client.id}"><i class="fa fa-calendar" aria-hidden="true"></i> événement</a></li>
-                                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}"><i class="fa fa-pencil fa-fw"></i> modifier</a></li>
-                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <div class="modal fade" id="dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Confirmation de suppression</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Vouslez-vous vraiment supprimer le client ?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                                                <form method="post" action="${pageContext.request.contextPath}/clients/delete/${client.id}">
-                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                                    <button type="submit" class="btn btn-danger">Oui</button>
-                                                </form>
+                                <c:forEach items="${clients}" var="client">
+                                    <tr class="contact-row">
+                                        <td><a href="${pageContext.request.contextPath}/clients/details/${client.id}"><img src="${client.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
+                                            <strong>${client.nom} ${client.prenom}</strong></td>
+                                        <td><a href="${pageContext.request.contextPath}/entreprises/details/${client.entrepriseById.id}"><span class="badge badge-soft-primary mb-0" style=" color: #57c9eb !important; background-color: rgba(87,201,235,.1); font-size: 16px"><strong>${client.entrepriseById.nom}</strong></span></a></td>
+                                        <td><span class="badge badge-soft-primary mb-0" style=" color: #f56e6e !important; background-color: rgba(245,110,110,.1);">${client.etatProspection}</span></td>
+                                        <td><a href="mailto:${client.email}"><span class="badge badge-soft-primary mb-0" style=" color: #3b76e1 !important; background-color: rgba(59,118,225,.1); font-size: 16px">${client.email}</span></a></td>
+                                        <td><a href="tel:${client.portable}"><span class="badge badge-soft-success mb-0" style="  color: #63ad6f !important; background-color: rgba(99,173,111,.1); font-size: 16px">${client.portable}</span></a></td>
+                                        <td>
+                                            <ul class="list-inline mb-0">
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style=" background-color: #f9f9f9">
+                                                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}"><i class='far fa-address-card'></i>détails</a></li>
+                                                        <li><a class="dropdown-item"  href="${pageContext.request.contextPath}/evenements/Create/${client.id}"><i class="fa fa-calendar" aria-hidden="true"></i> événement</a></li>
+                                                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}"><i class="fa fa-pencil fa-fw"></i> modifier</a></li>
+                                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown_${client.id}" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <div class="modal fade" id="dropdown_${client.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel_${client.id}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel_${client.id}">Confirmation de suppression</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Vouslez-vous vraiment supprimer le client ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <form method="post" action="${pageContext.request.contextPath}/clients/delete/${client.id}">
+                                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                        <button type="submit" class="btn btn-danger">Oui</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:forEach>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>

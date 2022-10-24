@@ -75,11 +75,11 @@
                             <c:forEach items="${prospects}" var="prospect">
                                 <tr class="contact-row">
                                     <td><a href="${pageContext.request.contextPath}/prospects/details/${prospect.id}"><img src="${prospect.photoUrl}" class="rounded-circle" style="width: 50px; height: 50px;"></a>
-                                            ${prospect.nom} ${prospect.prenom}</td>
-                                    <td>${prospect.entrepriseById.nom}</td>
-                                    <td>${prospect.etatProspection}</td>
-                                    <td>${prospect.email}</td>
-                                    <td>${prospect.portable}</td>
+                                        <strong>${prospect.nom} ${prospect.prenom}</strong></td>
+                                    <td><a href="${pageContext.request.contextPath}/entreprises/details/${prospect.entrepriseById.id}"><span class="badge badge-soft-primary mb-0" style=" color: #57c9eb !important; background-color: rgba(87,201,235,.1); font-size: 16px"><strong>${prospect.entrepriseById.nom}</strong></span></a></td>
+                                    <td><span class="badge badge-soft-primary mb-0" style=" color: #f56e6e !important; background-color: rgba(245,110,110,.1);">${prospect.etatProspection}</span></td>
+                                    <td><a href="mailto:${prospect.email}"><span class="badge badge-soft-primary mb-0" style=" color: #3b76e1 !important; background-color: rgba(59,118,225,.1); font-size: 16px">${prospect.email}</span></a></td>
+                                    <td><a href="tel:${prospect.portable}"><span class="badge badge-soft-success mb-0" style="  color: #63ad6f !important; background-color: rgba(99,173,111,.1); font-size: 16px">${prospect.portable}</span></a></td>
                                     <td>
                                         <ul class="list-inline mb-0">
                                             <li class="nav-item dropdown bg-light">
@@ -88,14 +88,14 @@
                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/details/${prospect.id}"><i class='far fa-address-card'></i> details</a></li>
                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/evenements/Create/${prospect.id}"><i class="fa fa-calendar" aria-hidden="true"></i> événement</a></li>
                                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}"><i class="fa fa-pencil fa-fw"></i> modifier</a></li>
-                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>
+                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown${prospect.id}" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </td>
                                 </tr>
 
-                                <div class="modal fade" id="dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="dropdown${prospect.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">

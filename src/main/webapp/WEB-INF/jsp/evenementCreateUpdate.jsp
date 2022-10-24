@@ -1,7 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="head.jsp"/>
-
+<fmt:formatDate value="${bean.date}" pattern="yyyy-MM-dd HH:mm:ss" />
 <style>
     body{
         background-color:#fff;
@@ -29,8 +30,9 @@
     <jsp:include page="header.jsp"/>
 </header>
 <div class="container-fluid text-center">
-    <form:form action="${pageContext.request.contextPath}/evenements/${type}/${prospect.id}" method="post" class="contacts-list rounded-4 p-3 mb-2" style="max-width: 1500px; margin: auto" modelAttribute="createEvenement">
-        <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true" value="${createEvenement.id}"/>
+    <form:form action="${pageContext.request.contextPath}/evenements/${type}" method="post" class="contacts-list rounded-4 p-3 mb-2" style="max-width: 1500px; margin: auto" modelAttribute="createEvenement">
+
+        <form:input path="id" type="number" name="id" id="id" class="form-control" hidden="true"/>
         <h1>${type} evenement</h1>
 
         <div class="form-group row">
@@ -96,7 +98,7 @@
             </div>
         </div>
 
-        <form:input path="prospectById" name="prospectById" id="prospectById" class="form-control" value="${createEvenement.prospectById}" hidden="true"/>
+        <form:input path="prospectById" name="prospectById" id="prospectById" class="form-control" hidden="true"/>
 
         <button type="submit" class="btn btn-lg btn-primary btn-block m-3 ">${type}</button>
     </form:form>
