@@ -50,7 +50,7 @@ public class ProspectService {
         return  prospectRepository.findAllClientsByUserById(user);
     }
 
-    public  List<Prospect> getAllClientsByName(String userEmail, String name, String order){
+    public  List<Prospect> getAllClientsByName(String userEmail, String name, String etat, String order){
         Sort sort = null;
         User user = userRepository.findByEmail(userEmail);
         if(order.equals("")){
@@ -62,7 +62,7 @@ public class ProspectService {
         }else if(order.equals("4")){
             sort = Sort.by(Sort.Direction.DESC, "nom").by(Sort.Direction.DESC, "dateCreationProspection");
         }
-        return prospectRepository.findClientsByName(user, name, sort);
+        return prospectRepository.findClientsByName(user, name, etat, sort);
     }
 
     public Prospect getProspectById(String userEmail, long id){
@@ -83,6 +83,13 @@ public class ProspectService {
             e.setEtatProspection("À relancer");
             prospectRepository.save(e);
         });
+
+        List<Prospect> clientList =  prospectRepository.findClientsByDate(user, LocalDate.now());
+        clientList.forEach(e -> {
+            e.setEtatProspection("À contacter");
+            prospectRepository.save(e);
+        });
+
     }
 
 
