@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <form:input path="prospectById" name="prospectById" id="prospectById" class="form-control" value="${prospect.prospectById}" hidden="true"/>
+        <form:input path="prospectById" name="prospectById" id="prospectById" class="form-control" value="${createEvenement.prospectById}" hidden="true"/>
 
         <button type="submit" class="btn btn-lg btn-primary btn-block m-3 ">${type}</button>
     </form:form>
