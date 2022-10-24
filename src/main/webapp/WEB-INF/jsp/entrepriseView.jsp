@@ -2,42 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style>
-    body{
-        background-color:#fff;
-    }
-    .contacts-list{
-        background-color: #f9f9ff;
-    }
-    .project-list-table {
-        border-collapse: separate;
-        border-spacing: 0 12px
-    }
-    .table-header{
-        background-color: rgba(194,215,255,0.93);
-        color: #3b76e1;
-    }
-    .table-nowrap td, .table-nowrap th {
-        white-space: nowrap;
-    }
-    .table-borderless>:not(caption)>*>* {
-        border-bottom-width: 0;
-    }
-    .table>:not(caption)>*>* {
-        padding: 0.75rem 0.75rem;
-        background-color: var(--bs-table-bg);
-        border-bottom-width: 1px;
-        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-    }
-    .contact-row{
-        background-color: aliceblue;
-    }
-    .card-text, .card-title{
-        color: #3b76e1;
-    }
-
-</style>
-
 <body>
 <header>
     <jsp:include page="header.jsp"/>
@@ -103,8 +67,8 @@
                         <tr class="table-header">
                             <th scope="col" style="width: 20%">Nom</th>
                             <th scope="col" style="width: 17%">Entreprise</th>
-                            <th scope="col"style="width: 15%;">Statut</th>
-                            <th scope="col"style="width: 25%;">Email</th>
+                            <th scope="col" style="width: 15%;">Statut</th>
+                            <th scope="col" style="width: 25%;">Email</th>
                             <th scope="col" style="width: 19%">téléphone</th>
                             <th scope="col" style="width: 200px;">. . .</th>
                         </tr>
@@ -114,7 +78,7 @@
                             <tr class="contact-row">
                                 <td>${prospect.prenom} ${prospect.nom}</td>
                                 <td>${prospect.entrepriseById.nom}</td>
-                                <td><span class="badge badge-soft-danger mb-0">${prospect.etatProspection}</span></td>
+                                <td>${prospect.etatProspection}</td>
                                 <td>${prospect.email}</td>
                                 <td>${prospect.portable}</td>
                                 <td>
@@ -146,8 +110,8 @@
                         <tr class="table-header">
                             <th scope="col" style="width: 20%">Nom</th>
                             <th scope="col" style="width: 17%">Entreprise</th>
-                            <th scope="col"style="width: 15%;">Statut</th>
-                            <th scope="col"style="width: 25%;">Email</th>
+                            <th scope="col" style="width: 15%;">Statut</th>
+                            <th scope="col" style="width: 25%;">Email</th>
                             <th scope="col" style="width: 19%">téléphone</th>
                             <th scope="col" style="width: 200px;">. . .</th>
                         </tr>
@@ -157,7 +121,7 @@
                             <tr class="contact-row">
                                 <td>${client.prenom} ${client.nom}</td>
                                 <td>${client.entrepriseById.nom}</td>
-                                <td><span class="badge badge-soft-danger mb-0">${client.etatProspection}</span></td>
+                                <td>${client.etatProspection}</td>
                                 <td>${client.email}</td>
                                 <td>${client.portable}</td>
                                 <td>

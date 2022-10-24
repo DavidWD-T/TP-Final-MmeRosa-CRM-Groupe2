@@ -4,12 +4,14 @@ import com.example.tpfinalmmerosacrmgroupe2.api.EventDTO;
 import com.example.tpfinalmmerosacrmgroupe2.controller.dto.CreateEvenement;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Entreprise;
 import com.example.tpfinalmmerosacrmgroupe2.entity.Evenement;
+import com.example.tpfinalmmerosacrmgroupe2.entity.Prospect;
 import com.example.tpfinalmmerosacrmgroupe2.entity.User;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.EvenementRepository;
 import com.example.tpfinalmmerosacrmgroupe2.entity.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,16 @@ public class EvenementService {
         Evenement evenement;
         if (createEvenement.getId() == null){
             evenement = new Evenement();
+            Prospect prospect = createEvenement.getProspectById();
+            LocalDate dateRecent = createEvenement.getDate().plusDays(prospect.getDureeRelance());
+            if (dateRecent.isAfter(prospect.getDateDernierContact())){
+//                if (prospect.isClient()){
+//                    prospect.setEtatProspection("En cours de prospection");
+//                }else {
+                    prospect.setEtatProspection("En cours de prospection");
+//                }
+                prospect.setDateDernierContact(dateRecent);
+            }
         }else {
             evenement = getEvenementById(mail, createEvenement.getId());
         }

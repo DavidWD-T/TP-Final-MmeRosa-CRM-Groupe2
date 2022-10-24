@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="head.jsp"/>
 
-
 <style>
     body{
         background-color:#fff;
@@ -24,6 +23,7 @@
     }
 
 </style>
+
 <body>
 <header>
     <jsp:include page="header.jsp"/>
