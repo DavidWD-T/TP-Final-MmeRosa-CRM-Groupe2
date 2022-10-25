@@ -34,7 +34,7 @@
         <input id="previousMonthP" type="number" hidden value="">
         <input id="beforePreviousMonthP" type="number" hidden value="">
     </div>
-    <div id="chart_div6" class="card m-2 p-1">
+    <div id="chart_div6" class="card m-2 p-1" style="position: relative; width: 400px; height: 396px;">
     </div>
 </div>
 
