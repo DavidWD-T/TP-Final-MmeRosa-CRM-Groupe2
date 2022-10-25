@@ -53,3 +53,7 @@ body{
     margin-bottom: 4px;
     border-radius: 8px;
 }
+#chart_div6 > a :hover{background-color: #3b76e1}
+
+#chart_div6 > a > div{background: #9aa9f9}
+

@@ -15,6 +15,9 @@ public interface EvenementRepository extends CrudRepository<Evenement, Long> {
     @Query(value = "SELECT e FROM Evenement e WHERE e.userById = :user")
     List<Evenement> findAllEvenements(User user);
 
+    @Query(value = "SELECT e FROM Evenement e WHERE e.userById = :user ORDER BY e.date ASC")
+    List<Evenement> findAllEvenementsSortByDate(User user);
+
     @Query(value = "SELECT e FROM Evenement e WHERE e.userById = :user AND e.prospectById = :prospect")
     List<Evenement> findAllEvenementsByProspect(User user, Prospect prospect);
 

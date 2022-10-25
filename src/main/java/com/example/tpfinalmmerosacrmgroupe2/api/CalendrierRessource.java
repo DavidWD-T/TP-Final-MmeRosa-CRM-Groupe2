@@ -22,5 +22,10 @@ public class CalendrierRessource {
         return evenementService.getAllEventsDTO(principal.getName());
     }
 
+    @GetMapping("/allEventsSortByDate")
+    public List<EventDTO> allEventsByDate(Principal principal) {
+        return evenementService.getAllEventsDTOSortByDate(principal.getName());
+    }
+
 
 }
