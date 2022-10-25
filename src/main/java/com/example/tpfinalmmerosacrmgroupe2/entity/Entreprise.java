@@ -29,7 +29,7 @@ public class Entreprise {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userById;
 
-    @OneToMany(mappedBy = "entrepriseById")
+    @OneToMany(mappedBy = "entrepriseById", cascade = CascadeType.REMOVE)
     private List<Prospect> prospectsEntreprise;
 
 
