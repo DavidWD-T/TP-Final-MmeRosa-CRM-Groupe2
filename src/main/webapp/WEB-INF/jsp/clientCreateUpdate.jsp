@@ -59,7 +59,7 @@
            <label class="col-2 col-form-label" for="fixe">Entreprise</label>
                <div class="col-10">
                    <form:select class="form-control" path="entrepriseById">
-                       <form:options items="${entreprises}" itemLabel="nom" itemValue="id" class=""/>
+                       <form:options items="${entreprises}" itemLabel="nom" itemValue="id" class="form-control"/>
                    </form:select>
                </div>
        </div>

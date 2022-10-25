@@ -33,6 +33,7 @@ public class ProspectService {
         return  prospectRepository.findAllProspectsByUserById(user);
     }
 
+
     public  List<Prospect> getAllProspectsByName(String userEmail, String name, String etat, String order){
         Sort sort = null;
         User user = userRepository.findByEmail(userEmail);
@@ -162,7 +163,7 @@ public class ProspectService {
         User user = userRepository.findByEmail(mail);
         List<Prospect> prospectList = prospectRepository.findAllProspectsByUserById(user);
         List<CreateProspect> prospectDTOList = new ArrayList<>();
-        prospectList.forEach(e-> prospectDTOList.add(e.toCreateProspect()));
+        prospectList.forEach(e-> prospectDTOList.add(e.toCreateProspectDTO()));
         return prospectDTOList;
 
     }
@@ -171,7 +172,7 @@ public class ProspectService {
         User user = userRepository.findByEmail(mail);
         List<Prospect> clientList = prospectRepository.findAllClientsByUserById(user);
         List<CreateProspect> clientDTOList = new ArrayList<>();
-        clientList.forEach(e-> clientDTOList.add(e.toCreateProspect()));
+        clientList.forEach(e-> clientDTOList.add(e.toCreateProspectDTO()));
         return clientDTOList;
     }
 }

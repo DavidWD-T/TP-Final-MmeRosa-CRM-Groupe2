@@ -34,7 +34,6 @@ public class ProspectController {
     public String displayAllProspects(Model model, @RequestParam(value = "etat", required = false) String etat, @RequestParam(value = "name", required = false) String name,@RequestParam(value = "order", required = false) String order, Principal principal){
         List<Prospect> prospectsList;
         String userEmail = principal.getName() ;
-        prospectService.UpdateProspectARelance(userEmail);
 
         if (order == null){order="";}
 
