@@ -25,7 +25,11 @@ public class CreateProspect {
 
     private String fixe;
 
+    private LocalDate dateCreationProspection;
+
     private Integer dureeRelance;
+
+    private String etatProspection;
 
     private Entreprise entrepriseById;
 
@@ -104,6 +108,13 @@ public class CreateProspect {
         this.fixe = fixe;
     }
 
+    public LocalDate getDateCreationProspection() {
+        return dateCreationProspection;
+    }
+
+    public void setDateCreationProspection(LocalDate dateCreationProspection) {
+        this.dateCreationProspection = dateCreationProspection;
+    }
 
     public Integer getDureeRelance() {
         return dureeRelance;
@@ -113,6 +124,14 @@ public class CreateProspect {
         this.dureeRelance = dureeRelance;
     }
 
+
+    public String getEtatProspection() {
+        return etatProspection;
+    }
+
+    public void setEtatProspection(String etatProspection) {
+        this.etatProspection = etatProspection;
+    }
 
     public Entreprise getEntrepriseById() {
         return entrepriseById;
