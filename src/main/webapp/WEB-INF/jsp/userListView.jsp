@@ -20,7 +20,7 @@
                 <c:forEach items="${listUsers}" var="user">
                     <div class="col-6 col-lg-3 p-2">
                         <div class="card text-center contact-row" >
-                            <img src="${user.photoUrl}" class="card-img-top w-100" alt="${user.nom}${user.id}" >
+                            <img src="${user.photoUrl}" class="card-img-top text-uppercase rounded-circle mt-2" style="width: 100px; height: 100px; margin: auto" alt="${user.nom}${user.id}" >
                             <div class="card-body">
                                 <h5 class="card-title">${user.email}</h5>
                                 <p class="card-text">Nom : ${user.nom}</p>

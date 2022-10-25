@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="head.jsp"/>
-<fmt:formatDate value="${bean.date}" pattern="yyyy-MM-dd HH:mm:ss" />
+
 <style>
     body{
         background-color:#fff;
