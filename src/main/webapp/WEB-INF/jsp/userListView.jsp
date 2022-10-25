@@ -22,7 +22,7 @@
                         <div class="card text-center contact-row" >
                             <img src="${user.photoUrl}" class="card-img-top text-uppercase rounded-circle mt-2" style="width: 100px; height: 100px; margin: auto" alt="${user.nom}${user.id}" >
                             <div class="card-body">
-                                <h5 class="card-title">${user.email}</h5>
+                                <h5 class="card-title"><a href="mailto:${user.email}">${user.email}</a></h5>
                                 <p class="card-text">Nom : ${user.nom}</p>
                                 <p class="card-text">Prenom : ${user.prenom}</p>
                                 <!-- MODAL DELETE CONFIRMATION -->
