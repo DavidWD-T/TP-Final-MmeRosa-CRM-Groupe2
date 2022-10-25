@@ -2,12 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <body>
 <header>
     <jsp:include page="header.jsp"/>
 </header>
-
 
 <div class="container-fluid">
     <div class="contacts-list rounded-4 p-3 mb-5"  style="max-width: 1500px; margin: auto">
@@ -77,10 +75,12 @@
                 </div>
             </div>
             <div class="col-12 col-lg-4 p-2 pt-0">
-                <div class="d-flex justify-content-between">
-                    <h1 style="color: black" id="EtiNotes">Notes</h1>
-                    <button id="togglePictureOptions" type="button" class="btn btn-primary m-1"><----></button>
-                    <h1 id="EtiHisto" style="color: lightgray">Historique</h1>
+                <div class="d-flex" style="width: max-content; margin: auto;">
+                    <h1 style="color: black; font-size: 16px; margin-right: 10px" id="EtiNotes">Notes</h1>
+                    <div class="form-check form-switch">
+                        <input id="togglePictureOptions" type="checkbox"  class="form-check-input" role="switch"/>
+                    </div>
+                    <h1 id="EtiHisto" style="color: lightgray; font-size: 16px">Historique</h1>
                 </div>
                 <!-- MODAL CLIENT CONFIRMATION -->
                 <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote_modal_${prospect.id}"><i class="fa fa-pencil fa-fw"></i> Create Note</button>
