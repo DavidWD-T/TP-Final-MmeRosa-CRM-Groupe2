@@ -106,8 +106,8 @@
 </div>
 <script>
     function togglePictureBlocks() {
-        document.getElementById("heureDebut").setAttribute("value","00:01");
-        document.getElementById("heureFin").setAttribute("value","23:59");
+        document.getElementById("heureDebut").value ="00:01"
+        document.getElementById("heureFin").value ="23:59"
     }
 
     let checkboxPictures = document.getElementById("BtJ");
