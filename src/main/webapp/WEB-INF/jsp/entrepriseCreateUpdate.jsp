@@ -22,8 +22,7 @@
         </div>
 
         <div class="form-group row"  id="URL">
-            <input type="checkbox" class="col-2 btn-check" id="togglePictureOptions" checked autocomplete="off">
-            <label class="col-2 btn btn-primary col-form-label" for="togglePictureOptions" id="btn-check-eti">URL</label>
+            <input type="button" class="col-2 btn btn-success col-form-label" id="togglePictureOptions" value="URL">
             <div class="col-10">
                 <form:input path="logo" type="text" name="logo"  id="logo"  class="form-control" />
                 <form:input path="logoFile" type="file" name="logoFile"  id="logoFile"  class="form-control" style="display: none"/>
@@ -100,13 +99,13 @@
 
 <script>
     function togglePictureBlocks() {
-        let x = document.getElementById("btn-check-eti");
-        if (x.innerHTML  === "URL") {
-            x.innerHTML  = "Upload";
+        let x = document.getElementById("togglePictureOptions");
+        if (x.getAttribute("value")  === "URL") {
+            x.setAttribute("value","Upload");
             document.getElementById("logoFile").style.display = "block";
             document.getElementById("logo").style.display = "none";
         } else {
-            x.innerHTML  = "URL";
+            x.setAttribute("value","URL");
             document.getElementById("logoFile").style.display = "none";
             document.getElementById("logo").style.display = "block";
         }
