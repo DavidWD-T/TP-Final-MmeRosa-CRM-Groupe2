@@ -23,13 +23,13 @@ public class User {
     private String photoUrl;
     private Boolean isAdmin;
 
-    @OneToMany(mappedBy = "userById")
+    @OneToMany(mappedBy = "userById", cascade = CascadeType.REMOVE)
     private List<Prospect> userProspects;
 
-    @OneToMany(mappedBy = "userById")
+    @OneToMany(mappedBy = "userById", cascade = CascadeType.REMOVE)
     private List<Entreprise> userEntreprises;
 
-    @OneToMany(mappedBy = "userById")
+    @OneToMany(mappedBy = "userById", cascade = CascadeType.REMOVE)
     private List<Evenement> evenementsUser;
 
     public User() {

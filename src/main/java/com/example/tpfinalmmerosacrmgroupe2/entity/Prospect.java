@@ -44,10 +44,10 @@ public class Prospect {
     @JoinColumn(name = "entreprise_id", referencedColumnName = "id")
     private Entreprise entrepriseById;
 
-    @OneToMany(mappedBy = "prospectById")
+    @OneToMany(mappedBy = "prospectById", cascade = CascadeType.REMOVE)
     private List<Note> prospectNotes;
 
-    @OneToMany(mappedBy = "prospectById")
+    @OneToMany(mappedBy = "prospectById", cascade = CascadeType.REMOVE)
     private List<Evenement> prospectEvenements;
 
     public Prospect() {
