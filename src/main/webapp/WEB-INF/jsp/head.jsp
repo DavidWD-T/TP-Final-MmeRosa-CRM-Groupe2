@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c8b33719f4.js" crossorigin="anonymous"></script>
     <script type="module" src="./../../js/index.js"></script>
+    <script type="module" src="./../../js/dashboard.js"></script>
     <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf2mXXTrrCH9keKRs7x36WZuaJOWPri9I&callback=initMap&v=weekly"
             defer
@@ -23,6 +24,8 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript"></script>
     <script src="http://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <script src="http://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js" type="text/javascript"></script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport"

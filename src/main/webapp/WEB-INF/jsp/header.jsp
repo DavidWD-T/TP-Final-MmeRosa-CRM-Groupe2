@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg m-3 mb-4" style="background-color:rgba(69,99,150,1); border-top-left-radius: 30px; border-top-right-radius: 30px;">
     <div class="container-fluid">
-        <a href="${pageContext.request.contextPath}/entreprises/all"><img src="/img/Sans_titre-removebg-preview.png" alt="logo" style="max-height: 50px" class="mx-4"></a>
+        <a href="${pageContext.request.contextPath}/home"><img src="/img/Sans_titre-removebg-preview.png" alt="logo" style="max-height: 50px" class="mx-4"></a>
 
 <%--        <a class="navbar-brand" href="http://localhost:8080/images/Sans_titre-removebg-preview.png">Entreprise</a>--%>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
             <sec:authorize access="isAuthenticated()">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/entreprises/all">Tableau de bord</a>
+                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/home">Tableau de bord</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/prospects/all"><i class='fas fa-address-book'></i> Prospects</a>

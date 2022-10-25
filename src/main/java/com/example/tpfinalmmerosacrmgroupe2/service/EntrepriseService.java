@@ -8,6 +8,7 @@ import com.example.tpfinalmmerosacrmgroupe2.exception.EntrepriseNotFoundExceptio
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -72,5 +73,15 @@ public class EntrepriseService {
 
     public void deleteEntreprise(long id) {
         entrepriseRepository.deleteById(id);
+    }
+
+    public List<CreateEntreprise> getAllEntrepriseDTO(String mail) {
+        User user = userService.getUserByMail(mail);
+        List<Entreprise> entrepriseList = entrepriseRepository.findEntrepriseByUserById(user);
+        System.out.println(entrepriseList);
+        List<CreateEntreprise> entrepriseDTOList = new ArrayList<>();
+        entrepriseList.forEach(e-> entrepriseDTOList.add(e.toCreateEntreprise()));
+        return entrepriseDTOList;
+
     }
 }

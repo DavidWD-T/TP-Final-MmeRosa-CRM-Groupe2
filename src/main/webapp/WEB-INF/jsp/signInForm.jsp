@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row mt-4">
                 <label class="col-2 col-form-label" for="password">Password: </label>
                 <div class="col-10">
                     <input type="password" name="password"  id="password"  class="form-control" />
@@ -26,7 +26,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-primary mt-4">Sign In</button>
             </div>
         </div>
     </form>
