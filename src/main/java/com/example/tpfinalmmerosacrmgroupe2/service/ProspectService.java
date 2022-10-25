@@ -134,7 +134,14 @@ public class ProspectService {
         prospect.setEmail(createProspect.getEmail());
         prospect.setNom(createProspect.getNom());
         prospect.setPrenom(createProspect.getPrenom());
-        prospect.setDureeRelance(createProspect.getDureeRelance());
+        if (createProspect.getDureeRelance() == null){
+            prospect.setDureeRelance(30);
+        }else {
+            prospect.setDureeRelance(createProspect.getDureeRelance());
+        }
+        if (prospect.getDateDernierContact() == null){
+            prospect.setDateDernierContact(LocalDate.now());
+        }
         prospect.setUserById(userRepository.findByEmail(mail));
 
         prospect.setPortable(createProspect.getPortable());

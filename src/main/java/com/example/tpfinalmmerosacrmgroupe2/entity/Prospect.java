@@ -31,7 +31,6 @@ public class Prospect {
 
     private LocalDate dateCreationProspection;
     private LocalDate dateDernierContact;
-
     private Integer dureeRelance;
 
     private boolean isClient;
