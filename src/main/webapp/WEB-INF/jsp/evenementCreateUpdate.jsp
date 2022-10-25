@@ -79,9 +79,10 @@
 
         <div class="form-group row">
             <label class="col-2 col-form-label" for="heureDebut">heure du debut</label>
-            <div class="col-10">
+            <div class="col-8">
                 <form:input path="heureDebut" type="time" name="heureDebut" id="heureDebut" class="form-control" />
             </div>
+            <input type="button" class="col-2 btn btn-success col-form-label" id="BtJ" value="Jour entier">
         </div>
 
         <div class="form-group row">
@@ -103,5 +104,15 @@
         <button type="submit" class="btn btn-lg btn-primary btn-block m-3 ">${type}</button>
     </form:form>
 </div>
+<script>
+    function togglePictureBlocks() {
+        document.getElementById("heureDebut").setAttribute("value","00:01");
+        document.getElementById("heureFin").setAttribute("value","23:59");
+    }
 
+    let checkboxPictures = document.getElementById("BtJ");
+    checkboxPictures.addEventListener('click', () => {
+        togglePictureBlocks();
+    });
+</script>
 </body>
