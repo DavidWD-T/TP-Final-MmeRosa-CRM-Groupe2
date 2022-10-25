@@ -69,7 +69,7 @@
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link dropdown-toggle btn btn-outline-secondary plus-button" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style=" background-color: #f9f9f9">
-                                                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}"><i class='far fa-address-card'></i>détails</a></li>
+                                                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/details/${client.id}"><i class='far fa-address-card'></i> détails</a></li>
                                                         <li><a class="dropdown-item"  href="${pageContext.request.contextPath}/evenements/Create/${client.id}"><i class="fa fa-calendar" aria-hidden="true"></i> événement</a></li>
                                                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/clients/Update/${client.id}"><i class="fa fa-pencil fa-fw"></i> modifier</a></li>
                                                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#dropdown_${client.id}" href="#"><i class="fa fa-trash-o fa-lg"></i> supprimer</a></li>

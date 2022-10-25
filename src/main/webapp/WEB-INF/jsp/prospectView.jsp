@@ -108,22 +108,25 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}" class="btn btn-primary m-1"><i class="fa fa-pencil fa-fw"></i> Update Prospect</a>
+                            <a href="${pageContext.request.contextPath}/prospects/Update/${prospect.id}" class="btn btn-primary m-1"><i class="fa fa-pencil fa-fw"></i> modifier le prospect</a>
                             <!-- MODAL CLIENT CONFIRMATION -->
                             <button type="button" class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#client_modal_${prospect.id}"><i class="fa fa-pencil fa-fw"></i> Transformation en Client</button>
                             <!-- MODAL DELETE CONFIRMATION -->
-                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${prospect.id}"><i class="fa fa-trash-o fa-lg"></i> Delete Prospect</button>
+                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${prospect.id}"><i class="fa fa-trash-o fa-lg"></i> Modifier le prospect</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-4 p-2 pt-0">
-                <div class="d-flex justify-content-between">
-                    <h1>Notes</h1>
+                <div class="d-flex" style="margin: auto; width: max-content">
                     <!-- MODAL CLIENT CONFIRMATION -->
-                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote_modal_${prospect.id}"><i class="fa fa-pencil fa-fw"></i> Create Note</button>
-                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote2_modal_${prospect.id}"><i class="fa fa-pencil fa-fw"></i> Create Note A Relancer</button>
+                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote_modal_${prospect.id}"><i class='far fa-edit'></i> créer une note</button>
+                    <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote2_modal_${prospect.id}"><i class='far fa-edit'></i> A relancer</button>
                 </div>
+                <h1 style="font-size: 20px; width: max-content; margin: auto; margin-top: 20px">Notes</h1>
+
+                <hr class="hr" style="width: 45%; margin: auto; margin-bottom: 10px;"/>
+
                 <div style="max-height: 600px;overflow-y:auto;">
                     <c:forEach items="${notes}" var="note">
                         <%--                    <div class="col-6 col-lg-3 p-2">--%>
@@ -132,8 +135,8 @@
                                 <h5 class="card-title text-uppercase mb-3"><strong>${note.prospectEntrepriseNom}</strong></h5>
                                 <p class="card-text">Date : ${note.date} ${note.heure}</p>
                                 <p class="card-text">Texte : ${note.texte}</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateNote_modal_${note.id}"><i class="fa fa-pencil fa-fw"></i> Update Note</button>
-                                <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#deleteNote_modal_${note.id}"><i class="fa fa-trash-o fa-lg"></i> Delete Note</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateNote_modal_${note.id}"><i class="fa fa-pencil fa-fw"></i> modifier la note</button>
+                                <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#deleteNote_modal_${note.id}"><i class="fa fa-trash-o fa-lg"></i> supprimer la note</button>
                             </div>
                         </div>
                         <%--                    </div>--%>

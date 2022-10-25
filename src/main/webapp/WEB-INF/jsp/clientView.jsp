@@ -67,9 +67,9 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="${pageContext.request.contextPath}/clients/Update/${prospect.id}" class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Update Prospect</a>
+                            <a href="${pageContext.request.contextPath}/clients/Update/${prospect.id}" class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Modifier le client</a>
                             <!-- MODAL DELETE CONFIRMATION -->
-                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${prospect.id}"><i class="fa fa-trash-o fa-lg"></i> Delete Prospect</button>
+                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#delete_modal_${prospect.id}"><i class="fa fa-trash-o fa-lg"></i> Spprimer le client</button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                     <h1 id="EtiHisto" style="color: lightgray; font-size: 16px">Historique</h1>
                 </div>
                 <!-- MODAL CLIENT CONFIRMATION -->
-                <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote_modal_${prospect.id}"><i class="fa fa-pencil fa-fw"></i> Create Note</button>
+                <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#createNote_modal_${prospect.id}"><i class='far fa-edit'></i> créer une note</button>
 
                 <div id="divNotes" style="max-height: 600px;overflow-y:auto; display:block">
                     <c:forEach items="${notes}" var="note">
@@ -93,8 +93,8 @@
                                 <h5 class="card-title text-uppercase mb-3"><strong>${note.prospectEntrepriseNom}</strong></h5>
                                 <p class="card-text">Date : ${note.date} ${note.heure}</p>
                                 <p class="card-text">Texte : ${note.texte}</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateNote_modal_${note.id}"><i class="fa fa-pencil fa-fw"></i> Update Note</button>
-                                <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#deleteNote_modal_${note.id}"><i class="fa fa-trash-o fa-lg"></i> Delete Note</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateNote_modal_${note.id}"><i class="fa fa-pencil fa-fw"></i> modifier la note</button>
+                                <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#deleteNote_modal_${note.id}"><i class="fa fa-trash-o fa-lg"></i> Supprimer la note</button>
                             </div>
                         </div>
                         <%--                    </div>--%>
