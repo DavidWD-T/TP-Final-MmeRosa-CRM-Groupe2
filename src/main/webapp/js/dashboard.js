@@ -2,27 +2,6 @@
 
         function firstChart() {
 
-            // function totalEntreprises() {
-            //     const api_url = "http://localhost:8080/allEntreprises";
-            //
-            //     var response = fetch(api_url,
-            //         {
-            //             method: "GET",
-            //             headers: {
-            //                 'Accept': 'application/json',
-            //                 'Content-Type': 'application/json',
-            //             },
-            //         })
-            //         .then((response) => response.json())
-            //         .then((responseData) => {
-            //             document.getElementById("totalEntreprise").setAttribute("value", responseData.length);
-            //             return responseData;
-            //         })
-            //         .catch(error => console.warn(error));
-            // }
-            //
-            // totalEntreprises()
-
             function totalProspect() {
                 const api_url = "http://localhost:8080/allProspects";
 
@@ -209,10 +188,10 @@
                         let aContacter = 0;
                         responseData.forEach(e => {
                             if (e.etatProspection == "a contacter"){
-                                aContacter =+1
+                                aContacter++
                             }
                         })
-                        document.getElementById("aContacter").setAttribute("value", aContacter);
+                        document.getElementById("toContact").setAttribute("value", aContacter);
 
                     })
                     .catch(error => console.warn(error));
@@ -236,7 +215,7 @@
                 data.addColumn('string', 'Topping');
                 data.addColumn('number', 'Slices');
                 data.addRows([
-                    ['A contacter', parseInt(document.getElementById("aContacter").getAttribute("value"))]
+                    ['A contacter', parseInt(document.getElementById("toContact").getAttribute("value"))]
                 ]);
 
                 // Set chart options
@@ -245,7 +224,7 @@
                     pieHole: 0.4,
                     colors: ["red"]
                 };
-                if(document.getElementById("aContacter").getAttribute("value") !== "0"){
+                if(document.getElementById("toContact").getAttribute("value") !== "0"){
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.PieChart(document.getElementById('chart_div3'));
                     chart.draw(data, options);
@@ -320,7 +299,7 @@
 
                 // Set chart options
                 var options = {
-                    title: 'Nouveaux clients par mois',
+                    title: 'Nouveaux clients sur les 3 derniers mois',
                     curveType: 'function',
                     legend: { position: 'bottom' },
                     colors: ["blue"]
@@ -413,7 +392,7 @@
 
                 // Set chart options
                 var options = {
-                    title: 'Nouveaux prospects par mois',
+                    title: 'Nouveaux prospects sur les 3 derniers mois',
 
                     colors: ["green"]
                 };
@@ -430,6 +409,153 @@
             }
         }
         fifthChart()
+
+        // function sixthChart(){
+        //
+        //     function totalEntreprises() {
+        //         const api_url = "http://localhost:8080/allEntreprises";
+        //
+        //         var response = fetch(api_url,
+        //             {
+        //                 method: "GET",
+        //                 headers: {
+        //                     'Accept': 'application/json',
+        //                     'Content-Type': 'application/json',
+        //                 },
+        //             })
+        //             .then((response) => response.json())
+        //             .then((responseData) => {
+        //                 document.getElementById("totalEntreprise").setAttribute("value", responseData.length);
+        //                 return responseData;
+        //             })
+        //             .catch(error => console.warn(error));
+        //     }
+        //
+        //     totalEntreprises()
+        //
+        //
+        //     // Load the Visualization API and the corechart package.
+        //     google.charts.load('current', {'packages': ['gauge']});
+        //
+        //     // Set a callback to run when the Google Visualization API is loaded.
+        //     google.charts.setOnLoadCallback(drawChart);
+        //
+        //     // Callback that creates and populates a data table,
+        //     // instantiates the pie chart, passes in the data and
+        //     // draws it.
+        //     function drawChart() {
+        //
+        //         var data = google.visualization.arrayToDataTable([
+        //             ['Entreprise', 'Nombre'],
+        //             ['Total entreprise', document.getElementById("totalEntreprise").getAttribute("value")]
+        //         ]);
+        //         console.log(data)
+        //
+        //         // Set chart options
+        //         var options = {
+        //             title: "Nombre total d'entreprise",
+        //             colors: ["green"],
+        //             width: 400, height: 120,
+        //             redFrom: 90, redTo: 100,
+        //             yellowFrom:75, yellowTo: 90,
+        //             minorTicks: 5
+        //         };
+        //
+        //         let nbTotalEntreprise = document.getElementById("totalEntreprise").getAttribute("value")
+        //         if(nbTotalEntreprise > 0) {
+        //             var chart = new google.visualization.Gauge(document.getElementById('chart_div6'));
+        //             chart.draw(data, options);
+        //
+        //             console.log(nbTotalEntreprise)
+        //
+        //             setInterval(function() {
+        //                 data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+        //                 chart.draw(data, options);
+        //             }, 13000);
+        //             // setInterval(function() {
+        //             //     data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+        //             //     chart.draw(data, options);
+        //             // }, 5000);
+        //             // setInterval(function() {
+        //             //     data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+        //             //     chart.draw(data, options);
+        //             // }, 26000);
+        //         }else{
+        //             document.getElementById('chart_div6').classList.add("d-none");
+        //         }
+        //     }
+        // }
+        // sixthChart()
+
+
+        function totalEvent() {
+            const api_url = "http://localhost:8080/allEventsSortByDate";
+
+            var response = fetch(api_url,
+                {
+                    method: "GET",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((responseData) => {
+                    if (responseData.length > 3){
+                        console.log(responseData)
+                        let h2 = document.createElement("h2")
+                        h2.innerHTML = "Evenements a venir"
+                        document.getElementById("chart_div6").appendChild(h2)
+                        if(responseData.length > 3){
+                            let eventListCount = responseData.length > 3 ? 3 : responseData.length;
+                            for (let i = 0; i < eventListCount  ; i++) {
+                                let a = document.createElement("a")
+                                a.setAttribute("href", responseData[i].url)
+                                a.classList.add("link-secondary")
+                                a.classList.add("text-decoration-none")
+                                document.getElementById("chart_div6").appendChild(a)
+
+
+                                let div = document.createElement("div")
+                                div.classList.add("card")
+                                div.classList.add("m-1")
+                                div.classList.add("p-1")
+                                a.appendChild(div)
+
+                                let p = document.createElement("p")
+                                p.classList.add("card-title")
+                                p.classList.add("text-center")
+                                p.classList.add("text-uppercase")
+                                p.classList.add("text-dark")
+                                p.innerHTML = responseData[i].title
+                                div.appendChild(p)
+
+                                let p1 = document.createElement("p")
+                                p1.classList.add("card-text")
+                                p1.classList.add("text-dark")
+                                p1.classList.add("text-center")
+                                let date = new Date(responseData[i].start)
+                                let month = ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"]
+                                p1.innerHTML = "Le " + date.getDate() + " " + month[date.getMonth()] + " " + date.getFullYear()
+                                div.appendChild(p1)
+
+                                let p2 = document.createElement("p")
+                                p2.classList.add("card-text")
+                                p2.classList.add("text-dark")
+                                p2.classList.add("text-center")
+                                p2.innerHTML = "De " + responseData[i].start.slice(12, 16) + " a " + responseData[i].end.slice(11, 16)
+                                div.appendChild(p2)
+                            }
+                        }
+                    }
+
+
+                    // document.getElementById("totalEntreprise").setAttribute("value", responseData.length);
+                    return responseData;
+                })
+                .catch(error => console.warn(error));
+        }
+        totalEvent()
 
 
     })

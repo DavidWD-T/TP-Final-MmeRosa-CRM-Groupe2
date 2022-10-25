@@ -14,7 +14,7 @@
             <sec:authorize access="isAuthenticated()">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/home">Tableau de bord</a>
+                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/home"><i class="fa-solid fa-gauge"></i> Tableau de bord</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/prospects/all"><i class='fas fa-address-book'></i> Prospects</a>
@@ -41,7 +41,7 @@
                     </c:if>
                     <c:if test="${!condition}">
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/signup/${MailCo}">Parametres</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/signup/${MailCo}"><i class="fa fa-cog"></i> Parametres</a>
                         </li>
                     </c:if>
                 </ul>

@@ -37,6 +37,14 @@ public class EvenementService {
         return eventDTOList;
     }
 
+    public List<EventDTO> getAllEventsDTOSortByDate(String userEmail) {
+        User user = userRepository.findByEmail(userEmail);
+        List<Evenement> evenementList = evenementRepository.findAllEvenementsSortByDate(user);
+        List<EventDTO> eventDTOList = new ArrayList<>();
+        evenementList.forEach(e-> eventDTOList.add(e.toEventDTO()));
+        return eventDTOList;
+    }
+
     public List<Evenement> getEvenementsByName(String userEmail, String name) {
         User user = userRepository.findByEmail(userEmail);
         return evenementRepository.findEvenementsByName(user, name);
