@@ -187,7 +187,7 @@
                     .then((responseData) => {
                         let aContacter = 0;
                         responseData.forEach(e => {
-                            if (e.etatProspection == "a contacter"){
+                            if (e.etatProspection === "À contacter"){
                                 aContacter++
                             }
                         })
