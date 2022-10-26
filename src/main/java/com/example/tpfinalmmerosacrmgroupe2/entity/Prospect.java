@@ -202,6 +202,25 @@ public class Prospect {
         createProspect.setDateCreationProspection(this.dateCreationProspection);
         createProspect.setDureeRelance(this.dureeRelance);
         createProspect.setEtatProspection(this.etatProspection);
+        createProspect.setEntrepriseById(this.entrepriseById);
+        createProspect.setPhotoUrl(this.photoUrl);
+
+        return createProspect;
+    }
+
+    public CreateProspect toCreateProspectDTO() {
+        CreateProspect createProspect = new CreateProspect();
+        createProspect.setId(this.id);
+
+        createProspect.setEmail(this.email);
+        createProspect.setNom(this.nom);
+        createProspect.setPrenom(this.prenom);
+        createProspect.setFonction(this.fonction);
+        createProspect.setPortable(this.portable);
+        createProspect.setFixe(this.fixe);
+        createProspect.setDateCreationProspection(this.dateCreationProspection);
+        createProspect.setDureeRelance(this.dureeRelance);
+        createProspect.setEtatProspection(this.etatProspection);
 //        createProspect.setEntrepriseById(this.entrepriseById);
         createProspect.setPhotoUrl(this.photoUrl);
 

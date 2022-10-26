@@ -8,6 +8,7 @@ import com.example.tpfinalmmerosacrmgroupe2.exception.EntrepriseNotFoundExceptio
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class EntrepriseService {
         Entreprise entreprise;
         if (createEntreprise.getId() == null){
             entreprise = new Entreprise();
+            entreprise.setDateCreation(LocalDate.now());
         }else {
             entreprise = entrepriseRepository.findById(createEntreprise.getId()).get();
         }
@@ -65,7 +67,6 @@ public class EntrepriseService {
         entreprise.setEmail(createEntreprise.getEmail());
         entreprise.setSiteWeb(createEntreprise.getSiteWeb());
         entreprise.setTelephone(createEntreprise.getTelephone());
-        entreprise.setDateCreation(createEntreprise.getDateCreation());
         entreprise.setUserById(userService.getUserByMail(mail));
 
         return entrepriseRepository.save(entreprise);
