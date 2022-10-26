@@ -76,9 +76,9 @@ public class NoteController {
         Prospect prospect = noteService.getNoteById(id).getProspectById();
         noteService.deleteNoteById(id);
         if (prospect.isClient()){
-            return "redirect:/clients/details/" + id;
+            return "redirect:/clients/details/" + prospect.getId();
         }else {
-            return "redirect:/prospects/details/" + id;
+            return "redirect:/prospects/details/" + prospect.getId();
         }
     }
 
